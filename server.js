@@ -6,11 +6,11 @@ const path = require('path');
 const PORT = process.env.PORT || 3000;
 
 // Servir arquivos estáticos
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname))); // serve repository root
 
 // Rota para o site principal
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Inicialização do servidor
