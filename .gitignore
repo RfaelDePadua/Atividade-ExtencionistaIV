@@ -1,0 +1,7 @@
+.planning/
+.github/
+node_modules/
+.env
+.DS_Store
+# Optional local files
+npm-debug.log
