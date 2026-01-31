@@ -1,11 +1,19 @@
+/* ========================================
+   HEADER / NAVIGATION BAR - Design System v1.0
+   Space-themed header with gradient background
+   ======================================== */
+
 .barra-de-navegacao {
-  background-color: var(--cor-primaria);
+  /* Space gradient background */
+  background: linear-gradient(180deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+  border-bottom: 2px solid rgba(229, 186, 65, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  column-gap: 30px;
+  column-gap: var(--espaco-xl);
 
   position: fixed;
   top: 0;
@@ -13,117 +21,221 @@
   right: 0;
   width: auto;
   height: 90px;
-  padding: 0 calc(25vw - 25px);
+  padding: 0 var(--espaco-xl);
+  z-index: 1000;
 }
 
+/* Center content on larger screens */
+@media (min-width: 1024px) {
+  .barra-de-navegacao {
+    padding: 0 calc(25vw - 25px);
+  }
+}
+
+/* === LOGO SECTION === */
 #logotipo {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  column-gap: 10px;
-
-  width: auto;
+  column-gap: var(--espaco-sm);
+  
   height: 70px;
-  border-style: solid;
-  border: 1px solid var(--cor-quintenaria);
-  padding-right: 30px;
-  border-style: none solid none none;
+  padding-right: var(--espaco-lg);
+  border-right: 2px solid rgba(242, 240, 230, 0.3);
+  transition: all var(--duracao-media) var(--easing-smooth);
 }
 
 #logotipo:hover {
   cursor: pointer;
+  border-right-color: var(--cor-destaque);
 }
 
 #logotipo > .imagem-ilustrativa {
   width: 50px;
   height: 50px;
+  filter: drop-shadow(0 0 8px rgba(229, 186, 65, 0.3));
+  transition: filter var(--duracao-media) var(--easing-smooth);
+}
+
+#logotipo:hover > .imagem-ilustrativa {
+  filter: drop-shadow(0 0 12px rgba(229, 186, 65, 0.6));
 }
 
 #logotipo > .nome {
-  font-size: 18px;
+  font-family: var(--fonte-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--cor-texto);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* === NAVIGATION LINKS === */
 .paginas {
   list-style-type: none;
-
   display: flex;
   flex-direction: row;
-  column-gap: 30px;
-
+  column-gap: var(--espaco-lg);
   justify-content: center;
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .paginas li {
-  font-size: 16px;
-  font-weight: 400;
+  font-family: var(--fonte-display);
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-.paginas > a:link {
+.paginas li a {
+  color: var(--cor-texto);
   text-decoration: none;
+  padding: var(--espaco-sm) var(--espaco-md);
+  border-radius: 8px;
+  transition: all var(--duracao-rapida) var(--easing-smooth);
+  display: inline-block;
 }
 
-.paginas li:hover {
-  color: var(--cor-secundaria);
-  transition: 0.2s;
+.paginas li a:hover,
+.paginas li a:focus {
+  background: rgba(229, 186, 65, 0.15);
+  color: var(--cor-destaque);
+  transform: translateY(-2px);
 }
 
+.paginas li a:active {
+  transform: translateY(0);
+}
+
+/* Active page indicator */
+.paginas li a[aria-current="page"] {
+  background: rgba(229, 186, 65, 0.2);
+  color: var(--cor-destaque);
+}
+
+/* === SEARCH BAR === */
 .barra-de-pesquisa {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 input[type="search"] {
-  font-size: 14px;
-  color: #000000;
-
-  padding: 5px 0 5px 20px;
-  width: 220px;
-  border-style: none;
+  font-family: var(--fonte-corpo);
+  font-size: 0.875rem;
+  color: var(--cor-texto);
+  background: rgba(20, 33, 61, 0.6);
+  border: 2px solid rgba(242, 240, 230, 0.2);
   border-radius: 25px;
+  padding: var(--espaco-sm) var(--espaco-md);
+  padding-right: 40px;
+  width: 220px;
+  transition: all var(--duracao-media) var(--easing-smooth);
+}
+
+input[type="search"]::placeholder {
+  color: rgba(242, 240, 230, 0.5);
+}
+
+input[type="search"]:hover {
+  border-color: rgba(229, 186, 65, 0.4);
 }
 
 input[type="search"]:focus {
   outline: none;
-  border: none;
+  border-color: var(--cor-destaque);
+  background: rgba(20, 33, 61, 0.8);
+  box-shadow: 0 0 12px rgba(229, 186, 65, 0.3);
 }
 
 input[type="search"]::-webkit-search-cancel-button {
   display: none;
 }
 
-button {
-  background-color: var(--cor-secundaria);
-
+/* === SEARCH BUTTON === */
+.barra-de-pesquisa button {
+  background: var(--cor-destaque);
+  color: var(--cor-primaria);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
   position: absolute;
-  width: 28px;
-  height: 28px;
-  border-radius: 14px;
-  border-style: none;
-  margin-left: -25px;
-
+  right: 4px;
+  display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transition: all var(--duracao-rapida) var(--easing-bounce);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.bi {
-  font-size: 15px;
+.barra-de-pesquisa button:hover {
+  background: #f0c760;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transform: scale(1.05);
 }
 
-.bi:hover {
+.barra-de-pesquisa button:active {
+  transform: scale(0.95);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.barra-de-pesquisa button .bi {
+  font-size: 16px;
   font-weight: bold;
 }
 
-button:hover {
-  cursor: pointer;
-  box-shadow: inset 0 0 2px 2px #20202030;
-  transition: 0.2s;
+/* === MOBILE RESPONSIVE === */
+@media (max-width: 768px) {
+  .barra-de-navegacao {
+    padding: 0 var(--espaco-md);
+    column-gap: var(--espaco-md);
+    height: 70px;
+  }
+  
+  #logotipo {
+    padding-right: var(--espaco-md);
+    height: 50px;
+  }
+  
+  #logotipo > .imagem-ilustrativa {
+    width: 40px;
+    height: 40px;
+  }
+  
+  #logotipo > .nome {
+    font-size: 1rem;
+  }
+  
+  .paginas {
+    column-gap: var(--espaco-md);
+  }
+  
+  .paginas li {
+    font-size: 0.875rem;
+  }
+  
+  .paginas li a {
+    padding: 6px var(--espaco-sm);
+  }
+  
+  .barra-de-pesquisa {
+    display: none; /* Hide search on mobile to save space */
+  }
 }
 
-button:active {
-  box-shadow: inset 0 0 2px 5px #20202030;
-}
-
-button:active > .bi {
-  font-size: 14px;
+@media (max-width: 480px) {
+  #logotipo > .nome {
+    display: none; /* Hide logo text on very small screens */
+  }
+  
+  .paginas {
+    column-gap: var(--espaco-sm);
+  }
+  
+  .paginas li {
+    font-size: 0.75rem;
+  }
 }
