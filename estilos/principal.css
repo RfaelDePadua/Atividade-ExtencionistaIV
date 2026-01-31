@@ -10,6 +10,7 @@ main {
   row-gap: var(--espaco-3xl);
   width: 100%;
   padding: 0 var(--espaco-lg);
+  margin-top: 110px; /* Header height (90px) + spacing (20px) */
 }
 
 /* === GAME SECTION CONTAINERS === */
