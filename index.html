@@ -6,6 +6,7 @@
     <link href="./estilos/geral.css" rel="stylesheet" />
     <link href="./estilos/barra_superior.css" rel="stylesheet" />
     <link href="./estilos/principal.css" rel="stylesheet" />
+    <link href="./estilos/carousel.css" rel="stylesheet" />
     <!-- <link href="/estilos/rodape.css" rel="stylesheet" />     -->
     <title href>Meu Planetinha</title>
   </head>
@@ -40,6 +41,54 @@
     </header>
 
     <main>
+      <!-- Space Carousel Navigation -->
+      <section class="carousel-section">
+        <div class="carousel-container">
+          <div class="carousel-header">
+            <h2 class="carousel-title">🌌 Escolha Seu Planeta</h2>
+            <p class="carousel-subtitle">Cada planeta representa uma matéria diferente</p>
+          </div>
+
+          <div class="carousel-track">
+            <!-- Planet: Matemática -->
+            <div class="planet-card" data-subject="matematica">
+              <div class="planet-visual" data-planet="matematica"></div>
+              <p class="planet-label">Matemática</p>
+            </div>
+
+            <!-- Planet: Português -->
+            <div class="planet-card" data-subject="portugues">
+              <div class="planet-visual" data-planet="portugues"></div>
+              <p class="planet-label">Português</p>
+            </div>
+
+            <!-- Planet: Geometria -->
+            <div class="planet-card" data-subject="geometria">
+              <div class="planet-visual" data-planet="geometria"></div>
+              <p class="planet-label">Geometria</p>
+            </div>
+
+            <!-- Planet: Ciências -->
+            <div class="planet-card" data-subject="ciencias">
+              <div class="planet-visual" data-planet="ciencias"></div>
+              <p class="planet-label">Ciências</p>
+            </div>
+          </div>
+
+          <!-- Navigation Arrows -->
+          <button class="carousel-nav left" aria-label="Planeta anterior">←</button>
+          <button class="carousel-nav right" aria-label="Próximo planeta">→</button>
+
+          <!-- Navigation Dots -->
+          <div class="carousel-dots">
+            <button class="carousel-dot active" data-index="0" aria-label="Ir para Matemática"></button>
+            <button class="carousel-dot" data-index="1" aria-label="Ir para Português"></button>
+            <button class="carousel-dot" data-index="2" aria-label="Ir para Geometria"></button>
+            <button class="carousel-dot" data-index="3" aria-label="Ir para Ciências"></button>
+          </div>
+        </div>
+      </section>
+
       <div class="secao-de-jogos">
         <div class="colecao-de-jogos">
           <p class="categoria-jgs">Populares</p>
@@ -101,6 +150,7 @@
       </div>
     </main>
 
-    
+    <!-- Carousel JavaScript -->
+    <script src="./scripts/carousel.js"></script>
   </body>
 </html>

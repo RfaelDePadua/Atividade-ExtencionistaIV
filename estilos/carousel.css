@@ -1,0 +1,393 @@
+/* Space Carousel Styles */
+
+.carousel-section {
+  width: 100%;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 100%);
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+/* Animated stars background */
+.carousel-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 80% 10%, white, transparent),
+    radial-gradient(2px 2px at 90% 60%, white, transparent),
+    radial-gradient(1px 1px at 33% 80%, white, transparent),
+    radial-gradient(1px 1px at 15% 90%, white, transparent);
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  animation: twinkle 8s ease-in-out infinite;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.9; }
+}
+
+.carousel-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.carousel-title {
+  color: #ffffff;
+  font-size: 2rem;
+  margin: 0 0 10px 0;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.carousel-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Carousel track */
+.carousel-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  min-height: 350px;
+  position: relative;
+  width: 100%;
+}
+
+/* Planet cards */
+.planet-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  pointer-events: none;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Planet visual (CSS-only placeholder) */
+.planet-visual {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Different animation delays for variety */
+.planet-card:nth-child(1) .planet-visual { animation-delay: 0s; }
+.planet-card:nth-child(2) .planet-visual { animation-delay: 0.5s; }
+.planet-card:nth-child(3) .planet-visual { animation-delay: 1s; }
+.planet-card:nth-child(4) .planet-visual { animation-delay: 1.5s; }
+
+/* Planet gradient backgrounds */
+.planet-visual[data-planet="matematica"] {
+  background: linear-gradient(135deg, #4A5FC9 0%, #8B5FBF 100%);
+  box-shadow: 
+    0 0 30px rgba(74, 95, 201, 0.4),
+    inset -20px -20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.planet-visual[data-planet="portugues"] {
+  background: linear-gradient(135deg, #2E8B57 0%, #5F9EA0 100%);
+  box-shadow: 
+    0 0 30px rgba(46, 139, 87, 0.4),
+    inset -20px -20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.planet-visual[data-planet="geometria"] {
+  background: linear-gradient(135deg, #DC143C 0%, #FF8C00 100%);
+  box-shadow: 
+    0 0 30px rgba(220, 20, 60, 0.4),
+    inset -20px -20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.planet-visual[data-planet="ciencias"] {
+  background: linear-gradient(135deg, #FFD700 0%, #CD853F 100%);
+  box-shadow: 
+    0 0 30px rgba(255, 215, 0, 0.4),
+    inset -20px -20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Add crater/texture effect */
+.planet-visual::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 
+    -30px 40px 0 5px rgba(0, 0, 0, 0.15),
+    20px -10px 0 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Planet label */
+.planet-label {
+  margin-top: 15px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  transition: all 0.4s ease;
+  text-align: center;
+}
+
+/* Left planet */
+.planet-card.left {
+  opacity: 0.6;
+  transform: translateX(calc(-50% - 250px)) scale(0.7);
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.planet-card.left .planet-visual {
+  width: 100px;
+  height: 100px;
+}
+
+/* Center planet (active) */
+.planet-card.center {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.planet-card.center .planet-visual {
+  width: 200px;
+  height: 200px;
+  box-shadow: 
+    0 0 50px currentColor,
+    inset -20px -20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.planet-card.center .planet-label {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Right planet */
+.planet-card.right {
+  opacity: 0.6;
+  transform: translateX(calc(-50% + 250px)) scale(0.7);
+  pointer-events: auto;
+  z-index: 1;
+}.center:hover .planet-visual,
+.planet-card.left:hover .planet-visual,
+.planet-card.right
+
+.planet-card.right .planet-visual {
+  width: 100px;
+  height: 100px;
+}
+
+/* Hidden planets (not in view) */
+.planet-card.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Selected state */
+.planet-card.selected .planet-visual {
+  box-shadow: 
+    0 0 60px currentColor,
+    0 0 100px rgba(255, 255, 255, 0.3),
+    inset -20px -20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effects */
+.planet-card:hover .planet-visual {
+  transform: scale(1.05);
+}
+
+.planet-card:hover .planet-label {
+  color: #ffffff;
+}
+
+/* Navigation arrows */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+  z-index: 3;
+  backdrop-filter: blur(5px);
+}
+
+.carousel-nav:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav.left {
+  left: 20px;
+}
+
+.carousel-nav.right {
+  right: 20px;
+}
+
+/* Navigation dots */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.2);
+}
+
+.carousel-dot.active {
+  background: white;
+  width: 30px;
+  border-radius: 6px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .carousel-section {
+    padding: 30px 10px;
+  }
+
+  .carousel-title {
+    font-size: 1.5rem;
+  }
+
+  .carousel-track {
+    gap: 20px;
+    min-height: 280px;
+    padding: 30px 0;
+  }
+
+  .planet-card.center .planet-visual {
+    width: 150px;
+    height: 150px;
+  }left .planet-visual,
+  .planet-card.right .planet-visual {
+    width: 80px;
+    height: 80px;
+  }
+
+  .planet-card.left {
+    transform: translateX(calc(-50% - 150px)) scale(0.7);
+  }
+
+  .planet-card.right {
+    transform: translateX(calc(-50% + 150px)) scale(0.7)ide .planet-visual {
+    width: 80px;
+    height: 80px;
+  }
+
+  .carousel-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .carousel-nav.left {
+    left: 10px;
+  }
+
+  .carousel-nav.right {
+    right: 10px;
+  }
+
+  .planet-label {
+    font-size: 0.8rem;
+  }.center:hover .planet-visual,
+  .planet-card.left:hover .planet-visual,
+  .planet-card.right:hover .planet-visual {
+    transform: scale(1)
+  .planet-card.center .planet-label {
+    font-size: 1rem;
+  }
+}
+
+/* Touch device optimization */
+@media (hover: none) {
+  .planet-card:hover .planet-visual {
+    transform: none;
+  }
+  
+  .planet-card:hover .planet-label {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .planet-card.center:hover .planet-label {
+    color: #ffffff;
+  }
+}
+
+/* Accessibility: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .planet-visual {
+    animation: none;
+  }
+  
+  .carousel-section::before {
+    animation: none;
+  }
+  
+  .planet-card,
+  .planet-visual,
+  .planet-label {
+    transition-duration: 0.1s;
+  }
+}
