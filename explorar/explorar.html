@@ -11,25 +11,26 @@
   <body>
     <header>
       <nav class="barra-de-navegacao">
+        <!-- Left: Logo + Site Name -->
         <div id="logotipo">
-          <img
-            class="imagem-ilustrativa"
-            src="../midia/meu_planetinha.gif"
-            alt="Logo Gif"
-          />
+          <div class="logo-placeholder">
+            <i class="bi bi-planet"></i>
+          </div>
           <h1 class="nome">Meu Planetinha</h1>
         </div>
 
+        <!-- Center: Navigation Links -->
         <ul class="paginas">
           <li><a href="../index.html">Início</a></li>
-          <li><a href="explorar.html">Explorar</a></li>
+          <li><a href="explorar.html" aria-current="page">Explorar</a></li>
           <li><a href="../sobre_nos/sobre_nos.html">Sobre Nós</a></li>
         </ul>
 
-        <form>
+        <!-- Right: Search Bar -->
+        <form class="search-form">
           <div class="barra-de-pesquisa">
-            <input type="search" placeholder="Pesquisar" />
-            <button>
+            <input type="search" placeholder="Pesquisar" aria-label="Pesquisar jogos" />
+            <button type="submit" aria-label="Buscar">
               <i class="bi bi-search"></i>
             </button>
           </div>
