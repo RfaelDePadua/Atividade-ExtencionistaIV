@@ -31,6 +31,7 @@
 /* === LEFT: LOGO CONTAINER === */
 .logo-container {
   justify-self: start;
+  margin-left: var(--espaco-md); /* Pull away from left edge */
 }
 
 .logo-link {
@@ -140,6 +141,7 @@
 /* === RIGHT: SEARCH FORM === */
 .search-form {
   justify-self: end;
+  margin-right: var(--espaco-md); /* Pull away from right edge */
 }
 
 .barra-de-pesquisa {
