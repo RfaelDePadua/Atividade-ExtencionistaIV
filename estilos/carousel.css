@@ -18,6 +18,7 @@
   
   position: relative;
   overflow: hidden;
+  z-index: 1; /* Below header (9999) */
   
   transition: all var(--duracao-media) var(--easing-smooth);
 }

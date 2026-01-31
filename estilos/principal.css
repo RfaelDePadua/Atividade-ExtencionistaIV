@@ -11,6 +11,8 @@ main {
   width: 100%;
   padding: 0 var(--espaco-lg);
   margin-top: 110px; /* Header height (90px) + spacing (20px) */
+  position: relative;
+  z-index: 1; /* Below header (9999) */
 }
 
 /* === GAME SECTION CONTAINERS === */
@@ -32,6 +34,9 @@ main {
   
   flex-shrink: 0;
   flex-grow: 0;
+  
+  position: relative;
+  z-index: 1; /* Below header (9999) */
   
   transition: all var(--duracao-media) var(--easing-smooth);
 }

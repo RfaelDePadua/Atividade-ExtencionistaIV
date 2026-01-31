@@ -23,6 +23,9 @@
   height: 90px;
   padding: 0 var(--espaco-xl);
   z-index: 9999;
+  
+  /* Ensure header creates its own stacking context and stays on top */
+  isolation: isolate;
 }
 
 /* Center content on larger screens */
