@@ -1,84 +1,260 @@
+/* ========================================
+   MAIN CONTENT - GAME SECTIONS & CARDS
+   Design System v1.0 - Space Theme
+   ======================================== */
+
 main {
   display: flex;
   flex-direction: column;
-  row-gap: 50px;
+  row-gap: var(--espaco-3xl);
+  width: 100%;
+  max-width: var(--largura-conteudo-max);
+  padding: 0 var(--espaco-lg);
 }
 
+/* === GAME SECTION CONTAINERS === */
 .secao-de-jogos {
-  background-color: var(--cor-secundaria);
+  background: rgba(26, 26, 62, 0.4);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(229, 186, 65, 0.2);
+  border-radius: 24px;
+  box-shadow: var(--shadow-md);
+  
   display: flex;
   flex-direction: column;
-  row-gap: 40px;
-  width: 50vw;
-  height: auto;
-  padding: 25px 25px 40px 25px;
-  border-radius: 25px;
+  row-gap: var(--espaco-xl);
+  
+  width: 100%;
+  max-width: 900px;
+  min-height: 280px;
+  padding: var(--espaco-xl);
+  
   flex-shrink: 0;
   flex-grow: 0;
+  
+  transition: all var(--duracao-media) var(--easing-smooth);
 }
 
+.secao-de-jogos:hover {
+  border-color: rgba(229, 186, 65, 0.4);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  transform: translateY(-4px);
+}
+
+/* === GAME COLLECTIONS === */
 .colecao-de-jogos {
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
-  width: auto;
+  row-gap: var(--espaco-lg);
+  width: 100%;
   height: auto;
 }
 
+/* === CATEGORY TITLES === */
 .categoria-jgs {
-  padding-left: 10px;
-  font-size: 22px;
+  font-family: var(--fonte-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+  padding-left: var(--espaco-md);
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-sm);
 }
 
+.categoria-jgs::before {
+  content: '★';
+  color: var(--cor-destaque);
+  font-size: 1.25rem;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* === GAME CARDS ROW === */
 .jgs {
   display: flex;
   flex-direction: row;
   width: 100%;
   height: auto;
-  overflow-x: hidden;
-  gap: 10px 40px;
-}
-
-.jgs:hover {
   overflow-x: auto;
+  overflow-y: hidden;
+  gap: var(--espaco-lg);
+  padding: var(--espaco-sm) var(--espaco-sm) var(--espaco-md);
+  scroll-behavior: smooth;
+  
+  /* Custom scrollbar for webkit browsers */
+  scrollbar-width: thin;
+  scrollbar-color: var(--cor-destaque) rgba(26, 26, 62, 0.4);
 }
 
-.jg {
-  background-color: var(--cor-quartenaria);
+.jgs::-webkit-scrollbar {
+  height: 8px;
+}
 
+.jgs::-webkit-scrollbar-track {
+  background: rgba(26, 26, 62, 0.4);
+  border-radius: 4px;
+}
+
+.jgs::-webkit-scrollbar-thumb {
+  background: var(--cor-destaque);
+  border-radius: 4px;
+}
+
+.jgs::-webkit-scrollbar-thumb:hover {
+  background: #f0c760;
+}
+
+/* === INDIVIDUAL GAME CARDS === */
+.jg {
+  background: rgba(42, 42, 80, 0.6);
+  border: 2px solid rgba(229, 186, 65, 0.2);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; /* Organic shape */
+  box-shadow: var(--shadow-sm);
+  
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 10px;
-
-  width: 160px;
-  height: 180px;
-  border-radius: 25px;
+  row-gap: var(--espaco-sm);
+  
+  width: 180px;
+  height: 220px;
+  padding: var(--espaco-md);
   flex-shrink: 0;
+  
+  transition: all var(--duracao-media) var(--easing-bounce);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Subtle glow effect */
+.jg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(229, 186, 65, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity var(--duracao-media) var(--easing-smooth);
+}
+
+.jg:hover::before {
+  opacity: 1;
+}
+
+.jg:hover {
+  border-color: var(--cor-destaque);
+  box-shadow: var(--shadow-md), 0 0 30px rgba(229, 186, 65, 0.3);
+  transform: translateY(-8px) scale(1.03);
+}
+
+.jg:active {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-sm);
+}
+
+/* === GAME CARD IMAGE/COVER === */
 .capa-jg {
-  background-color: var(--cor-secundaria);
-  width: 130px;
-  height: 100px;
-  border-radius: 25px;
-  margin-top: 15px;
-  overflow: hidden; /* Adicionado para garantir que a imagem não ultrapasse os limites da div */
+  background: linear-gradient(135deg, var(--cor-suporte) 0%, var(--cor-secundaria) 100%);
+  width: 140px;
+  height: 110px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
 }
 
 .capa-jg img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Adicionado para garantir que a imagem se ajuste ao tamanho da div */
-  border-radius: 25px; /* Adicionado para manter o mesmo border-radius da div */
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform var(--duracao-media) var(--easing-smooth);
 }
 
-.nome-jg {
-  color: #000000;
-  font-weight: 400;
+.jg:hover .capa-jg img {
+  transform: scale(1.05);
+}
 
+/* === GAME CARD TITLE === */
+.nome-jg {
+  font-family: var(--fonte-display);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--cor-texto);
+  
   width: 140px;
-  height: 40px;
+  height: auto;
+  max-height: 60px;
   text-align: center;
   overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+  
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+@media (max-width: 768px) {
+  main {
+    row-gap: var(--espaco-2xl);
+    padding: 0 var(--espaco-md);
+  }
+  
+  .secao-de-jogos {
+    padding: var(--espaco-lg);
+    max-width: 100%;
+  }
+  
+  .categoria-jgs {
+    font-size: 1.25rem;
+  }
+  
+  .jg {
+    width: 160px;
+    height: 200px;
+  }
+  
+  .capa-jg {
+    width: 120px;
+    height: 95px;
+  }
+  
+  .nome-jg {
+    font-size: 0.8125rem;
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .secao-de-jogos {
+    padding: var(--espaco-md);
+  }
+  
+  .jg {
+    width: 140px;
+    height: 180px;
+  }
+  
+  .capa-jg {
+    width: 110px;
+    height: 85px;
+  }
+  
+  .nome-jg {
+    font-size: 0.75rem;
+    width: 110px;
+  }
 }
