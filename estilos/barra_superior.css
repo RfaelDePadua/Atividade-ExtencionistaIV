@@ -21,7 +21,7 @@
   right: 0;
   width: 100%;
   height: 90px;
-  padding: 0 var(--espaco-2xl);
+  padding: 0 var(--espaco-3xl); /* Increased from 2xl (48px) to 3xl (64px) */
   z-index: 9999;
   
   /* Ensure header creates its own stacking context and stays on top */
@@ -31,7 +31,6 @@
 /* === LEFT: LOGO CONTAINER === */
 .logo-container {
   justify-self: start;
-  margin-left: var(--espaco-md); /* Pull away from left edge */
 }
 
 .logo-link {
@@ -141,7 +140,6 @@
 /* === RIGHT: SEARCH FORM === */
 .search-form {
   justify-self: end;
-  margin-right: var(--espaco-md); /* Pull away from right edge */
 }
 
 .barra-de-pesquisa {
