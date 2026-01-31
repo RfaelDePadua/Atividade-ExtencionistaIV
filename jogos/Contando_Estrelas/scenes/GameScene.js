@@ -194,8 +194,6 @@ export default class GameScene extends Phaser.Scene {
         // deixar só a quantidade de contas necessárias
         contas.length = this.inimigosRestantes;
 
-        console.log(contas);
-
         return contas;
     }
 

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./estilos/geral.css" rel="stylesheet" />
+    <link href="./estilos/barra_superior.css" rel="stylesheet" />
+    <title>Página Não Encontrada - Meu Planetinha</title>
+    <style>
+      .error-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 60vh;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .error-code {
+        font-size: 8rem;
+        font-weight: bold;
+        color: #6b46c1;
+        margin: 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .error-message {
+        font-size: 1.5rem;
+        color: #333;
+        margin: 1rem 0;
+      }
+
+      .error-description {
+        font-size: 1rem;
+        color: #666;
+        max-width: 500px;
+        margin: 1rem auto;
+      }
+
+      .home-button {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 1rem 2rem;
+        background: linear-gradient(135deg, #6b46c1 0%, #805ad5 100%);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 6px rgba(107, 70, 193, 0.3);
+      }
+
+      .home-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(107, 70, 193, 0.4);
+      }
+
+      .space-illustration {
+        font-size: 4rem;
+        margin: 2rem 0;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="barra-de-navegacao">
+        <div id="logotipo">
+          <img
+            class="imagem-ilustrativa"
+            src="./midia/meu_planetinha.gif"
+            alt="Logo Gif"
+          />
+          <h1 class="nome">Meu Planetinha</h1>
+        </div>
+
+        <ul class="paginas">
+          <li><a href="./">Início</a></li>
+          <li><a href="./explorar/explorar.html">Explorar</a></li>
+          <li><a href="./sobre_nos/sobre_nos.html">Sobre Nós</a></li>
+        </ul>
+
+        <form>
+          <div class="barra-de-pesquisa">
+            <input type="search" placeholder="Pesquisar" />
+            <button type="button">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </form>
+      </nav>
+    </header>
+
+    <main>
+      <div class="error-container">
+        <div class="space-illustration">🌌🚀</div>
+        <h1 class="error-code">404</h1>
+        <p class="error-message">Oops! Esta página está perdida no espaço!</p>
+        <p class="error-description">
+          Parece que o planeta que você estava procurando não existe ou foi movido para outra galáxia. 
+          Que tal voltar para a página inicial e explorar nossos jogos educativos?
+        </p>
+        <a href="./" class="home-button">🏠 Voltar para a Home</a>
+      </div>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>

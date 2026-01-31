@@ -1,20 +1,30 @@
 {
-  "name": "backend",
+  "name": "meu-planetinha",
   "version": "1.0.0",
-  "main": "server.js",
+  "description": "Educational gaming platform for kids with space-themed mini-games",
+  "main": "index.html",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "dev": "python -m http.server 3000",
+    "info": "echo 'Static site - open index.html with Live Server or run: python -m http.server 3000'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["educational", "games", "kids", "phaser", "space-theme"],
+  "author": "Stanley Melo Costa, Robson Ribeiro Filho, Rafael de Pádua Oliveira, Matheus Terra Wachsmuth",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "express": "^4.21.2"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/USERNAME/Atividade-ExtencionistaIV"
   },
+  "homepage": "https://USERNAME.github.io/Atividade-ExtencionistaIV/",
   "devDependencies": {
+    "express": "^4.21.2",
     "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "phaser": "^3.90.0"
+  },
+  "notes": {
+    "deployment": "This is a static site deployed to GitHub Pages. Express server archived for local dev only.",
+    "server": "Use Live Server extension or Python HTTP server for local development."
   }
 }

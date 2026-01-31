@@ -72,7 +72,7 @@ const listaSilabas = [
   "nha",
   "or",
 ];
-//nelson
+// TODO: Review and expand valid words list for educational value
 const palavrasValidas = [
   "Cara",
   "Cama",
@@ -335,14 +335,11 @@ function atualizarFrequenciaSilabas() {
     palavrasValidas,
     quantidadeSilabasJogador
   );
-  console.log(frequenciaSilabas);
 }
 
 // Loop principal do jogo
 function loopJogo(timestamp) {
-  //console.log("Loop do jogo rodando no timestamp:", timestamp);
   if (timestamp - ultimoTempoGeracao > intervaloGeracao) {
-    console.log("Gerando nova sílaba");
     gerarSilaba();
     ultimoTempoGeracao = timestamp;
   }
@@ -355,7 +352,6 @@ function loopJogo(timestamp) {
 
 // Detectar entrada do jogador
 document.addEventListener("keydown", (e) => {
-  console.log("Tecla pressionada:", e.key);
   if (e.key === "ArrowUp" && !jogador.pulando) {
     jogador.dy = jogador.poderPulo;
     jogador.pulando = true;
@@ -374,7 +370,6 @@ listaSilabas.forEach((silaba) => {
 
 // Iniciar o loop do jogo após o carregamento do DOM
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM totalmente carregado e analisado");
   atualizarFrequenciaSilabas();
-  requestAnimationFrame(loopJogo); // Alterar esta linha
+  requestAnimationFrame(loopJogo);
 });
