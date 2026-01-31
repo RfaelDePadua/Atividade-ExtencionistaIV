@@ -6,9 +6,9 @@
 main {
   display: flex;
   flex-direction: column;
+  align-items: center;
   row-gap: var(--espaco-3xl);
   width: 100%;
-  max-width: var(--largura-conteudo-max);
   padding: 0 var(--espaco-lg);
 }
 

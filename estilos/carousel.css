@@ -1,12 +1,31 @@
-/* Space Carousel Styles */
+/* ========================================
+   SPACE CAROUSEL - Design System v1.0
+   Integrated with site theme
+   ======================================== */
 
 .carousel-section {
   width: 100%;
-  background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 100%);
-  padding: 40px 20px;
+  max-width: var(--largura-conteudo-max);
+  margin: 0 auto var(--espaco-3xl) auto;
+  padding: var(--espaco-2xl);
+  
+  /* Match other sections: translucent background with blur */
+  background: rgba(26, 26, 62, 0.4);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(229, 186, 65, 0.2);
+  border-radius: 24px;
+  box-shadow: var(--shadow-md);
+  
   position: relative;
   overflow: hidden;
-  margin-bottom: 30px;
+  
+  transition: all var(--duracao-media) var(--easing-smooth);
+}
+
+.carousel-section:hover {
+  border-color: rgba(229, 186, 65, 0.4);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  transform: translateY(-4px);
 }
 
 /* Animated stars background */
@@ -46,19 +65,32 @@
 
 .carousel-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: var(--espaco-xl);
 }
 
 .carousel-title {
-  color: #ffffff;
+  font-family: var(--fonte-display);
   font-size: 2rem;
-  margin: 0 0 10px 0;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin: 0 0 var(--espaco-sm) 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-sm);
+}
+
+.carousel-title::before {
+  content: '🌍';
+  font-size: 1.75rem;
 }
 
 .carousel-subtitle {
-  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--fonte-corpo);
   font-size: 1rem;
+  color: rgba(242, 240, 230, 0.7);
   margin: 0;
 }
 

@@ -22,7 +22,7 @@
   width: auto;
   height: 90px;
   padding: 0 var(--espaco-xl);
-  z-index: 1000;
+  z-index: 9999;
 }
 
 /* Center content on larger screens */
