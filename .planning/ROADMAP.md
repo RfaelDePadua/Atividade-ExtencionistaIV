@@ -6,7 +6,7 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 
 ## Phases
 
-- [ ] **Phase 1: Design System Foundation** — CSS tokens, typography, button components, color system
+- [x] **Phase 1: Design System Foundation** — CSS tokens, typography, button components, color system
 - [ ] **Phase 2: Shared Nav & Footer Components** — fetch-based component loader, nav.html, footer.html
 - [ ] **Phase 3: Global Layout & Space Background** — body gradient, container system, spacing scale, page shell
 - [ ] **Phase 4: Homepage Structure & Header** — index.html scaffold, fixed header, hero section
@@ -34,13 +34,9 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
   5. Responsive container class centers content correctly from 320px to 1440px
 
 **Plans:**
-- [ ] 01-01: Create `estilos/base.css` with full `:root` CSS custom properties block (colors, spacing, typography tokens)
-- [ ] 01-02: Configure Google Fonts loading in `estilos/base.css` and document the required `<link>` preconnect tags for HTML files
-- [ ] 01-03: Create `estilos/layout.css` — container system, grid utilities, spacing utilities, `.sr-only`
-- [ ] 01-04: Create button component styles (`.btn-primario`, `.btn-secundario`) with hover/focus/active states per Guia-Visual Section 07
-- [ ] 01-05: Create plant accent token sets for all 5 planets in `base.css`
-- [ ] 01-06: Create `estilos/reset.css` — minimal modern CSS reset (box-sizing, margin/padding zero, font inheritance)
-- [ ] 01-07: Create a `_design-system-test.html` fixture page to visually verify all tokens, buttons, and typography render correctly
+- [ ] 01-01: Create `estilos/reset.css` (CSS reset) + `estilos/base.css` (complete `:root` token block — palette, semantics, 5 planets, typography, spacing, shadows, borders, transitions + base element styles)
+- [ ] 01-02: Create `estilos/layout.css` (container, grid, spacing utils, `.sr-only`) + `estilos/componentes.css` (`.btn-primario`, `.btn-secundario`, planet button variants)
+- [ ] 01-03: Create `_design-system-test.html` visual test fixture — verifies all tokens, fonts, colors, planets, buttons, layout, icons, accessibility
 
 ---
 
@@ -267,7 +263,7 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 
 | Phase | Plans | Status | Completed |
 |-------|-------|--------|-----------|
-| 1. Design System Foundation | 0/7 | Not started | — |
+| 1. Design System Foundation | 0/3 | Planned | — |
 | 2. Shared Nav & Footer | 0/7 | Not started | — |
 | 3. Global Layout & Background | 0/5 | Not started | — |
 | 4. Homepage Structure & Header | 0/5 | Not started | — |

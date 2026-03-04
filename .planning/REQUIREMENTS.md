@@ -151,7 +151,7 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DS-01 to DS-08 | Phase 1 | Pending |
+| DS-01 to DS-08 | Phase 1 | Complete |
 | NAV-01 to NAV-06 | Phase 2 | Pending |
 | FOOT-01 to FOOT-04 | Phase 2 | Pending |
 | BG-01 to BG-03 | Phase 3 | Pending |
