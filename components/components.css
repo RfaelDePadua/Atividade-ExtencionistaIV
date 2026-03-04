@@ -31,8 +31,10 @@ body {
 [data-component="nav"] {
   min-height: 64px;
 }
+/* Match footer bg color so the reserved space blends if content is shorter */
 [data-component="footer"] {
   min-height: 200px;
+  background: var(--cor-fundo-footer);
 }
 
 /* ==========================================
