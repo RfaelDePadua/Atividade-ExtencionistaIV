@@ -20,19 +20,19 @@
 
 ### Navigation (NAV)
 
-- [ ] **NAV-01**: Single `components/nav.html` source-of-truth file — all pages load it via fetch + innerHTML injection
-- [ ] **NAV-02**: `components/components.js` script handles fetch-loading nav and footer; falls back to inline HTML if fetch fails
-- [ ] **NAV-03**: Active page state applied automatically — the current page's nav link gets `aria-current="page"` and visual highlight
-- [ ] **NAV-04**: Nav links work correctly from all page depths (root, `/explorar/`, `/sobre_nos/`)
-- [ ] **NAV-05**: Nav is accessible — keyboard-navigable, has skip-to-content link, all links have descriptive labels
-- [ ] **NAV-06**: Mobile-responsive nav — collapses to hamburger menu at ≤640px breakpoint
+- [x] **NAV-01**: Single `components/nav.html` source-of-truth file — all pages load it via fetch + innerHTML injection
+- [x] **NAV-02**: `components/components.js` script handles fetch-loading nav and footer; falls back to inline HTML if fetch fails
+- [x] **NAV-03**: Active page state applied automatically — the current page's nav link gets `aria-current="page"` and visual highlight
+- [x] **NAV-04**: Nav links work correctly from all page depths (root, `/explorar/`, `/sobre_nos/`)
+- [x] **NAV-05**: Nav is accessible — keyboard-navigable, has skip-to-content link, all links have descriptive labels
+- [x] **NAV-06**: Mobile-responsive nav — collapses to hamburger menu at ≤640px breakpoint
 
 ### Footer (FOOT)
 
-- [ ] **FOOT-01**: Single `components/footer.html` shared across all site pages (not game pages)
-- [ ] **FOOT-02**: Footer contains: logo (reduced), tagline, and a Contato link (Privacidade/Termos deferred to v2 per user decision in 02-CONTEXT.md)
-- [ ] **FOOT-03**: Footer background `#0B0F2E`, distinct from page background
-- [ ] **FOOT-04**: Footer has wavy/curved top border (CSS clip-path or SVG wave)
+- [x] **FOOT-01**: Single `components/footer.html` shared across all site pages (not game pages)
+- [x] **FOOT-02**: Footer contains: logo (reduced), tagline, and a Contato link (Privacidade/Termos deferred to v2 per user decision in 02-CONTEXT.md)
+- [x] **FOOT-03**: Footer background `#0B0F2E`, distinct from page background
+- [x] **FOOT-04**: Footer has wavy/curved top border (CSS clip-path or SVG wave)
 
 ### Space Background (BG)
 
@@ -152,8 +152,8 @@
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | DS-01 to DS-08 | Phase 1 | Complete |
-| NAV-01 to NAV-06 | Phase 2 | Pending |
-| FOOT-01 to FOOT-04 | Phase 2 | Pending |
+| NAV-01 to NAV-06 | Phase 2 | Complete |
+| FOOT-01 to FOOT-04 | Phase 2 | Complete |
 | BG-01 to BG-03 | Phase 3 | Pending |
 | HOME-01 to HOME-05 | Phase 4 | Pending |
 | CAR-01 to CAR-07 | Phase 5 | Pending |

@@ -7,7 +7,7 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 ## Phases
 
 - [x] **Phase 1: Design System Foundation** — CSS tokens, typography, button components, color system
-- [ ] **Phase 2: Shared Nav & Footer Components** — fetch-based component loader, nav.html, footer.html
+- [x] **Phase 2: Shared Nav & Footer Components** — fetch-based component loader, nav.html, footer.html
 - [ ] **Phase 3: Global Layout & Space Background** — body gradient, container system, spacing scale, page shell
 - [ ] **Phase 4: Homepage Structure & Header** — index.html scaffold, fixed header, hero section
 - [ ] **Phase 5: Planet Carousel** — 5 planets, Órbita Central layout, navigation, planet filtering
@@ -260,7 +260,7 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 | Phase | Plans | Status | Completed |
 |-------|-------|--------|-----------|
 | 1. Design System Foundation | 3/3 | Complete | 2026-03-04 |
-| 2. Shared Nav & Footer | 0/3 | Planned | — |
+| 2. Shared Nav & Footer | 3/3 | Complete | 2026-03-04 |
 | 3. Global Layout & Background | 0/5 | Not started | — |
 | 4. Homepage Structure & Header | 0/5 | Not started | — |
 | 5. Planet Carousel | 0/8 | Not started | — |
