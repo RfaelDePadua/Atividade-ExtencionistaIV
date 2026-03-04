@@ -1,46 +1,73 @@
 # Technology Stack
 
-**Analysis Date:** 2026-02-19
+**Analysis Date:** 2026-03-04
 
 ## Languages
 
 **Primary:**
-- JavaScript (ES2020+) — client-side game logic and site behavior (Phaser scenes, vanilla canvas game)
-- HTML, CSS — static pages and styles
+- JavaScript (ES2020+) — all game logic and interactive UI (`scripts/`, `jogos/*/`)
+- HTML5 — page structure and game containers (all `.html` files)
+- CSS3 — styling and design system (`estilos/`)
 
 **Secondary:**
-- JSON — configuration (`package.json`)
+- Markdown — documentation (`Referencias/Guia-Visual.md`)
 
 ## Runtime
 
 **Environment:**
-- Browser (modern Chromium/Firefox/Safari) — runs the games and UI
-- Node.js (developer tools only, not required to serve static site)
+- Browser-based static site — no server-side runtime required
+- Development: Python HTTP server (`python -m http.server 3000`) or VS Code Live Server
 
 **Package Manager:**
-- npm (lockfile: `package-lock.json` present)
+- npm (package-lock.json present)
+- Used primarily to track dependencies; no build step required
 
-## Frameworks / Libraries
+## Frameworks
 
-**Core:**
-- Phaser 3 (dependency: `phaser` ^3.90.0) — game framework used by `jogos/Contando_Estrelas`
-- Vanilla JS + Canvas — used by `jogos/Jogo_de_Silaba`
+**Game Engine:**
+- Phaser 3 (`^3.90.0`) — used in `jogos/Contando_Estrelas/` for scene management, physics, sprites, and animations
+  - Bundled locally as `phaser.min.js` in each game folder (not loaded from CDN)
 
-**Dev / Local:**
-- Express (devDependency) & nodemon (devDependency) — present for local/dev server use only
+**No web framework** — vanilla HTML/CSS/JS for the site shell; no React, Vue, Angular, or similar
 
-## Key Dependencies (critical to understand)
-- `phaser` ^3.90.0 — game engine (central to the product)
-- `express` ^4.21.2 (dev) — local server scaffolding
-- `nodemon` ^3.1.9 (dev) — developer convenience
+**Build/Dev:**
+- No bundler (no Webpack, Vite, Parcel, etc.)
+- No transpiler (no Babel, TypeScript)
 
-## Build / Dev
-- Static site — no bundler (files served directly from filesystem)
-- Dev server: `python -m http.server 3000` (see `npm run dev`) or use Live Server extension
+## Key Dependencies
 
-## Platform / Deployment
-- Target: static hosting (GitHub Pages indicated by `homepage` in `package.json`)
-- No backend runtime required for production — purely client-side
+**Production:**
+- `phaser ^3.90.0` — 2D game engine powering `Contando_Estrelas`; vendored locally inside each game folder
+
+**Dev Only (archived/legacy):**
+- `express ^4.21.2` — local dev HTTP server; superseded by Python server / Live Server
+- `nodemon ^3.1.9` — file watcher for express server; no longer actively used
+- `get-shit-done-multi ^2.0.4` — GSD project planning workflow tooling
+
+## External CDNs (loaded in browser)
+
+- **Google Fonts** — `Bricolage Grotesque`, `Lexend`, `Patrick Hand`, `Fredoka` (loaded in `geral.css`)
+- **Bootstrap Icons v1.11.3** — icon library (loaded via CDN in `geral.css`)
+
+## Configuration
+
+**Environment:**
+- No environment variables; fully static — no `.env` files needed
+
+**Build:**
+- No build config files; source = deployable output
+
+## Platform Requirements
+
+**Development:**
+- Any platform with a modern browser and Python 3 (for local server)
+- Node.js required only for `npm install` (dependency tracking)
+
+**Production:**
+- GitHub Pages (static hosting)
+- Homepage: `https://USERNAME.github.io/Atividade-ExtencionistaIV/`
 
 ---
-*Notes:* repository is a static, browser-first stack centered on Phaser games. Consider adding a minimal build/bundling step and automated dependency checks if you plan to grow the project.
+
+*Stack analysis: 2026-03-04*
+*Update after major dependency changes*

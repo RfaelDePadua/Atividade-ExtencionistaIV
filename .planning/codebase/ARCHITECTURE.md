@@ -1,60 +1,114 @@
 # Architecture
 
-**Analysis Date:** 2026-02-19
+**Analysis Date:** 2026-03-04
 
 ## Pattern Overview
-**Overall:** Static multi-page site with embedded client-side games (browser-executed game loops).
+
+**Overall:** Multi-page static website with self-contained embedded mini-games
 
 **Key Characteristics:**
-- Client-side execution only (no server-side application logic in production)
-- Each game is self-contained under `jogos/` (independent entry points)
-- Assets and scenes loaded at runtime by the browser/Phaser loader
+- No framework — pure HTML/CSS/JS site shell
+- Each game is a self-contained folder with its own assets and dependencies
+- No shared templating — nav/header duplicated via copy-paste across pages
+- Client-side only — zero server round-trips at runtime
+- Two distinct game rendering approaches: Phaser 3 (scene-based) and Vanilla Canvas 2D
 
 ## Layers
 
-**Presentation (Site):**
-- Purpose: Site shell, navigation, game discovery UI
-- Contains: `index.html`, CSS under `estilos/`, `scripts/carousel.js`
-- Depends on: static assets and client-side JS
+**Site Shell (website layer):**
+- Purpose: Navigation, discovery, and landing experience
+- Contains: `index.html`, `explorar/`, `sobre_nos/`, shared `estilos/`, `scripts/`
+- Depends on: CDN fonts, Bootstrap Icons, local CSS
+- Used by: Users browsing and selecting games
 
 **Game Layer:**
-- Purpose: Interactive educational games
-- Contains: `jogos/Contando_Estrelas/` (Phaser scene-based), `jogos/Jogo_de_Silaba/` (Canvas-based)
-- Depends on: Phaser (for Contando_Estrelas), browser Canvas APIs
+- Purpose: Individual game experiences, fully isolated from the site shell
+- Contains: `jogos/Contando_Estrelas/`, `jogos/Jogo_de_Silaba/`
+- Depends on: Phaser 3 (vendored), game-specific assets
+- Used by: Site shell links to game pages
 
-**Assets Layer:**
-- Purpose: Images, fonts, audio, sprites
-- Contains: `midia/`, `jogos/*/assets/`
+## Data Flow
 
-**Dev/Tooling Layer:**
-- Purpose: Local dev server and convenience scripts
-- Contains: `package.json` scripts (uses `python -m http.server`), devDependencies
+**User Browsing Flow:**
 
-## Data Flow (typical user journey)
-1. Browser requests `index.html` (static hosting)
-2. Client downloads CSS/JS/assets referenced by HTML
-3. User navigates to a game (e.g., `jogos/Contando_Estrelas/index.html`) → game JS initializes Phaser/Canvas and loads assets
-4. Gameplay state is held in-memory (browser), results are not persisted server-side
+1. User lands on `index.html` (homepage with planet carousel)
+2. `PlanetCarousel` class (`scripts/carousel.js`) handles subject navigation
+3. User selects a planet/subject → carousel filters game cards
+4. User clicks a game → navigates to `jogos/<game>/index.html`
+5. Game page loads its self-contained JS and assets
 
-**State Management:** In-browser only (no database or server-side persistence)
+**Contando_Estrelas (Phaser 3 Game) Flow:**
+
+1. `index.html` loads `phaser.min.js` and `main.js` (ES module)
+2. `main.js` creates Phaser game config and instantiates `Phaser.Game`
+3. Scene sequence: `BootScene` → `PreloadScene` → `MenuScene` → `GameScene` ↔ `GameOverScene`
+4. `PreloadScene` loads all sprites, spritesheets, and fonts
+5. `GameScene` runs the math asteroid-shooting gameplay loop
+6. `GameOverScene` shows results; player can restart
+
+**Jogo_de_Silaba (Vanilla Canvas) Flow:**
+
+1. `index.html` loads `script.js` (vanilla, no modules)
+2. Script grabs `<canvas id="gameCanvas">` and runs game loop directly
+3. No scene management — single file game loop with requestAnimationFrame
+
+**State Management:**
+- Stateless across sessions — no persistence
+- Contando_Estrelas: Phaser scene registry passes state between scenes via `this.registry` or scene restarts
+- Jogo_de_Silaba: module-level JS variables during session
 
 ## Key Abstractions
-- Phaser Scenes (BootScene, PreloadScene, MenuScene, GameScene): encapsulate lifecycle of each game
-- Canvas rendering loop (for `Jogo_de_Silaba`) — handcrafted game loop and drawing routines
-- Static site as shell + per-game entry points
+
+**Phaser Scene (Contando_Estrelas):**
+- Purpose: Encapsulates each game state (boot, preload, menu, gameplay, game over)
+- Examples: `BootScene`, `PreloadScene`, `MenuScene`, `GameScene`, `GameOverScene`
+- Pattern: Phaser lifecycle methods (`preload()`, `create()`, `update()`)
+
+**PlanetCarousel (Site Shell):**
+- Purpose: Interactive planet-based subject navigation on homepage
+- Examples: `scripts/carousel.js` — `PlanetCarousel` class
+- Pattern: Vanilla class with DOM event listeners, touch support, keyboard support
+
+**CSS Design System:**
+- Purpose: Centralized design tokens (colors, typography, spacing, breakpoints)
+- Location: `estilos/geral.css` — CSS custom properties under `:root`
+- Pattern: CSS variables consumed by all pages and components
 
 ## Entry Points
-- `index.html` — main site / navigation
-- `jogos/Contando_Estrelas/index.html` — Phaser game launcher
-- `jogos/Jogo_de_Silaba/index.html` — Canvas game launcher
+
+**Homepage:**
+- Location: `index.html`
+- Triggers: Browser navigation / direct URL
+- Responsibilities: Landing page, carousel, game discovery
+
+**Explore Page:**
+- Location: `explorar/explorar.html`
+- Triggers: Nav link from any page
+- Responsibilities: Browse all games with filtering by subject/letter
+
+**Game Pages:**
+- Location: `jogos/Contando_Estrelas/index.html`, `jogos/Jogo_de_Silaba/index.html`
+- Triggers: Navigation from explore or home
+- Responsibilities: Load and run the game in `#game-container`
 
 ## Error Handling
-- Minimal/implicit (client-side console logging). No centralized error-reporting or try/catch strategy present.
+
+**Strategy:** No structured error handling — browser console errors only
+- `Jogo_de_Silaba/script.js` has a `console.error()` guard on canvas context acquisition
+- No user-facing error messages or fallbacks
 
 ## Cross-Cutting Concerns
-- Asset loading and preloading (Phaser loader)
-- Responsive layout handled in CSS but needs verification across viewports
-- No automated observability, testing, or CI in current codebase
 
----
-*Update this when adding server-side features or major architectural changes.*
+**Fonts/Icons:**
+- Loaded globally via `estilos/geral.css` CDN imports; available everywhere
+
+**Navigation:**
+- Duplicated HTML block across all pages (no shared include/component)
+- Style: `estilos/barra_superior.css`
+
+**Responsiveness:**
+- CSS handles mobile layout; Phaser games use `Scale.FIT` / `CENTER_BOTH`
+- `meta viewport` set on all pages
+
+**Language:**
+- All content and most variable/class names in Brazilian Portuguese

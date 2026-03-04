@@ -1,24 +1,44 @@
 # External Integrations
 
-**Analysis Date:** 2026-02-19
+**Analysis Date:** 2026-03-04
 
-## Summary
-- No third-party backend APIs or external SaaS integrations detected in the repository.
-- Deployment target implied: GitHub Pages (see `homepage` in `package.json`).
+## APIs & External Services
 
-## Hosting / CI
-- Hosting: static site → GitHub Pages / any static host is appropriate.
-- CI/CD: no pipeline detected (add GitHub Actions for testing/deploying if desired).
+**None** — this is a fully client-side static site with no backend API calls at runtime.
 
-## Local Dev / Tooling
-- Local dev: `python -m http.server 3000` (in `package.json` scripts) or use Live Server.
-- DevDependencies include `express` and `nodemon` (for local dev server usage only).
+## Data Storage
 
-## Auth / External APIs
-- None detected (no OAuth, payment, analytics, or database integrations present).
+**None** — no databases, no localStorage persistence, no session storage.
+- Game state (score, lives, wave) is held in memory during a session only; resets on page reload.
 
-## Webhooks / Callbacks
-- None detected.
+## Authentication & Identity
+
+**None** — no login, no user accounts, no auth provider.
+
+## CDN Assets (browser-loaded)
+
+**Google Fonts:**
+- Loaded from: `https://fonts.googleapis.com`
+- Fonts: `Bricolage Grotesque`, `Lexend`, `Patrick Hand`, `Fredoka`
+- Required for design system to render correctly; fallback system fonts defined in CSS
+
+**Bootstrap Icons:**
+- Loaded from: `https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css`
+- Used for search icon (`bi-search`) and logo planet icon (`bi-planet`) in nav header
+
+## Deployment
+
+**GitHub Pages:**
+- Static hosting via GitHub Pages
+- No server-side processing; all files served as-is
+- Deployment: push to configured branch (implied `main` or `gh-pages`)
+- Homepage configured in `package.json`: `https://USERNAME.github.io/Atividade-ExtencionistaIV/`
+
+## Monitoring & Observability
+
+**None** — no error tracking (Sentry, etc.), no analytics, no logging infrastructure.
 
 ---
-*If you plan to add analytics, auth, or payments, document provider and env var names here.*
+
+*Integrations analysis: 2026-03-04*
+*No runtime external dependencies beyond CDN font/icon loading*

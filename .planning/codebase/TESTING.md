@@ -1,27 +1,51 @@
-# Testing Patterns
+# Testing
 
-**Analysis Date:** 2026-02-19
+**Analysis Date:** 2026-03-04
 
-## Current state
-- No automated tests detected (no `tests/` folder, no `vitest`/`jest` config, `npm test` is a placeholder).
-- No CI workflows found that run tests.
+## Framework
 
-## Recommendation (first steps)
-- Add unit tests for deterministic logic (math helpers, scoring, input parsing) using Vitest.
-- Add lightweight E2E for gameplay smoke tests (Playwright) to verify game loads and basic interactions.
-- Add a `test` script in `package.json` and a simple GitHub Actions workflow to run tests on PRs.
+**None configured.**
 
-## Suggested test organization
-- Unit tests alongside source (`*.test.js`) for small functions (e.g., calculation helpers).
-- E2E tests in `e2e/` (Playwright) to run headless checks for each game entry point.
+`package.json` test script:
+```json
+"test": "echo \"Error: no test specified\" && exit 1"
+```
 
-## Quick starter commands (example)
-- `npm i -D vitest @testing-library/dom` — unit tests
-- `npm i -D @playwright/test` — E2E tests for gameplay smoke checks
+No test framework installed (Jest, Vitest, Playwright, Cypress, etc.).
 
-## Why tests matter here
-- Game logic (scoring, levels) contains deterministic algorithms that are cheap to unit-test.
-- Tests reduce risk when refactoring scenes or asset loading paths.
+## Test Structure
+
+- **Test files:** 0
+- **Test coverage:** 0%
+- **CI test step:** None configured
+
+## Manual Testing
+
+Current verification approach is entirely manual:
+- Open site in browser via Live Server or `python -m http.server 3000`
+- Click through pages and games to verify behavior
+
+## What Should Be Tested (future)
+
+Given the educational game nature, priority test candidates:
+
+**Unit:**
+- `PlanetCarousel` navigation logic (index bounds, direction calculation)
+- `Jogo_de_Silaba` word validation (`palavrasValidas` matching)
+- Syllable combination logic in `script.js`
+
+**Integration/E2E:**
+- Page navigation between all 5 pages
+- Game loads and reaches menu screen
+- Carousel subject filtering
+
+## Recommendations
+
+Lowest effort, highest value for this stack:
+- **Playwright** for E2E browser testing (verifies page load, nav, game boot)
+- **Vitest** for unit testing carousel and word-game logic
 
 ---
-*Add tests as part of early roadmap; prioritize core game mechanics and load/boot flows.*
+
+*Testing analysis: 2026-03-04*
+*No tests exist — greenfield opportunity*

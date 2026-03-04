@@ -1,30 +1,90 @@
 # Coding Conventions
 
-**Analysis Date:** 2026-02-19
+**Analysis Date:** 2026-03-04
 
-## Naming Patterns (observed)
-- Files that define Phaser scene classes use `PascalCase.js` (e.g., `BootScene.js`, `GameScene.js`).
-- Small scripts use `kebab-case` or `lowerCamel` (`carousel.js`, `script.js`).
-- CSS files use `kebab-case` (`principal.css`, `carousel.css`).
-- HTML files and directories use lowercase with underscores for multi-word folders (`sobre_nos/`).
+## Language
 
-## Code Style (current state)
-- ES modules are used for Phaser scenes (`export default class ...`).
-- Predominantly vanilla JavaScript (no TypeScript or React). 
-- No project-level formatter or linter config detected (`.eslintrc`, `.prettierrc` not present).
+All user-facing content and most variable/function/class names are in **Brazilian Portuguese**:
+- Variables: `jogador`, `silabas`, `palavrasValidas`, `velocidade`, `inimigosRestantes`
+- CSS classes: `.barra-de-navegacao`, `.barra-de-pesquisa`, `.cor-primaria`
+- Comments: Mixed (Portuguese and some English)
 
-**Recommendation (apply when adding code):** follow existing styles — PascalCase for scene classes, camelCase for variables/functions, kebab-case for filenames where appropriate, and introduce a linter/formatter as a next step.
+Exception: GSD/tooling files in English (`.github/`, `.planning/`)
 
-## Function & Module Design (observed)
-- Game logic organized inside Phaser Scene classes (single responsibility per scene).
-- Modules: prefer `export default` for scene classes; other utilities are plain JS functions.
+## Naming Patterns
 
-## Comments & TODOs
-- TODOs exist in game source (e.g., `// TODO: Review and expand valid words list` in `Jogo_de_Silaba/script.js`).
-- Comments explain game logic in key places — follow the "explain why, not what" guideline when adding comments.
+**Files:**
+- Phaser scene files: `PascalCase.js` (e.g., `GameScene.js`, `PreloadScene.js`)
+- Game entry points: lowercase (`main.js`, `script.js`)
+- CSS files: `snake_case.css` (`barra_superior.css`, `principal.css`)
+- HTML pages: `snake_case.html` (`sobre_nos.html`, `explorar.html`) or lowercase (`index.html`)
+- Folder names: inconsistent — `Contando_Estrelas` (PascalCase_underscore), `scripts` (lowercase), `estilos` (lowercase)
+
+**Functions:**
+- camelCase: `setupEventListeners()`, `updatePlanetStates()`, `comecarOnda()`
+- Handler convention: descriptive Portuguese verbs (`comecar`, `atualizar`, `criar`)
+
+**Variables:**
+- camelCase: `currentIndex`, `isAnimating`, `touchStartX`
+- Portuguese names: `jogador`, `silabas`, `listaSimbolos`, `fundoMovimento`
+- Constants: no UPPER_SNAKE_CASE convention established — `camelCase` used for all
+
+**CSS Classes:**
+- kebab-case: `.planet-card`, `.carousel-track`, `.nav-links`, `.barra-de-pesquisa`
+- BEM not used — flat class names with some contextual nesting
+
+**Phaser Scenes:**
+- Class name = file name = scene key string (e.g., class `GameScene`, file `GameScene.js`, key `'GameScene'`)
+
+## Code Style
+
+**Formatting:**
+- No Prettier or automated formatter configured
+- Indentation: 2 spaces (site shell) or 4 spaces (game scenes) — inconsistent between files
+- Quotes: single quotes in JS (`'GameScene'`), double quotes in HTML attributes
+- Semicolons: present throughout
+
+**Linting:**
+- No ESLint configured
+
+## Module System
+
+**Contando_Estrelas:** ES Modules (`export default class`, `import X from './X.js'`)
+- `main.js` uses `type="module"` in the HTML `<script>` tag
+- Scene files all use `export default class`
+
+**Jogo_de_Silaba:** No modules — single flat script
+- `script.js` uses global scope; `<script src="script.js">` without `type="module"`
+- All game state as module-level `const`/`let` variables
+
+**Site Shell:** No modules
+- `scripts/carousel.js` defines `PlanetCarousel` globally via class; auto-inits with `DOMContentLoaded`
+
+## CSS Conventions
+
+**Design System:**
+- All design tokens in CSS custom properties under `:root` in `estilos/geral.css`
+- Token naming: `--cor-primaria`, `--fonte-display`, `--espaco-md`, etc.
+- Organized sections: PRIMARY COLORS, LEGACY COLORS, PLANET ACCENT COLORS, FUNCTIONAL COLORS, TYPOGRAPHY, SPACING SCALE, LAYOUT, ANIMATION TIMING
+
+**Page-specific styles:**
+- Each page/game has its own `estilos/principal.css` that imports or assumes shared styles are already loaded
+- Shared styles must be loaded before page-specific styles (HTML `<link>` order)
 
 ## Error Handling
-- No standardized error-handling pattern; client-side code relies on local checks and console output.
+
+**Patterns:**
+- Minimal — no structured error handling
+- `Jogo_de_Silaba/script.js`: single `console.error()` guard for canvas context
+- Phaser handles its own errors internally
+- No user-facing error messages or try/catch in application code
+
+## Comments
+
+- Portuguese comments for game logic: `// Inicializar variáveis`, `// Criar o player fora da tela`
+- English comments for design system: `/* PRIMARY COLORS */`, `/* DESIGN SYSTEM v1.0 */`
+- TODO present in `Jogo_de_Silaba/script.js`: `// TODO: Review and expand valid words list for educational value`
 
 ---
-*Update this file when style rules or tooling are added to the repo.*
+
+*Conventions analysis: 2026-03-04*
