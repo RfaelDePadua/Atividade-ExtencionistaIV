@@ -1,0 +1,91 @@
+<!--
+  _template.html — Meu Planetinha Canonical Page Template
+  ========================================================
+  Copy this file when creating a new site page.
+  Replace all [PLACEHOLDERS] with actual values.
+
+  CSS Load Order (DO NOT reorder):
+    1. reset.css        — CSS reset / normalize
+    2. base.css         — Design tokens + base element styles
+    3. layout.css       — Container, flex utilities, spacing
+    4. page-shell.css   — Stars, nebulae, page-wrapper layout
+    5. componentes.css  — Legacy component styles
+    6. components.css   — Nav + Footer component styles
+    7. [page].css       — Page-specific styles (optional)
+
+  PATH DEPTH GUIDE:
+    Root pages (index.html, 404.html):     estilos/...     components/...
+    Depth-1 pages (explorar/, sobre_nos/): ../estilos/...  ../components/...
+
+  EXCLUDED: Game pages (jogos/) do NOT use this template.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="[PAGE_DESCRIPTION — Meu Planetinha: plataforma educacional gamificada para crianças]">
+  <title>[PAGE_TITLE] — Meu Planetinha</title>
+
+  <!-- Google Fonts: preconnect + stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- CSS Load Order (do not reorder) -->
+  <!-- [DEPTH]: replace paths with ../ prefix for depth-1 pages -->
+  <link rel="stylesheet" href="estilos/reset.css">
+  <link rel="stylesheet" href="estilos/base.css">
+  <link rel="stylesheet" href="estilos/layout.css">
+  <link rel="stylesheet" href="estilos/pages/page-shell.css">
+  <link rel="stylesheet" href="estilos/componentes.css">
+  <link rel="stylesheet" href="components/components.css">
+  <!-- [PAGE_CSS]: add page-specific stylesheet here if needed -->
+  <!-- <link rel="stylesheet" href="estilos/pages/[page-name].css"> -->
+</head>
+<body>
+
+  <!-- Skip link (accessibility) -->
+  <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+
+  <!-- Nav component (injected by components.js) -->
+  <div data-component="nav">
+    <noscript>
+      <nav class="site-nav" aria-label="Navegação principal">
+        <div class="nav-container">
+          <a class="nav-logo" href="index.html">🪐 Meu Planetinha</a>
+          <div class="nav-links">
+            <a href="explorar/explorar.html">Explorar Jogos</a>
+            <a href="sobre_nos/sobre_nos.html">Sobre Nós</a>
+          </div>
+        </div>
+      </nav>
+    </noscript>
+  </div>
+
+  <!-- Main content -->
+  <main id="main-content" class="page-wrapper">
+    <div class="container">
+      <!-- [PAGE_CONTENT] -->
+      <h1>[PAGE_TITLE]</h1>
+    </div>
+  </main>
+
+  <!-- Footer component (injected by components.js) -->
+  <div data-component="footer">
+    <noscript>
+      <footer class="site-footer">
+        <p>© 2025–2026 Meu Planetinha</p>
+      </footer>
+    </noscript>
+  </div>
+
+  <!-- Component loader (nav + footer injection) -->
+  <!-- [DEPTH]: replace path with ../ prefix for depth-1 pages -->
+  <script src="components/components.js"></script>
+
+</body>
+</html>
