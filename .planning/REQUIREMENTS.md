@@ -14,7 +14,7 @@
 - [ ] **DS-03**: Bootstrap Icons v1.11.3 loaded via CDN `<link>` (not CSS `@import`)
 - [ ] **DS-04**: CSS spacing scale defined as custom properties (`--espaco-xs` through `--espaco-2xl`)
 - [ ] **DS-05**: CSS typography scale: heading classes use Fredoka One, body uses Nunito, score/badge contexts use Press Start 2P
-- [ ] **DS-06**: Responsive container: max-width centered layout that works from 320px to 1440px+ viewport widths
+- [x] **DS-06**: Responsive container: max-width centered layout that works from 320px to 1440px+ viewport widths
 - [ ] **DS-07**: Button component styles — primary (gradient pill) and secondary (outlined pill) — per Guia-Visual Section 07
 - [ ] **DS-08**: Planet accent color tokens system — each of the 5 planets has its own CSS variable set (bg, text, accent)
 
@@ -36,9 +36,9 @@
 
 ### Space Background (BG)
 
-- [ ] **BG-01**: Full-page CSS gradient background — top `#1A3A8F` → middle `#2D1B8A` → bottom `#8B1A6B` — applied via `body` or `.page-bg`
-- [ ] **BG-02**: Background visually consistent across all pages (index, explorar, sobre_nos, 404)
-- [ ] **BG-03**: No animated elements on the background in v1 (static gradient, no drifting stars)
+- [x] **BG-01**: Full-page CSS gradient background — top `#1A3A8F` → middle `#2D1B8A` → bottom `#8B1A6B` — applied via `body` or `.page-bg`
+- [x] **BG-02**: Background visually consistent across all pages (index, explorar, sobre_nos, 404)
+- [x] **BG-03**: No animated elements on the background in v1 (static gradient, no drifting stars)
 
 ### Homepage (HOME)
 

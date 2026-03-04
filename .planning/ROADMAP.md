@@ -8,7 +8,7 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 
 - [x] **Phase 1: Design System Foundation** — CSS tokens, typography, button components, color system
 - [x] **Phase 2: Shared Nav & Footer Components** — fetch-based component loader, nav.html, footer.html
-- [ ] **Phase 3: Global Layout & Space Background** — body gradient, container system, spacing scale, page shell
+- [x] **Phase 3: Global Layout & Space Background** — body gradient, container system, spacing scale, page shell
 - [ ] **Phase 4: Homepage Structure & Header** — index.html scaffold, fixed header, hero section
 - [ ] **Phase 5: Planet Carousel** — 5 planets, Órbita Central layout, navigation, planet filtering
 - [ ] **Phase 6: Game Cards** — card component, game data, carousel filter integration
@@ -72,11 +72,11 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
   5. Game pages (`jogos/`) are unaffected — no gradient, no style contamination
 
 **Plans:**
-- [ ] 03-01: Define and verify the space gradient CSS (`background: linear-gradient(...)`) in `base.css`; confirm exact hex values match Guia-Visual Section 01
-- [ ] 03-02: Create `_template.html` — a documented HTML page template with all required `<head>` elements (charset, viewport, `lang="pt-BR"`, `<base href>`, preconnect links, CSS load order) that all new pages will copy from
-- [ ] 03-03: Create `estilos/pages/page-shell.css` — `.page-wrapper` flex column layout (header + main grows + footer at bottom), gradient background on body
-- [ ] 03-04: Run contrast check on all Guia-Visual color pairings against the gradient background; document passing/failing combinations in `.planning/` for reference
-- [ ] 03-05: Confirm no shared CSS file is accidentally linked from a game page (verify `jogos/*/index.html` files — they should not reference `../../estilos/base.css`)
+- [x] 03-01: Define and verify the space gradient CSS (`background: linear-gradient(...)`) in `base.css`; confirm exact hex values match Guia-Visual Section 01
+- [x] 03-02: Create `_template.html` — a documented HTML page template with all required `<head>` elements (charset, viewport, `lang="pt-BR"`, `<base href>`, preconnect links, CSS load order) that all new pages will copy from
+- [x] 03-03: Create `estilos/pages/page-shell.css` — `.page-wrapper` flex column layout (header + main grows + footer at bottom), gradient background on body
+- [x] 03-04: Run contrast check on all Guia-Visual color pairings against the gradient background; document passing/failing combinations in `.planning/` for reference
+- [x] 03-05: Confirm no shared CSS file is accidentally linked from a game page (verify `jogos/*/index.html` files — they should not reference `../../estilos/base.css`)
 
 ---
 
