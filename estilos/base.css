@@ -148,9 +148,9 @@ body {
   line-height: 1.6;
   color: var(--cor-texto);
   background: linear-gradient(
-    180deg,
+    170deg,
     var(--cor-fundo-topo) 0%,
-    var(--cor-fundo-base) 50%,
+    var(--cor-fundo-base) 65%,
     var(--cor-fundo-horizonte) 100%
   );
   background-attachment: fixed;
