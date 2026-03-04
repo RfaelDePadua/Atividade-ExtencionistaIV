@@ -8,18 +8,19 @@
    0. PAGE SHELL BASELINE
    ========================================== */
 
-/* Flex column layout so footer is always at the bottom of the viewport.
- * Phase 3 (page-shell.css) will add .page-wrapper — this rule ensures
- * any page using components.css has the correct baseline even before
- * a wrapper is present. Requires <main> to have flex-grow: 1 or flex: 1. */
-html {
-  height: 100%;
-}
-
+/* Flex column layout so footer stays at or below the bottom of the viewport.
+ * body { min-height: 100vh } is already defined in base.css.
+ * Here we only add the flex column, and push [data-component="footer"]  
+ * to the bottom. Phase 3 (page-shell.css) will add .page-wrapper. */
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+}
+
+/* Footer wrapper: flex-shrink 0 and push down via margin-top */
+[data-component="footer"] {
+  flex-shrink: 0;
+  margin-top: auto;
 }
 
 /* ==========================================
@@ -262,7 +263,6 @@ body {
   background: var(--cor-fundo-footer);
   color: var(--cor-texto);
   padding: var(--espaco-3xl) 0 var(--espaco-xl);
-  margin-top: auto;
 }
 
 /* Wavy top border via clip-path */
