@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nav &amp; Footer Test — Depth 1 (explorar/) | Meu Planetinha</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- CSS load order (depth-1: all paths prefixed with ../) -->
+  <link rel="stylesheet" href="../estilos/reset.css">
+  <link rel="stylesheet" href="../estilos/base.css">
+  <link rel="stylesheet" href="../estilos/layout.css">
+  <link rel="stylesheet" href="../estilos/componentes.css">
+  <link rel="stylesheet" href="../components/components.css">
+</head>
+<body>
+  <!-- Nav placeholder -->
+  <div data-component="nav">
+    <noscript>
+      <nav class="site-nav" aria-label="Navegação principal">
+        <div class="nav-container">
+          <a class="nav-logo" href="../index.html">🪐 Meu Planetinha</a>
+          <div class="nav-links">
+            <a href="../explorar/explorar.html">Explorar Jogos</a>
+            <a href="../sobre_nos/sobre_nos.html">Sobre Nós</a>
+          </div>
+        </div>
+      </nav>
+    </noscript>
+  </div>
+
+  <!-- Main content -->
+  <main id="main-content" class="container" style="padding: var(--espaco-3xl) var(--espaco-md);">
+    <h1>Test: Nav &amp; Footer from Depth 1</h1>
+    <p><strong>Depth:</strong> 1 (<code>/explorar/</code>)</p>
+    <p><strong>Script src:</strong> <code>../components/components.js</code></p>
+
+    <h2>Path Resolution Checks</h2>
+    <ul style="list-style: disc inside; line-height: 2;">
+      <li><strong>BASE_URL should NOT include <code>explorar/</code></strong> — it should end at the repo root</li>
+      <li>Nav link "Explorar Jogos" → <code>{BASE_URL}explorar/explorar.html</code></li>
+      <li>Nav link "Sobre Nós" → <code>{BASE_URL}sobre_nos/sobre_nos.html</code></li>
+      <li>Logo link → <code>{BASE_URL}index.html</code></li>
+      <li>Footer "Contato" → <code>mailto:contato@meuplanetinha.com</code> (no BASE_URL prefix)</li>
+    </ul>
+
+    <h2>Active Page Check</h2>
+    <p>This test page is at <code>/explorar/_nav-footer-test.html</code>. It is NOT <code>explorar/explorar.html</code>, so <strong>no nav link should have <code>aria-current="page"</code></strong> on this page.</p>
+    <p>To test active-page detection properly, the real Explorar page (when rebuilt in Phase 7) will need to be at <code>explorar/explorar.html</code>.</p>
+
+    <h2>Visual Checks</h2>
+    <ul style="list-style: disc inside; line-height: 2;">
+      <li>Nav bar looks identical to the root test page</li>
+      <li>Footer looks identical to the root test page</li>
+      <li>CTA button has yellow-to-orange gradient</li>
+      <li>Footer has wavy top border and dark nav background</li>
+      <li>Stars are visible in the footer area</li>
+      <li>Mobile hamburger works at ≤640px</li>
+    </ul>
+
+    <h2>Computed BASE_URL</h2>
+    <p id="base-url-display" style="font-family: monospace; background: rgba(255,255,255,0.1); padding: var(--espaco-sm); border-radius: var(--borda-raio-md);">
+      (will be filled by JS below)
+    </p>
+  </main>
+
+  <!-- Footer placeholder -->
+  <div data-component="footer"></div>
+
+  <!-- Component loader (depth-1 path: ../) — NO defer, async, or type="module" -->
+  <script src="../components/components.js"></script>
+
+  <!-- Debug: show computed BASE_URL -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var display = document.getElementById('base-url-display');
+      if (display && typeof BASE_URL !== 'undefined') {
+        display.textContent = 'BASE_URL = "' + BASE_URL + '"';
+      }
+    });
+  </script>
+</body>
+</html>
