@@ -5,6 +5,24 @@
  */
 
 /* ==========================================
+   0. PAGE SHELL BASELINE
+   ========================================== */
+
+/* Flex column layout so footer is always at the bottom of the viewport.
+ * Phase 3 (page-shell.css) will add .page-wrapper — this rule ensures
+ * any page using components.css has the correct baseline even before
+ * a wrapper is present. Requires <main> to have flex-grow: 1 or flex: 1. */
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* ==========================================
    1. PLACEHOLDER / FOUC PREVENTION
    ========================================== */
 
