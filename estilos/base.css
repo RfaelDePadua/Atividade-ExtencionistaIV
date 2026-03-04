@@ -1,0 +1,203 @@
+/*
+ * base.css — Meu Planetinha Design System Tokens
+ * All CSS custom properties (design tokens) and base element styles.
+ * Fonts load via <link> in HTML — NOT via @import in CSS.
+ *
+ * Required <head> tags for any HTML page using this file:
+ *
+ *   <link rel="preconnect" href="https://fonts.googleapis.com">
+ *   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ *   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+ *   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ */
+
+:root {
+  /* =========================================
+     PALETTE — Sorvete Galático (Guia-Visual §02)
+     ========================================= */
+  --cor-amarelo-sol:    #FFD43B;
+  --cor-rosa-chiclete:  #FF6EB4;
+  --cor-verde-menta:    #4DFFB4;
+  --cor-laranja-tang:   #FF8C42;
+  --cor-lilas-algodao:  #C084FC;
+  --cor-azul-ceu:       #1A3A8F;
+  --cor-indigo:         #2D1B8A;
+  --cor-magenta:        #8B1A6B;
+
+  /* =========================================
+     SEMANTIC COLORS
+     ========================================= */
+  --cor-primaria:        var(--cor-amarelo-sol);
+  --cor-secundaria:      var(--cor-rosa-chiclete);
+  --cor-destaque:        var(--cor-verde-menta);
+  --cor-fundo-topo:      var(--cor-azul-ceu);
+  --cor-fundo-base:      var(--cor-indigo);
+  --cor-fundo-horizonte: var(--cor-magenta);
+  --cor-fundo-footer:    #0B0F2E;
+  --cor-fundo-header:    #0D1A3A;
+  --cor-texto:           #FFFFFF;
+  --cor-texto-escuro:    #0D1A3A;
+  --cor-sucesso:         #4DFFB4;
+  --cor-erro:            #FF6B6B;
+  --cor-aviso:           #FFD43B;
+
+  /* =========================================
+     PLANET ACCENT TOKENS — 5 planets × 4 tokens (Guia-Visual §06)
+     ========================================= */
+
+  /* Calculon — Matemática */
+  --planeta-calculon-cor:    #FF8C42;
+  --planeta-calculon-bg:     #FF8C42;
+  --planeta-calculon-texto:  #FFFFFF;
+  --planeta-calculon-acento: #FFD43B;
+
+  /* Letrion — Português */
+  --planeta-letrion-cor:    #C084FC;
+  --planeta-letrion-bg:     #C084FC;
+  --planeta-letrion-texto:  #FFFFFF;
+  --planeta-letrion-acento: #E0B0FF;
+
+  /* Naturox — Ciências */
+  --planeta-naturox-cor:    #4DFFB4;
+  --planeta-naturox-bg:     #4DFFB4;
+  --planeta-naturox-texto:  #0D1A3A;
+  --planeta-naturox-acento: #00D4A0;
+
+  /* Terramund — Geografia */
+  --planeta-terramund-cor:       #D4622A;
+  --planeta-terramund-bg:        #D4622A;
+  --planeta-terramund-texto:     #FFFFFF;
+  --planeta-terramund-acento:    #FF8C42;
+  --planeta-terramund-cor-texto: #E8763A; /* lightened variant for text-on-dark — see contrast notes in 01-RESEARCH.md */
+
+  /* Globish — Inglês */
+  --planeta-globish-cor:    #00D4E8;
+  --planeta-globish-bg:     #00D4E8;
+  --planeta-globish-texto:  #0D1A3A;
+  --planeta-globish-acento: #00A3CC;
+
+  /* =========================================
+     TYPOGRAPHY (Guia-Visual §03)
+     ========================================= */
+  --fonte-titulo: 'Fredoka One', 'Fredoka', cursive;
+  --fonte-corpo:  'Nunito', 'Segoe UI', system-ui, sans-serif;
+  --fonte-score:  'Press Start 2P', monospace;
+
+  /* Font size scale */
+  --texto-xs:   0.75rem;   /* 12px */
+  --texto-sm:   0.875rem;  /* 14px */
+  --texto-base: 1rem;      /* 16px */
+  --texto-lg:   1.125rem;  /* 18px */
+  --texto-xl:   1.25rem;   /* 20px */
+  --texto-2xl:  1.5rem;    /* 24px */
+  --texto-3xl:  2rem;      /* 32px */
+  --texto-4xl:  2.5rem;    /* 40px */
+  --texto-5xl:  3rem;      /* 48px */
+
+  /* =========================================
+     SPACING — 8px base grid
+     ========================================= */
+  --espaco-2xs: 0.125rem;  /* 2px */
+  --espaco-xs:  0.25rem;   /* 4px */
+  --espaco-sm:  0.5rem;    /* 8px */
+  --espaco-md:  1rem;      /* 16px */
+  --espaco-lg:  1.5rem;    /* 24px */
+  --espaco-xl:  2rem;      /* 32px */
+  --espaco-2xl: 3rem;      /* 48px */
+  --espaco-3xl: 4rem;      /* 64px */
+
+  /* =========================================
+     LAYOUT
+     ========================================= */
+  --largura-max-conteudo: 1200px;
+  --largura-max-texto:    680px;
+
+  /* =========================================
+     SHADOWS
+     ========================================= */
+  --sombra-sm:     0 2px 4px rgba(0, 0, 0, 0.15);
+  --sombra-md:     0 4px 12px rgba(0, 0, 0, 0.2);
+  --sombra-lg:     0 8px 24px rgba(0, 0, 0, 0.25);
+  --sombra-brilho: 0 0 20px rgba(255, 212, 59, 0.4);
+
+  /* =========================================
+     BORDERS
+     ========================================= */
+  --borda-raio-sm:     0.25rem;  /* 4px */
+  --borda-raio-md:     0.5rem;   /* 8px */
+  --borda-raio-lg:     1rem;     /* 16px */
+  --borda-raio-xl:     1.5rem;   /* 24px */
+  --borda-raio-pilula: 9999px;
+
+  /* =========================================
+     TRANSITIONS (declared for v2 — no animations in v1)
+     ========================================= */
+  --duracao-rapida: 150ms;
+  --duracao-media:  300ms;
+  --easing-padrao:  ease;
+}
+
+/* =========================================
+   BASE ELEMENT STYLES
+   ========================================= */
+
+body {
+  font-family: var(--fonte-corpo);
+  font-size: var(--texto-base);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--cor-texto);
+  background: linear-gradient(
+    180deg,
+    var(--cor-fundo-topo) 0%,
+    var(--cor-fundo-base) 50%,
+    var(--cor-fundo-horizonte) 100%
+  );
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fonte-titulo);
+  font-weight: 400; /* Fredoka One only has 400 */
+  line-height: 1.2;
+  color: var(--cor-texto);
+}
+
+h1 { font-size: var(--texto-5xl); }
+h2 { font-size: var(--texto-4xl); }
+h3 { font-size: var(--texto-3xl); }
+h4 { font-size: var(--texto-2xl); }
+h5 { font-size: var(--texto-xl); }
+h6 { font-size: var(--texto-lg); }
+
+a {
+  color: var(--cor-primaria);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--cor-laranja-tang);
+}
+
+:focus-visible {
+  outline: 3px solid #FFFFFF;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--cor-lilas-algodao);
+  color: var(--cor-texto);
+}
