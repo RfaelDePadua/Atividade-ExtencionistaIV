@@ -1,0 +1,151 @@
+/*
+ * componentes.css — Meu Planetinha Reusable Components
+ * Depends on: base.css (tokens), layout.css (utilities)
+ *
+ * ACCESSIBILITY NOTE: Primary button uses dark text (#0D1A3A) on
+ * yellow→orange gradient. This deviates from Guia-Visual §07 which
+ * specifies white text, but white fails WCAG AA contrast (1.5:1).
+ * Dark navy passes at 5.2:1–10.3:1. See 01-RESEARCH.md §10.
+ */
+
+/* =========================================
+   BUTTON BASE (shared between primary and secondary)
+   ========================================= */
+
+.btn-primario,
+.btn-secundario {
+  font-family: var(--fonte-corpo);
+  font-weight: 700;
+  font-size: var(--texto-base);
+  line-height: 1;
+  padding: var(--espaco-md) var(--espaco-xl);
+  min-height: 2.75rem; /* 44px minimum touch target */
+  border-radius: var(--borda-raio-pilula);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-xs);
+  text-decoration: none;
+  transition:
+    transform var(--duracao-rapida) var(--easing-padrao),
+    box-shadow var(--duracao-rapida) var(--easing-padrao),
+    background var(--duracao-rapida) var(--easing-padrao),
+    color var(--duracao-rapida) var(--easing-padrao);
+}
+
+/* =========================================
+   PRIMARY BUTTON — gradient pill (Guia-Visual §07)
+   ========================================= */
+
+.btn-primario {
+  background: linear-gradient(135deg, var(--cor-amarelo-sol), var(--cor-laranja-tang));
+  color: var(--cor-texto-escuro);
+  box-shadow: var(--sombra-md);
+}
+
+.btn-primario:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-lg);
+}
+
+.btn-primario:active {
+  transform: translateY(2px);
+  box-shadow: var(--sombra-sm);
+}
+
+/* =========================================
+   SECONDARY BUTTON — outlined pill (Guia-Visual §07)
+   ========================================= */
+
+.btn-secundario {
+  background: transparent;
+  color: var(--cor-amarelo-sol);
+  border: 2px solid currentColor;
+}
+
+.btn-secundario:hover {
+  background: var(--cor-amarelo-sol);
+  color: var(--cor-texto-escuro);
+}
+
+.btn-secundario:active {
+  transform: translateY(2px);
+}
+
+/* =========================================
+   BUTTON FOCUS STATE — accessibility (reinforces base.css)
+   ========================================= */
+
+.btn-primario:focus-visible,
+.btn-secundario:focus-visible {
+  outline: 3px solid #FFFFFF;
+  outline-offset: 3px;
+}
+
+/* =========================================
+   PLANET BUTTON VARIANTS — contextual colors via [data-planeta]
+   ========================================= */
+
+/* Calculon — Matemática */
+[data-planeta="calculon"] .btn-primario {
+  background: linear-gradient(135deg, var(--planeta-calculon-cor), var(--planeta-calculon-acento));
+}
+[data-planeta="calculon"] .btn-secundario {
+  color: var(--planeta-calculon-cor);
+}
+[data-planeta="calculon"] .btn-secundario:hover {
+  background: var(--planeta-calculon-cor);
+  color: var(--planeta-calculon-texto);
+}
+
+/* Letrion — Português */
+[data-planeta="letrion"] .btn-primario {
+  background: linear-gradient(135deg, var(--planeta-letrion-cor), var(--planeta-letrion-acento));
+}
+[data-planeta="letrion"] .btn-secundario {
+  color: var(--planeta-letrion-cor);
+}
+[data-planeta="letrion"] .btn-secundario:hover {
+  background: var(--planeta-letrion-cor);
+  color: var(--planeta-letrion-texto);
+}
+
+/* Naturox — Ciências */
+[data-planeta="naturox"] .btn-primario {
+  background: linear-gradient(135deg, var(--planeta-naturox-cor), var(--planeta-naturox-acento));
+  color: var(--planeta-naturox-texto);
+}
+[data-planeta="naturox"] .btn-secundario {
+  color: var(--planeta-naturox-cor);
+}
+[data-planeta="naturox"] .btn-secundario:hover {
+  background: var(--planeta-naturox-cor);
+  color: var(--planeta-naturox-texto);
+}
+
+/* Terramund — Geografia */
+[data-planeta="terramund"] .btn-primario {
+  background: linear-gradient(135deg, var(--planeta-terramund-cor), var(--planeta-terramund-acento));
+}
+[data-planeta="terramund"] .btn-secundario {
+  color: var(--planeta-terramund-cor-texto);
+}
+[data-planeta="terramund"] .btn-secundario:hover {
+  background: var(--planeta-terramund-cor);
+  color: var(--planeta-terramund-texto);
+}
+
+/* Globish — Inglês */
+[data-planeta="globish"] .btn-primario {
+  background: linear-gradient(135deg, var(--planeta-globish-cor), var(--planeta-globish-acento));
+  color: var(--planeta-globish-texto);
+}
+[data-planeta="globish"] .btn-secundario {
+  color: var(--planeta-globish-cor);
+}
+[data-planeta="globish"] .btn-secundario:hover {
+  background: var(--planeta-globish-cor);
+  color: var(--planeta-globish-texto);
+}
