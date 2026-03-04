@@ -30,7 +30,7 @@
 ### Footer (FOOT)
 
 - [ ] **FOOT-01**: Single `components/footer.html` shared across all site pages (not game pages)
-- [ ] **FOOT-02**: Footer contains: logo (reduced), tagline "Aprender é uma aventura!", links to Privacidade/Termos/Contato
+- [ ] **FOOT-02**: Footer contains: logo (reduced), tagline, and a Contato link (Privacidade/Termos deferred to v2 per user decision in 02-CONTEXT.md)
 - [ ] **FOOT-03**: Footer background `#0B0F2E`, distinct from page background
 - [ ] **FOOT-04**: Footer has wavy/curved top border (CSS clip-path or SVG wave)
 

@@ -50,17 +50,13 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
   3. A test page at `/explorar/` depth loads the nav/footer correctly (paths resolve)
   4. The active page's nav link has `aria-current="page"` attribute applied automatically
   5. If JS is disabled or fetch fails, a basic inline fallback nav renders
-  6. Footer contains logo, tagline, and three parent-facing links; background is `#0B0F2E`
+  6. Footer contains logo, tagline, and Contato link (single parent-facing link for v1 per user decision); background is `#0B0F2E`
   7. Nav is keyboard-navigable; all focus styles are visible
 
 **Plans:**
-- [ ] 02-01: Create `components/nav.html` — nav markup with logo, nav links, search form placeholder, "Explorar Jogos" CTA button (static HTML only, no inline scripts)
-- [ ] 02-02: Create `components/footer.html` — footer markup with wavy CSS top-border, logo reduced, tagline, parent links
-- [ ] 02-03: Create `components/components.js` — `fetch()` loader for nav and footer with fallback, active-state detection via `location.pathname`
-- [ ] 02-04: Create `components/footer.css` — footer-specific styles (wavy border via `clip-path`, `#0B0F2E` bg, typography)
-- [ ] 02-05: Verify path resolution: test `components.js` from root depth, `/explorar/`, `/sobre_nos/` — all three must resolve component paths via `<base href>` or relative `../` logic
-- [ ] 02-06: Implement mobile hamburger menu in `components/nav.html` + CSS — collapses at ≤640px breakpoint
-- [ ] 02-07: Verify fallback renders if fetch fails (simulate offline)
+- [ ] 02-01 (Wave 1): Create `components/nav.html` (nav fragment with skip-link, logo, links, CTA, hamburger, mobile overlay) + `components/footer.html` (footer fragment with wave, logo, tagline, Contato, star SVGs) + `components/components.css` (all nav + footer styles, mobile responsive ≤640px, FOUC prevention)
+- [ ] 02-02 (Wave 2): Create `components/components.js` (fetch loader, `document.currentScript.src` base-path detection, `data-href` link rewriting, `aria-current="page"` detection, mobile menu toggle) + root-level test page `_nav-footer-test.html`
+- [ ] 02-03 (Wave 3): Create depth-1 test page `explorar/_nav-footer-test.html` + verify all 7 Phase 2 success criteria (path resolution, keyboard nav, active page, fallback, footer visuals)
 
 ---
 
@@ -263,8 +259,8 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 
 | Phase | Plans | Status | Completed |
 |-------|-------|--------|-----------|
-| 1. Design System Foundation | 0/3 | Planned | — |
-| 2. Shared Nav & Footer | 0/7 | Not started | — |
+| 1. Design System Foundation | 3/3 | Complete | 2026-03-04 |
+| 2. Shared Nav & Footer | 0/3 | Planned | — |
 | 3. Global Layout & Background | 0/5 | Not started | — |
 | 4. Homepage Structure & Header | 0/5 | Not started | — |
 | 5. Planet Carousel | 0/8 | Not started | — |
@@ -275,4 +271,4 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 | 10. Accessibility Audit | 0/8 | Not started | — |
 | 11. Compatibility & Integration | 0/7 | Not started | — |
 
-**Total:** 68 plans across 11 phases
+**Total:** 64 plans across 11 phases
