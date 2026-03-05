@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="estilos/componentes.css">
   <link rel="stylesheet" href="components/components.css">
   <link rel="stylesheet" href="estilos/pages/homepage.css">
+  <link rel="stylesheet" href="estilos/carousel.css">
 </head>
 <body class="page-home">
 
@@ -54,10 +55,80 @@
     </section>
 
     <!-- Planet Carousel (Phase 5) -->
-    <section id="carousel" class="dev-placeholder" aria-label="Carrossel de planetas">
+    <section id="carousel" aria-label="Carrossel de planetas" data-active-planet="calculon" tabindex="0">
       <div class="container">
-        <p class="dev-placeholder-label">🪐 Carrossel de Planetas — Phase 5</p>
-      </div>
+
+        <!-- Carousel viewport -->
+        <div class="carousel-track" aria-roledescription="carousel" aria-label="Planetas temáticos">
+
+          <!-- Planet: Calculon -->
+          <div class="planet-card" data-planet="calculon" role="group" aria-roledescription="slide" aria-label="Calculon — Matemática">
+            <div class="planet-sphere planet-sphere--calculon"></div>
+            <div class="planet-info">
+              <span class="planet-name">Calculon</span>
+              <span class="planet-subject">Matemática</span>
+            </div>
+          </div>
+
+          <!-- Planet: Letrion -->
+          <div class="planet-card" data-planet="letrion" role="group" aria-roledescription="slide" aria-label="Letrion — Português">
+            <div class="planet-sphere planet-sphere--letrion"></div>
+            <div class="planet-info">
+              <span class="planet-name">Letrion</span>
+              <span class="planet-subject">Português</span>
+            </div>
+          </div>
+
+          <!-- Planet: Naturox -->
+          <div class="planet-card" data-planet="naturox" role="group" aria-roledescription="slide" aria-label="Naturox — Ciências">
+            <div class="planet-sphere planet-sphere--naturox"></div>
+            <div class="planet-info">
+              <span class="planet-name">Naturox</span>
+              <span class="planet-subject">Ciências</span>
+            </div>
+          </div>
+
+          <!-- Planet: Terramund -->
+          <div class="planet-card" data-planet="terramund" role="group" aria-roledescription="slide" aria-label="Terramund — Geografia">
+            <div class="planet-sphere planet-sphere--terramund"></div>
+            <div class="planet-info">
+              <span class="planet-name">Terramund</span>
+              <span class="planet-subject">Geografia</span>
+            </div>
+          </div>
+
+          <!-- Planet: Globish -->
+          <div class="planet-card" data-planet="globish" role="group" aria-roledescription="slide" aria-label="Globish — Inglês">
+            <div class="planet-sphere planet-sphere--globish"></div>
+            <div class="planet-info">
+              <span class="planet-name">Globish</span>
+              <span class="planet-subject">Inglês</span>
+            </div>
+          </div>
+
+        </div><!-- /.carousel-track -->
+
+        <!-- Navigation arrows -->
+        <button class="carousel-arrow carousel-arrow--prev" aria-label="Planeta anterior" type="button">
+          <span class="carousel-arrow-icon" aria-hidden="true">&#9664;</span>
+        </button>
+        <button class="carousel-arrow carousel-arrow--next" aria-label="Próximo planeta" type="button">
+          <span class="carousel-arrow-icon" aria-hidden="true">&#9654;</span>
+        </button>
+
+        <!-- Navigation dots -->
+        <nav class="carousel-dots" aria-label="Navegação do carrossel">
+          <button class="carousel-dot" data-index="0" aria-label="Ir para Calculon" type="button"></button>
+          <button class="carousel-dot" data-index="1" aria-label="Ir para Letrion" type="button"></button>
+          <button class="carousel-dot" data-index="2" aria-label="Ir para Naturox" type="button"></button>
+          <button class="carousel-dot" data-index="3" aria-label="Ir para Terramund" type="button"></button>
+          <button class="carousel-dot" data-index="4" aria-label="Ir para Globish" type="button"></button>
+        </nav>
+
+        <!-- Screen reader live region (populated by JS) -->
+        <div class="carousel-announcer visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
+      </div><!-- /.container -->
     </section>
 
     <!-- Game Cards (Phase 6) -->
@@ -83,6 +154,7 @@
 
   <!-- Homepage-specific JS (scroll behavior + CTA intercept) -->
   <script src="scripts/homepage.js"></script>
+  <script src="scripts/carousel.js"></script>
 
 </body>
 </html>
