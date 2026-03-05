@@ -14,7 +14,7 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 - [x] **Phase 6: Game Cards** — card component, game data, carousel filter integration
 - [x] **Phase 7: Explore Page** — full game grid, planet filter buttons, filter logic
 - [x] **Phase 8: About Us Page** — team section, on-brand design
-- [ ] **Phase 9: 404 Page** — space-themed not-found page
+- [x] **Phase 9: 404 Page** — space-themed not-found page
 - [ ] **Phase 10: Accessibility Audit** — contrast ratios, touch targets, keyboard nav, semantic HTML
 - [ ] **Phase 11: Compatibility & Integration** — GitHub Pages paths, game page isolation, cross-browser check
 
@@ -193,10 +193,10 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
   4. GitHub Pages serves this file automatically for 404s (no config needed — GitHub Pages picks up `404.html` at root)
 
 **Plans:**
-- [ ] 09-01: Scaffold `404.html` from `_template.html`
-- [ ] 09-02: Write 404 page content — kid-friendly space-themed "lost in space" copy, "Voltar para casa" button/link
-- [ ] 09-03: Style 404 page — centered card layout, large 404 display number in Fredoka One, CTA button using `.btn-primario`
-- [ ] 09-04: Verify GitHub Pages serves `404.html` automatically (test by navigating to a nonexistent path)
+- [x] 09-01: Scaffold `404.html` from `_template.html`
+- [x] 09-02: Write 404 page content — kid-friendly space-themed "lost in space" copy, "Voltar para casa" button/link
+- [x] 09-03: Style 404 page — centered card layout, large 404 display number in Fredoka One, CTA button using `.btn-primario`
+- [x] 09-04: Verify GitHub Pages serves `404.html` automatically (test by navigating to a nonexistent path)
 
 ---
 
@@ -259,7 +259,7 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 | 6. Game Cards | 6/6 | Complete | 2026-03-05 |
 | 7. Explore Page | 4/4 | Complete | 2026-03-05 |
 | 8. About Us Page | 2/2 | Complete | 2026-03-05 |
-| 9. 404 Page | 0/4 | Not started | — |
+| 9. 404 Page | 4/4 | Complete | 2026-03-05 |
 | 10. Accessibility Audit | 0/8 | Not started | — |
 | 11. Compatibility & Integration | 0/7 | Not started | — |
 

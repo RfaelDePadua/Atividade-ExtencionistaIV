@@ -5,23 +5,23 @@
 See: [.planning/PROJECT.md](.planning/PROJECT.md) (updated 2026-03-04)
 
 **Core value:** A child lands on the homepage and immediately feels like they're on a space adventure — the planet carousel draws them in and makes picking a game feel like choosing a destination in the universe.
-**Current focus:** Phase 9 (404 Page) — ready for planning/execution.
+**Current focus:** Phase 10 (Accessibility Audit) — ready for planning/execution.
 
 ## Current Position
 
-Phase: 8 of 11 (Complete) — Phase 9 not yet planned
-Plan: 2 of 2
-Status: Phase 8 complete — all 2 plans executed, verified (4/4 SC), ROADMAP/STATE updated
-Last activity: 2026-03-05 — Phase 8 executed. 2 files created/modified: sobre_nos/sobre_nos.html (full rewrite), estilos/pages/sobre_nos.css (new). Verification passed (4/4 SC).
+Phase: 9 of 11 (Complete) — Phase 10 not yet planned
+Plan: 4 of 4
+Status: Phase 9 complete — all 4 plans executed, verified (4/4 SC), ROADMAP/STATE updated
+Last activity: 2026-03-05 — Phase 9 executed. 2 files created/modified: 404.html (full rewrite), estilos/pages/404.css (new). Verification passed (4/4 SC).
 
-Progress: [██████████████████████████████░░░░░░░░] 73%
+Progress: [████████████████████████████████████░░░] 82%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 24
+- Total plans completed: 28
 - Average duration: ~5 min/plan
-- Total execution time: ~120 min
+- Total execution time: ~140 min
 
 **By Phase:**
 
@@ -65,9 +65,11 @@ Progress: [███████████████████████
 - **Phase 7**: `scripts/games.js` public API placed before `init()` call — ensures `window.MeuPlanetinha.games` is defined even if `init()` no-ops on explore page
 - **Phase 8**: CSS initials avatars chosen over image references (images had mismatched filenames in original). `body.page-sobre-nos` scoping pattern follows Phase 4/7 precedent.
 
+- **Phase 9**: `404.html` at root depth — `body.page-404` scoping, all CSS at `estilos/...` (no `../` prefix). GitHub Pages auto-serves `404.html` for unmatched paths — no config needed.
+
 ### Pending Todos
 
-- Run `/gsd:plan-phase 9` then `/gsd:execute-phase 9` to build Phase 9: 404 Page
+- Run `/gsd:plan-phase 10` then `/gsd:execute-phase 10` to build Phase 10: Accessibility Audit
 
 ### Blockers/Concerns
 

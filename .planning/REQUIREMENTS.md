@@ -83,9 +83,9 @@
 
 ### 404 Page (E404)
 
-- [ ] **E404-01**: `404.html` rebuilt — on-brand space theme
-- [ ] **E404-02**: Clear "página não encontrada" message with a link back to the homepage
-- [ ] **E404-03**: GitHub Pages 404.html works automatically (no server config needed)
+- [x] **E404-01**: `404.html` rebuilt — on-brand space theme
+- [x] **E404-02**: Clear "página não encontrada" message with a link back to the homepage
+- [x] **E404-03**: GitHub Pages 404.html works automatically (no server config needed)
 
 ### Accessibility (A11Y)
 
@@ -160,7 +160,7 @@
 | CARD-01 to CARD-06 | Phase 6 | Pending |
 | EXP-01 to EXP-05 | Phase 7 | Complete |
 | ABOUT-01 to ABOUT-03 | Phase 8 | Complete |
-| E404-01 to E404-03 | Phase 9 | Pending |
+| E404-01 to E404-03 | Phase 9 | Complete |
 | A11Y-01 to A11Y-07 | Phase 10 | Pending |
 | COMPAT-01 to COMPAT-05 | Phase 11 | Pending |
 
