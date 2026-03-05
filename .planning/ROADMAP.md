@@ -214,14 +214,11 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
   7. Heading hierarchy is correct on every page (one `<h1>`, logical `<h2>`/`<h3>` nesting)
 
 **Plans:**
-- [ ] 10-01: Run axe DevTools accessibility scan on all 4 pages — document all failures in a checklist
-- [ ] 10-02: Fix all critical contrast failures — adjust text colors or background tints to achieve 5:1+ on all text
-- [ ] 10-03: Fix all missing alt text and aria-labels — planet images, icons, carousel controls, game card stars
-- [ ] 10-04: Keyboard navigation audit — Tab through every page, map any unreachable elements; add `tabindex`, `role`, or restructure HTML as needed
-- [ ] 10-05: Add skip-to-main-content link in nav for screen readers
-- [ ] 10-06: Audit touch target sizes — identify any element under 44×44px (especially carousel dots, nav links on mobile); fix with padding
-- [ ] 10-07: Add `@media (prefers-reduced-motion: reduce)` block to `base.css` disabling all transitions and animations
-- [ ] 10-08: Verify heading hierarchy on each page with a headings outline tool
+- [x] 10-01: CSS touch-target fixes — carousel dot padding trick (14px→44px tap area) + filter button min-height 44px (`carousel.css`, `cards.css`, `explore.css`)
+- [x] 10-02: HTML structural fixes — remove duplicate skip-links from 3 pages; add `tabindex="-1"` to carousel arrows/dots; add `role="region"` to carousel section (`explorar.html`, `sobre_nos.html`, `404.html`, `index.html`)
+- [x] 10-03: `games.js` a11y — named difficulty labels (Fácil/Médio/Difícil) + `role="img"` on stars span + distinct aria-labels on "Jogar!" buttons
+- [x] 10-04: `explore.js` a11y — planet filter buttons announce "Planeta X – Subject" via aria-label
+- [x] 10-05: `carousel.js` keyboard enhancements — Home/End key support + focus management (move focus to #jogos heading after planet selection)
 
 ---
 
@@ -253,14 +250,14 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 |-------|-------|--------|-----------|
 | 1. Design System Foundation | 3/3 | Complete | 2026-03-04 |
 | 2. Shared Nav & Footer | 3/3 | Complete | 2026-03-04 |
-| 3. Global Layout & Background | 0/5 | Not started | — |
-| 4. Homepage Structure & Header | 0/5 | Not started | — |
+| 3. Global Layout & Background | 5/5 | Complete | 2026-03-05 |
+| 4. Homepage Structure & Header | 5/5 | Complete | 2026-03-05 |
 | 5. Planet Carousel | 5/5 | Complete | 2026-03-05 |
 | 6. Game Cards | 6/6 | Complete | 2026-03-05 |
 | 7. Explore Page | 4/4 | Complete | 2026-03-05 |
 | 8. About Us Page | 2/2 | Complete | 2026-03-05 |
 | 9. 404 Page | 4/4 | Complete | 2026-03-05 |
-| 10. Accessibility Audit | 0/8 | Not started | — |
+| 10. Accessibility Audit | 5/5 | Complete | 2026-03-05 |
 | 11. Compatibility & Integration | 0/7 | Not started | — |
 
-**Total:** 64 plans across 11 phases
+**Total:** 61 plans across 11 phases

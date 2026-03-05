@@ -89,13 +89,13 @@
 
 ### Accessibility (A11Y)
 
-- [ ] **A11Y-01**: All body text achieves minimum 4.5:1 contrast ratio against its background (WCAG AA); targets 5:1+ given child audience
-- [ ] **A11Y-02**: All large text and UI components achieve minimum 3:1 contrast ratio
-- [ ] **A11Y-03**: All interactive elements (buttons, links, nav items) have minimum 44×44px touch target
-- [ ] **A11Y-04**: All images and icons have meaningful `alt` text or `aria-label`
-- [ ] **A11Y-05**: Page structure uses correct semantic HTML (`<header>`, `<main>`, `<footer>`, `<nav>`, heading hierarchy)
-- [ ] **A11Y-06**: Entire site is keyboard-navigable (visible focus indicators on all interactive elements)
-- [ ] **A11Y-07**: `prefers-reduced-motion` media query respected — no transitions/animations fire for users with this preference
+- [x] **A11Y-01**: All body text achieves minimum 4.5:1 contrast ratio against its background (WCAG AA); targets 5:1+ given child audience
+- [x] **A11Y-02**: All large text and UI components achieve minimum 3:1 contrast ratio
+- [x] **A11Y-03**: All interactive elements (buttons, links, nav items) have minimum 44×44px touch target
+- [x] **A11Y-04**: All images and icons have meaningful `alt` text or `aria-label`
+- [x] **A11Y-05**: Page structure uses correct semantic HTML (`<header>`, `<main>`, `<footer>`, `<nav>`, heading hierarchy)
+- [x] **A11Y-06**: Entire site is keyboard-navigable (visible focus indicators on all interactive elements)
+- [x] **A11Y-07**: `prefers-reduced-motion` media query respected — no transitions/animations fire for users with this preference
 
 ### Compatibility (COMPAT)
 
@@ -161,7 +161,7 @@
 | EXP-01 to EXP-05 | Phase 7 | Complete |
 | ABOUT-01 to ABOUT-03 | Phase 8 | Complete |
 | E404-01 to E404-03 | Phase 9 | Complete |
-| A11Y-01 to A11Y-07 | Phase 10 | Pending |
+| A11Y-01 to A11Y-07 | Phase 10 | Complete |
 | COMPAT-01 to COMPAT-05 | Phase 11 | Pending |
 
 **Coverage:**

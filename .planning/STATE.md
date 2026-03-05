@@ -5,16 +5,16 @@
 See: [.planning/PROJECT.md](.planning/PROJECT.md) (updated 2026-03-04)
 
 **Core value:** A child lands on the homepage and immediately feels like they're on a space adventure — the planet carousel draws them in and makes picking a game feel like choosing a destination in the universe.
-**Current focus:** Phase 10 (Accessibility Audit) — ready for planning/execution.
+**Current focus:** Phase 11 (Compatibility & Integration) — ready for planning/execution.
 
 ## Current Position
 
-Phase: 9 of 11 (Complete) — Phase 10 not yet planned
-Plan: 4 of 4
-Status: Phase 9 complete — all 4 plans executed, verified (4/4 SC), ROADMAP/STATE updated
-Last activity: 2026-03-05 — Phase 9 executed. 2 files created/modified: 404.html (full rewrite), estilos/pages/404.css (new). Verification passed (4/4 SC).
+Phase: 10 of 11 (Complete) — Phase 11 not yet planned
+Plan: 5 of 5
+Status: Phase 10 complete — all 5 plans executed, verified (7/7 SC), ROADMAP/STATE updated
+Last activity: 2026-03-05 — Phase 10 executed. 9 files modified: estilos/carousel.css, estilos/cards.css, estilos/pages/explore.css, explorar/explorar.html, sobre_nos/sobre_nos.html, 404.html, index.html, scripts/games.js, scripts/explore.js, scripts/carousel.js. Verification passed (7/7 SC).
 
-Progress: [████████████████████████████████████░░░] 82%
+Progress: [█████████████████████████████████████████░░░░] 91%
 
 ## Performance Metrics
 
@@ -66,10 +66,11 @@ Progress: [███████████████████████
 - **Phase 8**: CSS initials avatars chosen over image references (images had mismatched filenames in original). `body.page-sobre-nos` scoping pattern follows Phase 4/7 precedent.
 
 - **Phase 9**: `404.html` at root depth — `body.page-404` scoping, all CSS at `estilos/...` (no `../` prefix). GitHub Pages auto-serves `404.html` for unmatched paths — no config needed.
+- **Phase 10**: All 5 a11y plans executed. Carousel dots use padding+background-clip tap target trick (14px visual, 44px tap). Single-Tab-stop carousel widget (tabindex=-1 on arrows/dots, section handles arrow keys). Named difficulty labels (Fácil/Médio/Difícil). Focus moves to jogos heading after planet selection (Home/End also added).
 
 ### Pending Todos
 
-- Run `/gsd:plan-phase 10` then `/gsd:execute-phase 10` to build Phase 10: Accessibility Audit
+- Run `/gsd:plan-phase 11` then `/gsd:execute-phase 11` to complete Phase 11: Compatibility & Integration
 
 ### Blockers/Concerns
 
