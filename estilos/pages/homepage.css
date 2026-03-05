@@ -1,0 +1,87 @@
+/*
+ * homepage.css — Meu Planetinha Homepage Styles
+ * Page-specific styles for index.html (body.page-home).
+ * Depends on: base.css (tokens), layout.css (container), components.css (nav).
+ * Load AFTER components.css in <head>.
+ */
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 35vh;
+  padding: var(--espaco-3xl) 0 var(--espaco-2xl);
+  text-align: center;
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espaco-md);
+  max-width: var(--largura-max-texto);
+}
+
+.hero-title {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-5xl);
+  font-weight: 400;
+  color: var(--cor-texto);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.hero-subtitle {
+  font-family: var(--fonte-corpo);
+  font-size: var(--texto-xl);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 36ch;
+}
+
+/* Mobile: scale down hero title */
+@media (max-width: 640px) {
+  .hero {
+    min-height: 28vh;
+    padding: var(--espaco-2xl) 0 var(--espaco-xl);
+  }
+
+  .hero-title {
+    font-size: var(--texto-3xl);
+  }
+
+  .hero-subtitle {
+    font-size: var(--texto-lg);
+  }
+}
+
+/* ==========================================
+   DEV PLACEHOLDERS (Phases 5–6)
+   ========================================== */
+
+.dev-placeholder {
+  padding: var(--espaco-2xl) 0;
+}
+
+.dev-placeholder .container {
+  border: 2px dashed rgba(255, 255, 255, 0.25);
+  border-radius: var(--borda-raio-md);
+  padding: var(--espaco-2xl) var(--espaco-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.dev-placeholder-label {
+  font-family: var(--fonte-corpo);
+  font-size: var(--texto-lg);
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  margin: 0;
+}
