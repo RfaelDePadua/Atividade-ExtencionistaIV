@@ -1,6 +1,6 @@
 /*
- * carousel.css — Planet Carousel (Órbita Central)
- * Phase 5 — Meu Planetinha
+ * carousel.css ï¿½ Planet Carousel (ï¿½rbita Central)
+ * Phase 5 ï¿½ Meu Planetinha
  *
  * Layout: 3 visible planets (center + 2 sides), 2 hidden off-screen.
  * JS toggles position classes: --center, --left, --right, --hidden-left, --hidden-right.
@@ -45,7 +45,7 @@
 }
 
 /* ===========================================
-   PLANET CARD — base
+   PLANET CARD ï¿½ base
    =========================================== */
 
 .planet-card {
@@ -126,7 +126,7 @@
 }
 
 /* ===========================================
-   PLANET SPHERE — gradient circles
+   PLANET SPHERE ï¿½ gradient circles
    =========================================== */
 
 .planet-sphere {
@@ -203,7 +203,7 @@
 }
 
 /* ===========================================
-   PLANET INFO — name + subject labels
+   PLANET INFO ï¿½ name + subject labels
    =========================================== */
 
 .planet-info {
@@ -230,7 +230,7 @@
 }
 
 /* ===========================================
-   NAVIGATION ARROWS — rocket-shaped
+   NAVIGATION ARROWS ï¿½ rocket-shaped
    =========================================== */
 
 .carousel-arrow {
@@ -307,13 +307,19 @@
 }
 
 .carousel-dot {
+  /* Visual size: 14Ã—14px dot */
   width: 14px;
   height: 14px;
+  box-sizing: content-box;
   border-radius: 50%;
   border: 2px solid rgba(255, 255, 255, 0.4);
   background: transparent;
+  background-clip: content-box;
   cursor: pointer;
-  padding: 0;
+  /* Touch target expansion: padding + negative margin trick */
+  /* Adds (15px Ã— 2) = 30px to each dimension: 14 + 30 = 44px tap area */
+  padding: 15px;
+  margin: -15px;
   transition:
     background var(--duracao-media) var(--easing-padrao),
     border-color var(--duracao-media) var(--easing-padrao),
@@ -338,6 +344,7 @@
  */
 .carousel-dot--active {
   background: var(--dot-color, var(--cor-primaria));
+  background-clip: content-box;
   border-color: var(--dot-color, var(--cor-primaria));
   transform: scale(1.25);
 }
@@ -383,7 +390,7 @@
 }
 
 /* ===========================================
-   RESPONSIVE — Tablet (=768px)
+   RESPONSIVE ï¿½ Tablet (=768px)
    =========================================== */
 
 @media (max-width: 768px) {
@@ -425,7 +432,7 @@
 }
 
 /* ===========================================
-   RESPONSIVE — Mobile (=480px)
+   RESPONSIVE ï¿½ Mobile (=480px)
    =========================================== */
 
 @media (max-width: 480px) {

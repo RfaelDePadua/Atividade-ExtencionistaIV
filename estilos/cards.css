@@ -53,7 +53,7 @@
 .jogos-filtro-btn {
   font-size: var(--texto-sm);
   padding: var(--espaco-sm) var(--espaco-lg);
-  min-height: 2.25rem;
+  min-height: 2.75rem; /* 44px minimum touch target (WCAG 2.5.5) */
 }
 
 /* ===========================================
