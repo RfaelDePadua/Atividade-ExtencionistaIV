@@ -64,11 +64,27 @@ body {
    ========================================== */
 
 .site-nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
   background: var(--cor-fundo-header);
   padding: var(--espaco-sm) 0;
+  transition: background-color var(--duracao-media) var(--easing-padrao),
+              box-shadow var(--duracao-media) var(--easing-padrao);
+}
+
+/* Homepage: nav starts transparent, gains solid bg on scroll */
+.page-home .site-nav {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Scrolled state: applied by homepage.js after ~80px of scroll */
+.page-home .site-nav--scrolled {
+  background: var(--cor-fundo-header);
+  box-shadow: var(--sombra-md);
 }
 
 .nav-container {
