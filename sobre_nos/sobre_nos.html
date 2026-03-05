@@ -1,102 +1,120 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../estilos/geral.css" rel="stylesheet" />
-    <link href="../estilos/barra_superior.css" rel="stylesheet" />
-    <link href="./estilos/principal.css" rel="stylesheet" />
-    <title>Meu Planetinha</title>
-  </head>
-  <body>
-    <header>
-      <nav class="barra-de-navegacao">
-        <!-- Left: Logo + Site Name -->
-        <div class="logo-container">
-          <a href="../" class="logo-link" aria-label="Meu Planetinha - Página Inicial">
-            <div class="logo-icon">
-              <i class="bi bi-planet"></i>
-            </div>
-            <h1 class="site-name">Meu Planetinha</h1>
-          </a>
-        </div>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conheça a equipe por trás do Meu Planetinha — plataforma educacional gamificada para crianças.">
+  <title>Sobre Nós — Meu Planetinha</title>
 
-        <!-- Center: Navigation Links -->
-        <ul class="nav-links">
-          <li><a href="../index.html">Início</a></li>
-          <li><a href="../explorar/explorar.html">Explorar</a></li>
-          <li><a href="sobre_nos.html" aria-current="page">Sobre Nós</a></li>
-        </ul>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 
-        <!-- Right: Search Bar -->
-        <form class="search-form" role="search">
-          <div class="barra-de-pesquisa">
-            <input 
-              type="search" 
-              placeholder="Pesquisar jogos..." 
-              aria-label="Pesquisar jogos"
-            />
-            <button type="submit" aria-label="Buscar">
-              <i class="bi bi-search"></i>
-            </button>
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- CSS Load Order (depth-1: ../estilos/...) -->
+  <link rel="stylesheet" href="../estilos/reset.css">
+  <link rel="stylesheet" href="../estilos/base.css">
+  <link rel="stylesheet" href="../estilos/layout.css">
+  <link rel="stylesheet" href="../estilos/pages/page-shell.css">
+  <link rel="stylesheet" href="../estilos/componentes.css">
+  <link rel="stylesheet" href="../components/components.css">
+  <link rel="stylesheet" href="../estilos/pages/sobre_nos.css">
+</head>
+<body class="page-sobre-nos">
+
+  <!-- Skip link (accessibility) -->
+  <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+
+  <!-- Nav component -->
+  <div data-component="nav">
+    <noscript>
+      <nav class="site-nav" aria-label="Navegação principal">
+        <div class="nav-container">
+          <a class="nav-logo" href="../index.html">🪐 Meu Planetinha</a>
+          <div class="nav-links">
+            <a href="../explorar/explorar.html">Explorar Jogos</a>
+            <a href="sobre_nos.html" aria-current="page">Sobre Nós</a>
           </div>
-        </form>
+        </div>
       </nav>
-    </header>
+    </noscript>
+  </div>
 
-    <main>
-      <div class="secao-sobre">
-        <h2>-- Desenvolvedores --</h2>
+  <!-- Main content -->
+  <main id="main-content" class="page-wrapper">
+    <div class="container">
 
-        <p>
-          Este website foi idealizado pelo nosso grupo como projeto para a
-          matéria: Atividades Extensionistas, ministrada pelo professor Vinícius
-          Alves Silva do curso Ciência da Computação do IFSul de Minas, Campus
-          Passos, 2024.<br />
-          A ideia inicial é fazer uma plataforma intuitiva de jogos infantis
-          criados originalmente por nós mesmos. <br />
-          O público alvo é crianças de 6-12 anos.<br />
-          Os jogos serão simples e com o intuito de educar de uma forma leve e
-          divertida, de forma que a criança consiga aprender algo novo usando
-          nosso site.
+      <!-- Hero section -->
+      <section class="sobre-hero" aria-labelledby="sobre-titulo">
+        <div class="sobre-hero__icon" aria-hidden="true">🚀</div>
+        <h1 id="sobre-titulo" class="sobre-hero__titulo">Sobre Nós</h1>
+        <p class="sobre-hero__descricao">
+          O <strong>Meu Planetinha</strong> é uma plataforma de jogos educacionais desenvolvida
+          como projeto de Atividades Extensionistas do curso de Ciência da Computação do
+          <strong>IFSul de Minas, Campus Passos</strong> (2024), sob orientação do professor
+          Vinícius Alves Silva.<br><br>
+          Nossa missão é criar jogos simples e divertidos que ajudem crianças de
+          <strong>6 a 12 anos</strong> a aprenderem de forma leve — porque aprender é uma aventura! 🌟
         </p>
+      </section>
 
-        <div class="desenvolvedores">
-          <div class="desenvolvedor">
-            <img src="../midia/robson.jpg" alt="Imagem do desenvolvedor" />
-            <p>
-              <span> (Design e FrontEnd) <br /> </span>
-              Stanley Melo Costa
-            </p>
-          </div>
+      <!-- Team section -->
+      <section class="sobre-equipe" aria-labelledby="equipe-titulo">
+        <h2 id="equipe-titulo" class="sobre-equipe__titulo">Nossa Equipe</h2>
+        <div class="equipe-grid">
 
-          <div class="desenvolvedor">
-            <img src="../midia/stanley.jpg" alt="Imagem do desenvolvedor" />
-            <p>
-              <span> (BackEnd do Website) <br /> </span>
-              Robson Ribeiro Filho
-            </p>
-          </div>
+          <article class="membro-card">
+            <div class="membro-avatar membro-avatar--calculon" aria-hidden="true">SM</div>
+            <h3 class="membro-nome">Stanley Melo Costa</h3>
+            <span class="membro-role">Design &amp; Front-end</span>
+          </article>
 
-          <div class="desenvolvedor">
-            <img src="../midia/rafael.jpg" alt="Imagem do desenvolvedor" />
-            <p>
-              <span> (BackEnd dos Jogos) <br /> </span>
-              Rafael de Pádua Oliveira
-            </p>
-          </div>
+          <article class="membro-card">
+            <div class="membro-avatar membro-avatar--letrion" aria-hidden="true">RR</div>
+            <h3 class="membro-nome">Robson Ribeiro Filho</h3>
+            <span class="membro-role">Back-end do Website</span>
+          </article>
 
-          <div class="desenvolvedor">
-            <img src="../midia/matheus.jpg" alt="Imagem do desenvolvedor" />
-            <p>
-              <span> (BackEnd dos Jogos) <br /> </span>
-              Matheus Terra Wachsmuth
-            </p>
-          </div>
+          <article class="membro-card">
+            <div class="membro-avatar membro-avatar--naturox" aria-hidden="true">RP</div>
+            <h3 class="membro-nome">Rafael de Pádua Oliveira</h3>
+            <span class="membro-role">Back-end dos Jogos</span>
+          </article>
+
+          <article class="membro-card">
+            <div class="membro-avatar membro-avatar--terramund" aria-hidden="true">MT</div>
+            <h3 class="membro-nome">Matheus Terra Wachsmuth</h3>
+            <span class="membro-role">Back-end dos Jogos</span>
+          </article>
+
         </div>
-      </div>
-    </main>
+      </section>
 
-    <footer></footer>
-  </body>
+      <!-- Back to home CTA -->
+      <div class="sobre-cta">
+        <a href="../index.html" class="btn-primario">
+          <i class="bi bi-rocket-takeoff" aria-hidden="true"></i>
+          Explorar os Planetas
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer component -->
+  <div data-component="footer">
+    <noscript>
+      <footer class="site-footer">
+        <p>© 2025–2026 Meu Planetinha</p>
+      </footer>
+    </noscript>
+  </div>
+
+  <!-- Component loader -->
+  <script src="../components/components.js"></script>
+
+</body>
 </html>
