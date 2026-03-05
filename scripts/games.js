@@ -58,30 +58,39 @@
   /**
    * Build a single game card <article> element as an HTML string.
    * data-planeta attribute enables planet-gradient CSS and button variants.
+   * @param {Object} game - Game data object.
+   * @param {string} [basePath] - Optional path prefix for game href (e.g. '../' from depth-1 pages).
    */
-  function createCard(game) {
+  function createCard(game, basePath) {
+    basePath = basePath || '';
     return (
       '<article class="game-card" data-planeta="' + game.planet + '" data-game-id="' + game.id + '">' +
         '<div class="game-card-body">' +
           '<h3 class="game-card-name">' + game.name + '</h3>' +
           '<span class="game-card-subject">' + game.subject + '</span>' +
           createStars(game.difficulty) +
-          '<a href="' + game.path + '" class="btn-primario game-card-btn">Jogar!</a>' +
+          '<a href="' + basePath + game.path + '" class="btn-primario game-card-btn">Jogar!</a>' +
         '</div>' +
       '</article>'
     );
   }
 
   /**
-   * Render all game cards into #game-grid.
+   * Render all game cards into a target grid container.
+   * @param {Object} [options] - Optional configuration.
+   * @param {string} [options.gridId='game-grid'] - ID of the target grid element.
+   * @param {string} [options.basePath=''] - Path prefix for game hrefs (e.g. '../' from depth-1 pages).
    */
-  function renderCards() {
-    var grid = document.getElementById('game-grid');
+  function renderCards(options) {
+    options = options || {};
+    var gridId = options.gridId || 'game-grid';
+    var basePath = options.basePath || '';
+    var grid = document.getElementById(gridId);
     if (!grid) return;
 
     var html = '';
     for (var i = 0; i < GAME_DATA.length; i++) {
-      html += createCard(GAME_DATA[i]);
+      html += createCard(GAME_DATA[i], basePath);
     }
     grid.innerHTML = html;
   }
@@ -97,9 +106,9 @@
    * Hides cards that don't match. Shows cards that do.
    * @param {string|null} planet - Planet slug to filter by, or null to show all.
    */
-  function filterCards(planet) {
+  function filterCards(planet, gridId) {
     activePlanet = planet;
-    var grid = document.getElementById('game-grid');
+    var grid = document.getElementById(gridId || 'game-grid');
     if (!grid) return;
 
     var cards = grid.querySelectorAll('.game-card');
@@ -191,6 +200,20 @@
       }
     });
   }
+
+  /* ------------------------------------------------
+     Public API — consumed by explore page
+     ------------------------------------------------ */
+
+  window.MeuPlanetinha = window.MeuPlanetinha || {};
+  window.MeuPlanetinha.games = {
+    GAME_DATA: GAME_DATA,
+    createCard: createCard,
+    createStars: createStars,
+    renderCards: renderCards,
+    filterCards: filterCards,
+    showAll: showAll
+  };
 
   /* ------------------------------------------------
      Initialization
