@@ -1,6 +1,6 @@
 /**
- * carousel.js — Planet Carousel (Órbita Central)
- * Phase 5 — Meu Planetinha
+ * carousel.js ï¿½ Planet Carousel (ï¿½rbita Central)
+ * Phase 5 ï¿½ Meu Planetinha
  *
  * Interactive carousel with 5 themed planets.
  * Navigation: arrow buttons, keyboard ?/? (scoped), touch swipe, dot clicks.
@@ -29,13 +29,13 @@
     'planet-card--hidden-right'
   ];
 
-  /* Planet data — order must match DOM order */
+  /* Planet data ï¿½ order must match DOM order */
   var PLANETS = [
-    { slug: 'calculon',  name: 'Calculon',  subject: 'Matemática' },
-    { slug: 'letrion',   name: 'Letrion',   subject: 'Português'  },
-    { slug: 'naturox',   name: 'Naturox',   subject: 'Ciências'   },
+    { slug: 'calculon',  name: 'Calculon',  subject: 'Matemï¿½tica' },
+    { slug: 'letrion',   name: 'Letrion',   subject: 'Portuguï¿½s'  },
+    { slug: 'naturox',   name: 'Naturox',   subject: 'Ciï¿½ncias'   },
     { slug: 'terramund', name: 'Terramund', subject: 'Geografia'  },
-    { slug: 'globish',   name: 'Globish',   subject: 'Inglês'     }
+    { slug: 'globish',   name: 'Globish',   subject: 'Inglï¿½s'     }
   ];
 
   /* ------------------------------------------------
@@ -189,7 +189,7 @@
       });
     }
 
-    /* Keyboard — scoped to #carousel section */
+    /* Keyboard â€” scoped to #carousel section */
     this.section.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowLeft') {
         e.preventDefault();
@@ -197,6 +197,12 @@
       } else if (e.key === 'ArrowRight') {
         e.preventDefault();
         self.navigate(1);
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        self.goTo(0);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        self.goTo(PLANET_COUNT - 1);
       }
     });
 
@@ -212,7 +218,7 @@
       }
     });
 
-    /* Touch swipe — scoped to carousel track */
+    /* Touch swipe ï¿½ scoped to carousel track */
     if (this.track) {
       this.track.addEventListener('touchstart', function (e) {
         if (e.touches.length === 1) {
@@ -247,7 +253,7 @@
       })(i);
     }
 
-    /* Center planet click — set as selection (already centered, dispatch event for Phase 6) */
+    /* Center planet click ï¿½ set as selection (already centered, dispatch event for Phase 6) */
     for (var c = 0; c < this.cards.length; c++) {
       (function (cardIndex) {
         self.cards[cardIndex].addEventListener('click', function () {
@@ -267,6 +273,12 @@
               });
             }
             self.section.dispatchEvent(event);
+
+            /* Move focus to game grid heading so screen readers hear filtered results (R3) */
+            var jogosHeading = document.querySelector('#jogos .jogos-titulo');
+            if (jogosHeading) {
+              jogosHeading.focus();
+            }
           }
         });
       })(c);
