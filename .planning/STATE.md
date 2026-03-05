@@ -5,23 +5,23 @@
 See: [.planning/PROJECT.md](.planning/PROJECT.md) (updated 2026-03-04)
 
 **Core value:** A child lands on the homepage and immediately feels like they're on a space adventure — the planet carousel draws them in and makes picking a game feel like choosing a destination in the universe.
-**Current focus:** Phase 7 complete — Explore Page delivered. Phase 8 (About Us Page) is next.
+**Current focus:** Phase 9 (404 Page) — ready for planning/execution.
 
 ## Current Position
 
-Phase: 7 of 11 (Complete)
-Plan: 4 of 4
-Status: Phase 7 complete — all 4 plans executed, verified (7/7 must-haves), ROADMAP/STATE updated
-Last activity: 2026-03-05 — Phase 7 executed. 5 files created/modified: scripts/games.js (public API + basePath refactor), explorar/explorar.html (full rewrite), estilos/pages/explore.css (new), scripts/explore.js (new), estilos/base.css (--cor-foco token). Verification passed (7/7 must-haves).
+Phase: 8 of 11 (Complete) — Phase 9 not yet planned
+Plan: 2 of 2
+Status: Phase 8 complete — all 2 plans executed, verified (4/4 SC), ROADMAP/STATE updated
+Last activity: 2026-03-05 — Phase 8 executed. 2 files created/modified: sobre_nos/sobre_nos.html (full rewrite), estilos/pages/sobre_nos.css (new). Verification passed (4/4 SC).
 
-Progress: [███████████████████████████░░░░░░░░░░░░] 64%
+Progress: [██████████████████████████████░░░░░░░░] 73%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 22
+- Total plans completed: 24
 - Average duration: ~5 min/plan
-- Total execution time: ~110 min
+- Total execution time: ~120 min
 
 **By Phase:**
 
@@ -63,11 +63,11 @@ Progress: [███████████████████████
 
 - **Phase 7**: `explore.css` path used instead of plan-specified `estilos/pages/explorar.css` — consistent naming with JS file (`explore.js`/`explore.css`)
 - **Phase 7**: `scripts/games.js` public API placed before `init()` call — ensures `window.MeuPlanetinha.games` is defined even if `init()` no-ops on explore page
-- **Phase 7**: Plans 07-01/02/03/04 in PLAN files correspond to actual plans executed as 07-01 (games.js refactor), 07-02 (explorar.html), 07-03 (explore.css), 07-04 (explore.js) — roadmap original 6 plans condensed to 4
+- **Phase 8**: CSS initials avatars chosen over image references (images had mismatched filenames in original). `body.page-sobre-nos` scoping pattern follows Phase 4/7 precedent.
 
 ### Pending Todos
 
-- Run `/gsd:discuss-phase 8` or `/gsd:plan-phase 8` to start Phase 8: About Us Page
+- Run `/gsd:plan-phase 9` then `/gsd:execute-phase 9` to build Phase 9: 404 Page
 
 ### Blockers/Concerns
 
@@ -79,5 +79,5 @@ Progress: [███████████████████████
 ## Session Continuity
 
 Last session: 2026-03-05
-Stopped at: Phase 6 complete. All 6 plans executed. 3 files created/modified. Verification passed (6/6 SC). Human-approved. Run `/gsd:discuss-phase 7` or `/gsd:plan-phase 7` to continue.
+Stopped at: Phase 8 complete. All 2 plans executed. 2 files created/modified. Verification passed (4/4 SC). Run `/gsd:plan-phase 9` or `/gsd:execute-phase 9` to continue.
 Resume file: None

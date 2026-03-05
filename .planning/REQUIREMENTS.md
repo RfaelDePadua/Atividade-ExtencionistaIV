@@ -77,9 +77,9 @@
 
 ### About Us Page (ABOUT)
 
-- [ ] **ABOUT-01**: `sobre_nos/sobre_nos.html` rebuilt — consistent with site design system
-- [ ] **ABOUT-02**: Page displays team member names and project description
-- [ ] **ABOUT-03**: On-brand visual design — correct typography, colors, background
+- [x] **ABOUT-01**: `sobre_nos/sobre_nos.html` rebuilt — consistent with site design system
+- [x] **ABOUT-02**: Page displays team member names and project description
+- [x] **ABOUT-03**: On-brand visual design — correct typography, colors, background
 
 ### 404 Page (E404)
 
@@ -159,7 +159,7 @@
 | CAR-01 to CAR-07 | Phase 5 | Complete |
 | CARD-01 to CARD-06 | Phase 6 | Pending |
 | EXP-01 to EXP-05 | Phase 7 | Complete |
-| ABOUT-01 to ABOUT-03 | Phase 8 | Pending |
+| ABOUT-01 to ABOUT-03 | Phase 8 | Complete |
 | E404-01 to E404-03 | Phase 9 | Pending |
 | A11Y-01 to A11Y-07 | Phase 10 | Pending |
 | COMPAT-01 to COMPAT-05 | Phase 11 | Pending |

@@ -13,7 +13,7 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 - [x] **Phase 5: Planet Carousel** — 5 planets, Órbita Central layout, navigation, planet filtering
 - [x] **Phase 6: Game Cards** — card component, game data, carousel filter integration
 - [x] **Phase 7: Explore Page** — full game grid, planet filter buttons, filter logic
-- [ ] **Phase 8: About Us Page** — team section, on-brand design
+- [x] **Phase 8: About Us Page** — team section, on-brand design
 - [ ] **Phase 9: 404 Page** — space-themed not-found page
 - [ ] **Phase 10: Accessibility Audit** — contrast ratios, touch targets, keyboard nav, semantic HTML
 - [ ] **Phase 11: Compatibility & Integration** — GitHub Pages paths, game page isolation, cross-browser check
@@ -177,11 +177,8 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
   4. Page is visually on-brand with rest of site
 
 **Plans:**
-- [ ] 08-01: Scaffold `sobre_nos/sobre_nos.html` from `_template.html`
-- [ ] 08-02: Write page content — project description, team section with member names and roles
-- [ ] 08-03: Create `estilos/pages/sobre_nos.css` — layout for team section (cards or list, centered)
-- [ ] 08-04: Style team member cards with design system tokens
-- [ ] 08-05: Verify nav active state marks "Sobre Nós" as current on this page
+- [x] 08-01: Scaffold `sobre_nos/sobre_nos.html` from `_template.html` — full HTML rewrite: depth-1 paths, nav/footer injection, hero section, project description, 4 team member cards with CSS-initials avatars, CTA button
+- [x] 08-02: Create `estilos/pages/sobre_nos.css` — hero layout, team grid (2-col→1-col), member card styles, planet-colored avatar circles, hover lift, reduced-motion support
 
 ---
 
@@ -261,7 +258,7 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 | 5. Planet Carousel | 5/5 | Complete | 2026-03-05 |
 | 6. Game Cards | 6/6 | Complete | 2026-03-05 |
 | 7. Explore Page | 4/4 | Complete | 2026-03-05 |
-| 8. About Us Page | 0/5 | Not started | — |
+| 8. About Us Page | 2/2 | Complete | 2026-03-05 |
 | 9. 404 Page | 0/4 | Not started | — |
 | 10. Accessibility Audit | 0/8 | Not started | — |
 | 11. Compatibility & Integration | 0/7 | Not started | — |
