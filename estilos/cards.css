@@ -1,0 +1,305 @@
+/*
+ * cards.css — Game Cards (Portal de Entrada)
+ * Phase 6 — Meu Planetinha
+ *
+ * Styles for game card grid, individual cards, difficulty stars,
+ * planet-themed gradients, filter toolbar, and empty state.
+ * Follows Guia-Visual §08 — Portal de Entrada spec.
+ *
+ * Depends on: base.css (tokens), componentes.css (button base)
+ * Load after: carousel.css
+ */
+
+/* ===========================================
+   SECTION
+   =========================================== */
+
+#jogos {
+  padding: var(--espaco-2xl) 0;
+}
+
+.jogos-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-3xl);
+  font-weight: 400;
+  color: var(--cor-texto);
+  text-align: center;
+  margin: 0 0 var(--espaco-xl);
+}
+
+/* ===========================================
+   FILTER TOOLBAR (populated by 06-04 JS)
+   =========================================== */
+
+.jogos-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--espaco-md);
+  margin-bottom: var(--espaco-xl);
+}
+
+.jogos-toolbar:empty {
+  display: none;
+  margin: 0;
+}
+
+.jogos-filtro-label {
+  font-family: var(--fonte-corpo);
+  font-size: var(--texto-base);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.jogos-filtro-btn {
+  font-size: var(--texto-sm);
+  padding: var(--espaco-sm) var(--espaco-lg);
+  min-height: 2.25rem;
+}
+
+/* ===========================================
+   CARD GRID
+   =========================================== */
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--espaco-xl);
+  justify-items: center;
+}
+
+/* ===========================================
+   GAME CARD — base
+   =========================================== */
+
+.game-card {
+  width: 100%;
+  max-width: 340px;
+  border-radius: var(--borda-raio-xl);
+  overflow: hidden;
+  box-shadow: var(--sombra-md);
+  transition:
+    transform var(--duracao-rapida) var(--easing-padrao),
+    box-shadow var(--duracao-rapida) var(--easing-padrao);
+  /* Default gradient fallback */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.05)
+  );
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-lg);
+}
+
+/* ===========================================
+   CARD BODY
+   =========================================== */
+
+.game-card-body {
+  padding: var(--espaco-2xl) var(--espaco-lg) var(--espaco-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espaco-md);
+  text-align: center;
+}
+
+.game-card-name {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-2xl);
+  font-weight: 400;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.game-card-subject {
+  font-family: var(--fonte-corpo);
+  font-size: var(--texto-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+/* ===========================================
+   DIFFICULTY STARS (Bootstrap Icons)
+   =========================================== */
+
+.game-card-stars {
+  display: flex;
+  gap: var(--espaco-xs);
+  align-items: center;
+}
+
+.game-card-star {
+  font-size: var(--texto-lg);
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.game-card-star--filled {
+  color: var(--cor-amarelo-sol);
+}
+
+/* ===========================================
+   CARD BUTTON — white on planet background
+   =========================================== */
+
+.game-card .game-card-btn {
+  margin-top: var(--espaco-sm);
+  min-width: 140px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--cor-texto-escuro);
+  box-shadow: var(--sombra-sm);
+}
+
+.game-card .game-card-btn:hover {
+  background: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-md);
+}
+
+.game-card .game-card-btn:active {
+  transform: translateY(1px);
+  box-shadow: var(--sombra-sm);
+}
+
+/* ===========================================
+   PLANET GRADIENT BACKGROUNDS
+   =========================================== */
+
+/* Calculon — Matemática */
+.game-card[data-planeta="calculon"] {
+  background: linear-gradient(
+    135deg,
+    var(--planeta-calculon-cor),
+    var(--planeta-calculon-acento)
+  );
+}
+
+/* Letrion — Português */
+.game-card[data-planeta="letrion"] {
+  background: linear-gradient(
+    135deg,
+    var(--planeta-letrion-cor),
+    var(--planeta-letrion-acento)
+  );
+}
+
+/* Naturox — Ciências */
+.game-card[data-planeta="naturox"] {
+  background: linear-gradient(
+    135deg,
+    var(--planeta-naturox-cor),
+    var(--planeta-naturox-acento)
+  );
+}
+
+/* Terramund — Geografia */
+.game-card[data-planeta="terramund"] {
+  background: linear-gradient(
+    135deg,
+    var(--planeta-terramund-cor),
+    var(--planeta-terramund-acento)
+  );
+}
+
+/* Globish — Inglês */
+.game-card[data-planeta="globish"] {
+  background: linear-gradient(
+    135deg,
+    var(--planeta-globish-cor),
+    var(--planeta-globish-acento)
+  );
+}
+
+/* --- Contrast overrides for light planet backgrounds --- */
+
+.game-card[data-planeta="naturox"] .game-card-name,
+.game-card[data-planeta="naturox"] .game-card-subject,
+.game-card[data-planeta="globish"] .game-card-name,
+.game-card[data-planeta="globish"] .game-card-subject {
+  color: var(--cor-texto-escuro);
+}
+
+.game-card[data-planeta="naturox"] .game-card-star,
+.game-card[data-planeta="globish"] .game-card-star {
+  color: rgba(13, 26, 58, 0.3);
+}
+
+.game-card[data-planeta="naturox"] .game-card-star--filled,
+.game-card[data-planeta="globish"] .game-card-star--filled {
+  color: var(--cor-texto-escuro);
+}
+
+/* --- Button on light backgrounds: dark button for contrast --- */
+
+.game-card[data-planeta="naturox"] .game-card-btn,
+.game-card[data-planeta="globish"] .game-card-btn {
+  background: var(--cor-texto-escuro);
+  color: #FFFFFF;
+}
+
+.game-card[data-planeta="naturox"] .game-card-btn:hover,
+.game-card[data-planeta="globish"] .game-card-btn:hover {
+  background: #0A1530;
+}
+
+/* ===========================================
+   HIDDEN STATE (filter — applied by JS)
+   =========================================== */
+
+.game-card[hidden] {
+  display: none;
+}
+
+/* ===========================================
+   EMPTY STATE (rendered by JS)
+   =========================================== */
+
+.game-grid-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--espaco-2xl) var(--espaco-lg);
+}
+
+.game-grid-empty-icon {
+  font-size: var(--texto-4xl);
+  display: block;
+  margin-bottom: var(--espaco-md);
+  opacity: 0.6;
+}
+
+.game-grid-empty-text {
+  font-family: var(--fonte-corpo);
+  font-size: var(--texto-lg);
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+
+@media (max-width: 640px) {
+  .game-grid {
+    grid-template-columns: 1fr;
+    gap: var(--espaco-lg);
+  }
+
+  .game-card {
+    max-width: 100%;
+  }
+
+  .jogos-titulo {
+    font-size: var(--texto-2xl);
+  }
+
+  .jogos-toolbar {
+    flex-direction: column;
+    gap: var(--espaco-sm);
+  }
+}
