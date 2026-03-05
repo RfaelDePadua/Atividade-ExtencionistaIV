@@ -56,7 +56,7 @@
     </section>
 
     <!-- Planet Carousel (Phase 5) -->
-    <section id="carousel" aria-label="Carrossel de planetas" data-active-planet="calculon" tabindex="0">
+    <section id="carousel" role="region" aria-label="Carrossel de planetas" data-active-planet="calculon" tabindex="0">
       <div class="container">
 
         <!-- Carousel viewport -->
@@ -110,20 +110,20 @@
         </div><!-- /.carousel-track -->
 
         <!-- Navigation arrows -->
-        <button class="carousel-arrow carousel-arrow--prev" aria-label="Planeta anterior" type="button">
+        <button class="carousel-arrow carousel-arrow--prev" aria-label="Planeta anterior" type="button" tabindex="-1">
           <span class="carousel-arrow-icon" aria-hidden="true">&#9664;</span>
         </button>
-        <button class="carousel-arrow carousel-arrow--next" aria-label="Próximo planeta" type="button">
+        <button class="carousel-arrow carousel-arrow--next" aria-label="Próximo planeta" type="button" tabindex="-1">
           <span class="carousel-arrow-icon" aria-hidden="true">&#9654;</span>
         </button>
 
         <!-- Navigation dots -->
         <nav class="carousel-dots" aria-label="Navegação do carrossel">
-          <button class="carousel-dot" data-index="0" aria-label="Ir para Calculon" type="button"></button>
-          <button class="carousel-dot" data-index="1" aria-label="Ir para Letrion" type="button"></button>
-          <button class="carousel-dot" data-index="2" aria-label="Ir para Naturox" type="button"></button>
-          <button class="carousel-dot" data-index="3" aria-label="Ir para Terramund" type="button"></button>
-          <button class="carousel-dot" data-index="4" aria-label="Ir para Globish" type="button"></button>
+          <button class="carousel-dot" data-index="0" aria-label="Ir para Calculon" type="button" tabindex="-1"></button>
+          <button class="carousel-dot" data-index="1" aria-label="Ir para Letrion" type="button" tabindex="-1"></button>
+          <button class="carousel-dot" data-index="2" aria-label="Ir para Naturox" type="button" tabindex="-1"></button>
+          <button class="carousel-dot" data-index="3" aria-label="Ir para Terramund" type="button" tabindex="-1"></button>
+          <button class="carousel-dot" data-index="4" aria-label="Ir para Globish" type="button" tabindex="-1"></button>
         </nav>
 
         <!-- Screen reader live region (populated by JS) -->
@@ -135,7 +135,7 @@
     <!-- Game Cards (Phase 6) -->
     <section id="jogos" aria-label="Jogos disponíveis">
       <div class="container">
-        <h2 class="jogos-titulo">Jogos Disponíveis</h2>
+        <h2 class="jogos-titulo" tabindex="-1">Jogos Disponíveis</h2>
         <div id="jogos-toolbar" class="jogos-toolbar"></div>
         <div id="game-grid" class="game-grid" aria-live="polite"></div>
       </div>
