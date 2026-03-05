@@ -21,11 +21,11 @@
 
   /* Planet definitions — derived from GAME_DATA to get unique planets */
   var PLANET_INFO = [
-    { slug: 'calculon',  label: 'Calculon'  },
-    { slug: 'letrion',   label: 'Letrion'   },
-    { slug: 'naturox',   label: 'Naturox'   },
-    { slug: 'terramund', label: 'Terramund' },
-    { slug: 'globish',   label: 'Globish'   }
+    { slug: 'calculon',  label: 'Calculon',  subject: 'Matemática' },
+    { slug: 'letrion',   label: 'Letrion',   subject: 'Português'  },
+    { slug: 'naturox',   label: 'Naturox',   subject: 'Ciências'   },
+    { slug: 'terramund', label: 'Terramund', subject: 'Geografia'  },
+    { slug: 'globish',   label: 'Globish',   subject: 'Inglês'     }
   ];
 
   var activePlanet = null; // null = show all
@@ -111,7 +111,8 @@
     // One button per planet
     for (var i = 0; i < PLANET_INFO.length; i++) {
       var p = PLANET_INFO[i];
-      html += '<button class="explore-filter-btn" data-planet="' + p.slug + '" type="button">' + p.label + '</button>';
+      html += '<button class="explore-filter-btn" data-planet="' + p.slug + '" type="button" ' +
+              'aria-label="Planeta ' + p.label + ' \u2013 ' + p.subject + '">' + p.label + '</button>';
     }
 
     container.innerHTML = html;
