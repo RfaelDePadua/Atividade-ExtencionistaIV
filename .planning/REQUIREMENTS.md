@@ -50,13 +50,13 @@
 
 ### Planet Carousel (CAR)
 
-- [ ] **CAR-01**: 5 planets displayed: Calculon (Math/#FF8C42), Letrion (Portuguese/#C084FC), Naturox (Science/#4DFFB4), Terramund (Geography/#D4622A), Globish (English/#00D4E8)
-- [ ] **CAR-02**: Órbita Central layout — center planet prominent and larger, side planets smaller; center-focused layout
-- [ ] **CAR-03**: Each planet card shows: planet name, subject label, themed color
-- [ ] **CAR-04**: Carousel is navigable via left/right arrow buttons, keyboard (←/→ keys), and touch swipe
-- [ ] **CAR-05**: Carousel navigation dots show current position
-- [ ] **CAR-06**: Clicking/tapping the center planet filters the game cards below to that planet's subject
-- [ ] **CAR-07**: Planet cards use the planet's themed color as their visual base — visually distinct per planet
+- [x] **CAR-01**: 5 planets displayed: Calculon (Math/#FF8C42), Letrion (Portuguese/#C084FC), Naturox (Science/#4DFFB4), Terramund (Geography/#D4622A), Globish (English/#00D4E8)
+- [x] **CAR-02**: Órbita Central layout — center planet prominent and larger, side planets smaller; center-focused layout
+- [x] **CAR-03**: Each planet card shows: planet name, subject label, themed color
+- [x] **CAR-04**: Carousel is navigable via left/right arrow buttons, keyboard (←/→ keys), and touch swipe
+- [x] **CAR-05**: Carousel navigation dots show current position
+- [x] **CAR-06**: Clicking/tapping the center planet filters the game cards below to that planet's subject
+- [x] **CAR-07**: Planet cards use the planet's themed color as their visual base — visually distinct per planet
 
 ### Game Cards (CARD)
 
@@ -156,7 +156,7 @@
 | FOOT-01 to FOOT-04 | Phase 2 | Complete |
 | BG-01 to BG-03 | Phase 3 | Pending |
 | HOME-01 to HOME-05 | Phase 4 | Complete |
-| CAR-01 to CAR-07 | Phase 5 | Pending |
+| CAR-01 to CAR-07 | Phase 5 | Complete |
 | CARD-01 to CARD-06 | Phase 6 | Pending |
 | EXP-01 to EXP-05 | Phase 7 | Pending |
 | ABOUT-01 to ABOUT-03 | Phase 8 | Pending |

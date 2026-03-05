@@ -10,7 +10,7 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 - [x] **Phase 2: Shared Nav & Footer Components** — fetch-based component loader, nav.html, footer.html
 - [x] **Phase 3: Global Layout & Space Background** — body gradient, container system, spacing scale, page shell
 - [x] **Phase 4: Homepage Structure & Header** — index.html scaffold, fixed header, hero section
-- [ ] **Phase 5: Planet Carousel** — 5 planets, Órbita Central layout, navigation, planet filtering
+- [x] **Phase 5: Planet Carousel** — 5 planets, Órbita Central layout, navigation, planet filtering
 - [ ] **Phase 6: Game Cards** — card component, game data, carousel filter integration
 - [ ] **Phase 7: Explore Page** — full game grid, planet filter buttons, filter logic
 - [ ] **Phase 8: About Us Page** — team section, on-brand design
@@ -116,14 +116,11 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
   8. Each planet card is visually distinct — themed color backgrounds
 
 **Plans:**
-- [ ] 05-01: Create carousel HTML in `index.html` — `.carousel-section` with 5 `.planet-card` elements, navigation arrows, dots
-- [ ] 05-02: Create `estilos/components/carousel.css` — Órbita Central layout: center card scaled up, side cards smaller, overflow visible with CSS 3D or scale transforms
-- [ ] 05-03: Style each planet card with its Guia-Visual color theme — background gradient, planet name (Fredoka One), subject label (Nunito)
-- [ ] 05-04: Rewrite `scripts/carousel.js` — `PlanetCarousel` class: manages `currentIndex`, CSS class transitions, dispatches `planetSelected` custom event
-- [ ] 05-05: Implement keyboard navigation in `PlanetCarousel` — ←/→ keys when carousel section is focused
-- [ ] 05-06: Implement touch/swipe navigation in `PlanetCarousel` — touch start/end delta detection
-- [ ] 05-07: Implement navigation dots — render dynamically in JS, update on planet change
-- [ ] 05-08: Visual review — compare carousel against Guia-Visual Section 06 mockup descriptions; verify all 5 planets visible and themed correctly
+- [x] 05-01: Create carousel HTML in `index.html` — complete 2026-03-05
+- [x] 05-02: Overwrite `estilos/carousel.css` — Órbita Central layout — complete 2026-03-05
+- [x] 05-03: Overwrite `scripts/carousel.js` — PlanetCarousel class — complete 2026-03-05
+- [x] 05-04: ARIA enhancements — all checks pass from prior plans — complete 2026-03-05
+- [x] 05-05: Verification — 15/15 must-haves, 8/8 SC, 7/7 CAR — complete 2026-03-05
 
 ---
 
@@ -263,7 +260,7 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 | 2. Shared Nav & Footer | 3/3 | Complete | 2026-03-04 |
 | 3. Global Layout & Background | 0/5 | Not started | — |
 | 4. Homepage Structure & Header | 0/5 | Not started | — |
-| 5. Planet Carousel | 0/8 | Not started | — |
+| 5. Planet Carousel | 5/5 | Complete | 2026-03-05 |
 | 6. Game Cards | 0/6 | Not started | — |
 | 7. Explore Page | 0/6 | Not started | — |
 | 8. About Us Page | 0/5 | Not started | — |

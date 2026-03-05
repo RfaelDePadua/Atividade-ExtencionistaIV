@@ -5,16 +5,16 @@
 See: [.planning/PROJECT.md](.planning/PROJECT.md) (updated 2026-03-04)
 
 **Core value:** A child lands on the homepage and immediately feels like they're on a space adventure — the planet carousel draws them in and makes picking a game feel like choosing a destination in the universe.
-**Current focus:** Phase 4 complete — Homepage Structure & Header delivered. Phase 5 (Planet Carousel) is next.
+**Current focus:** Phase 5 complete — Planet Carousel delivered. Phase 6 (Game Cards) is next.
 
 ## Current Position
 
-Phase: 4 of 11 (Complete)
+Phase: 5 of 11 (Complete)
 Plan: 5 of 5
-Status: Phase 4 complete — all 5 plans executed, verified (6/6 must-haves), ROADMAP/STATE updated
-Last activity: 2026-03-04 — Phase 4 executed. 5 files created/modified: index.html (scaffolded), estilos/pages/homepage.css (hero + placeholders), estilos/base.css (scroll-behavior smooth), components/components.css (fixed header + transparent/scrolled states), scripts/homepage.js (scroll listener + CTA intercept). Verification passed (6/6 must-haves).
+Status: Phase 5 complete — all 5 plans executed, verified (15/15 must-haves, 8/8 SC, 7/7 CAR), ROADMAP/STATE updated
+Last activity: 2026-03-05 — Phase 5 executed. 3 files created/modified: index.html (carousel HTML), estilos/carousel.css (Órbita Central layout rewrite), scripts/carousel.js (PlanetCarousel class rewrite). Verification passed (15/15).
 
-Progress: [███████████████░░░░░░░░░░░░░░░░░░░░░░░░] 36%
+Progress: [██████████████████░░░░░░░░░░░░░░░░░░░░░] 45%
 
 ## Performance Metrics
 
@@ -31,9 +31,10 @@ Progress: [███████████████░░░░░░░░
 | Phase 2: Shared Nav & Footer | 3 | ~25 min | ~8 min |
 | Phase 3: Global Layout & Space Background | 5 | ~20 min | ~4 min |
 | Phase 4: Homepage Structure & Header | 5 | ~34 min | ~7 min |
+| Phase 5: Planet Carousel | 5 | ~25 min | ~5 min |
 
 **Recent Trend:**
-- Phase 4 complete: 5 plans, 3 files created (homepage.css, homepage.js, index.html), 2 files modified (base.css, components.css). All 6 criteria pass first time — no bugs found.
+- Phase 5 complete: 5 plans, 3 files created/modified (index.html, carousel.css, carousel.js). All 15 must-haves pass first time — no bugs found.
 
 *Updated after each plan completion*
 
@@ -61,7 +62,7 @@ Progress: [███████████████░░░░░░░░
 
 ### Pending Todos
 
-- Run `/gsd:discuss-phase 5` or `/gsd:plan-phase 5` to start Phase 5: Planet Carousel (5 planets, Órbita Central layout, keyboard/touch/click navigation)
+- Run `/gsd:plan-phase 6` or `/gsd:execute-phase 6` to start Phase 6: Game Cards
 
 ### Blockers/Concerns
 
@@ -72,6 +73,6 @@ Progress: [███████████████░░░░░░░░
 
 ## Session Continuity
 
-Last session: 2026-03-04
-Stopped at: Phase 4 complete. All 5 plans executed. 5 files created/modified. Verification passed (6/6). Run `/gsd:discuss-phase 5` or `/gsd:plan-phase 5` to continue.
+Last session: 2026-03-05
+Stopped at: Phase 5 complete. All 5 plans executed. 3 files created/modified. Verification passed (15/15). Run `/gsd:plan-phase 6` or `/gsd:execute-phase 6` to continue.
 Resume file: None
