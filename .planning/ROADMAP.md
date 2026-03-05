@@ -12,7 +12,7 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 - [x] **Phase 4: Homepage Structure & Header** — index.html scaffold, fixed header, hero section
 - [x] **Phase 5: Planet Carousel** — 5 planets, Órbita Central layout, navigation, planet filtering
 - [x] **Phase 6: Game Cards** — card component, game data, carousel filter integration
-- [ ] **Phase 7: Explore Page** — full game grid, planet filter buttons, filter logic
+- [x] **Phase 7: Explore Page** — full game grid, planet filter buttons, filter logic
 - [ ] **Phase 8: About Us Page** — team section, on-brand design
 - [ ] **Phase 9: 404 Page** — space-themed not-found page
 - [ ] **Phase 10: Accessibility Audit** — contrast ratios, touch targets, keyboard nav, semantic HTML
@@ -159,12 +159,10 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
   6. Page heading "Explorar Jogos" or equivalent clearly introduces the page
 
 **Plans:**
-- [ ] 07-01: Scaffold `explorar/explorar.html` from `_template.html` — nav/footer placeholders, filter section, game grid section
-- [ ] 07-02: Create `estilos/pages/explorar.css` — page-specific styles (filter bar, grid layout)
-- [ ] 07-03: Implement planet filter buttons from game data — rendered dynamically in JS from `scripts/games.js`
-- [ ] 07-04: Implement Explore page filter logic — button click filters `#explore-grid` cards; active button state uses `data-planet` attribute and planet color variable
-- [ ] 07-05: Render all game cards on page load using the shared card component from Phase 6
-- [ ] 07-06: Ensure card "Jogar!" links use correct relative paths from `/explorar/` depth (`../jogos/...`)
+- [x] 07-01: Refactor `scripts/games.js` — expose public API and basePath parameter
+- [x] 07-02: Scaffold `explorar/explorar.html` from `_template.html` — nav/footer placeholders, filter section, game grid section
+- [x] 07-03: Create `estilos/pages/explore.css` — page-specific styles (filter bar, grid layout)
+- [x] 07-04: Create `scripts/explore.js` — filter buttons, card rendering, filter logic (consolidates 07-03 through 07-06)
 
 ---
 
@@ -262,7 +260,7 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 | 4. Homepage Structure & Header | 0/5 | Not started | — |
 | 5. Planet Carousel | 5/5 | Complete | 2026-03-05 |
 | 6. Game Cards | 6/6 | Complete | 2026-03-05 |
-| 7. Explore Page | 0/6 | Not started | — |
+| 7. Explore Page | 4/4 | Complete | 2026-03-05 |
 | 8. About Us Page | 0/5 | Not started | — |
 | 9. 404 Page | 0/4 | Not started | — |
 | 10. Accessibility Audit | 0/8 | Not started | — |

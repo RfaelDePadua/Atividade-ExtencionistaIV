@@ -5,16 +5,16 @@
 See: [.planning/PROJECT.md](.planning/PROJECT.md) (updated 2026-03-04)
 
 **Core value:** A child lands on the homepage and immediately feels like they're on a space adventure — the planet carousel draws them in and makes picking a game feel like choosing a destination in the universe.
-**Current focus:** Phase 6 complete — Game Cards delivered. Phase 7 (Explore Page) is next.
+**Current focus:** Phase 7 complete — Explore Page delivered. Phase 8 (About Us Page) is next.
 
 ## Current Position
 
-Phase: 6 of 11 (Complete)
-Plan: 6 of 6
-Status: Phase 6 complete — all 6 plans executed, verified (6/6 SC, 7/7 must-haves), human-approved, ROADMAP/STATE updated
-Last activity: 2026-03-05 — Phase 6 executed. 3 files created/modified: scripts/games.js (game data + renderer + filter), estilos/cards.css (Portal de Entrada styles), index.html (section + CSS + JS wiring). Verification passed (6/6 SC).
+Phase: 7 of 11 (Complete)
+Plan: 4 of 4
+Status: Phase 7 complete — all 4 plans executed, verified (7/7 must-haves), ROADMAP/STATE updated
+Last activity: 2026-03-05 — Phase 7 executed. 5 files created/modified: scripts/games.js (public API + basePath refactor), explorar/explorar.html (full rewrite), estilos/pages/explore.css (new), scripts/explore.js (new), estilos/base.css (--cor-foco token). Verification passed (7/7 must-haves).
 
-Progress: [████████████████████████░░░░░░░░░░░░░░░] 55%
+Progress: [███████████████████████████░░░░░░░░░░░░] 64%
 
 ## Performance Metrics
 
@@ -61,13 +61,13 @@ Progress: [███████████████████████
 - **Phase 4**: homepage.js IIFE pattern — page-specific JS loaded after components.js, no global pollution
 - **Phase 4**: `.nav-cta` intercept via event delegation on `[data-component="nav"]` wrapper — catches both desktop + mobile CTAs
 
-- **Phase 6**: `estilos/cards.css` path used instead of plan-specified `estilos/components/card.css` — simpler, consistent with existing flat structure in `estilos/`
-- **Phase 6**: Filter + empty state logic unified in `filterCards()` — single pass handles visibility, empty state, and toolbar state
-- **Phase 6**: `planet-selected` event listened on `document` (not `#carousel`) — more robust, avoids carousel DOM dependency in games.js
+- **Phase 7**: `explore.css` path used instead of plan-specified `estilos/pages/explorar.css` — consistent naming with JS file (`explore.js`/`explore.css`)
+- **Phase 7**: `scripts/games.js` public API placed before `init()` call — ensures `window.MeuPlanetinha.games` is defined even if `init()` no-ops on explore page
+- **Phase 7**: Plans 07-01/02/03/04 in PLAN files correspond to actual plans executed as 07-01 (games.js refactor), 07-02 (explorar.html), 07-03 (explore.css), 07-04 (explore.js) — roadmap original 6 plans condensed to 4
 
 ### Pending Todos
 
-- Run `/gsd:discuss-phase 7` or `/gsd:plan-phase 7` to start Phase 7: Explore Page
+- Run `/gsd:discuss-phase 8` or `/gsd:plan-phase 8` to start Phase 8: About Us Page
 
 ### Blockers/Concerns
 

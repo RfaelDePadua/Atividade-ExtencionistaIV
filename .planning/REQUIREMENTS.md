@@ -69,11 +69,11 @@
 
 ### Explore Page (EXP)
 
-- [ ] **EXP-01**: `explorar/explorar.html` rebuilt — consistent with site design
-- [ ] **EXP-02**: Shows all available games in a responsive card grid (same card component as homepage)
-- [ ] **EXP-03**: Planet filter buttons above the grid — 5 buttons (one per planet) + "Todos" — filter the grid by subject
-- [ ] **EXP-04**: Active filter button highlighted using planet's color
-- [ ] **EXP-05**: Page title and heading clearly identify this as the games exploration page
+- [x] **EXP-01**: `explorar/explorar.html` rebuilt — consistent with site design
+- [x] **EXP-02**: Shows all available games in a responsive card grid (same card component as homepage)
+- [x] **EXP-03**: Planet filter buttons above the grid — 5 buttons (one per planet) + "Todos" — filter the grid by subject
+- [x] **EXP-04**: Active filter button highlighted using planet's color
+- [x] **EXP-05**: Page title and heading clearly identify this as the games exploration page
 
 ### About Us Page (ABOUT)
 
@@ -158,7 +158,7 @@
 | HOME-01 to HOME-05 | Phase 4 | Complete |
 | CAR-01 to CAR-07 | Phase 5 | Complete |
 | CARD-01 to CARD-06 | Phase 6 | Pending |
-| EXP-01 to EXP-05 | Phase 7 | Pending |
+| EXP-01 to EXP-05 | Phase 7 | Complete |
 | ABOUT-01 to ABOUT-03 | Phase 8 | Pending |
 | E404-01 to E404-03 | Phase 9 | Pending |
 | A11Y-01 to A11Y-07 | Phase 10 | Pending |
