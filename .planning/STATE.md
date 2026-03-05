@@ -5,36 +5,37 @@
 See: [.planning/PROJECT.md](.planning/PROJECT.md) (updated 2026-03-04)
 
 **Core value:** A child lands on the homepage and immediately feels like they're on a space adventure — the planet carousel draws them in and makes picking a game feel like choosing a destination in the universe.
-**Current focus:** Phase 5 complete — Planet Carousel delivered. Phase 6 (Game Cards) is next.
+**Current focus:** Phase 6 complete — Game Cards delivered. Phase 7 (Explore Page) is next.
 
 ## Current Position
 
-Phase: 5 of 11 (Complete)
-Plan: 5 of 5
-Status: Phase 5 complete — all 5 plans executed, verified (15/15 must-haves, 8/8 SC, 7/7 CAR), ROADMAP/STATE updated
-Last activity: 2026-03-05 — Phase 5 executed. 3 files created/modified: index.html (carousel HTML), estilos/carousel.css (Órbita Central layout rewrite), scripts/carousel.js (PlanetCarousel class rewrite). Verification passed (15/15).
+Phase: 6 of 11 (Complete)
+Plan: 6 of 6
+Status: Phase 6 complete — all 6 plans executed, verified (6/6 SC, 7/7 must-haves), human-approved, ROADMAP/STATE updated
+Last activity: 2026-03-05 — Phase 6 executed. 3 files created/modified: scripts/games.js (game data + renderer + filter), estilos/cards.css (Portal de Entrada styles), index.html (section + CSS + JS wiring). Verification passed (6/6 SC).
 
-Progress: [██████████████████░░░░░░░░░░░░░░░░░░░░░] 45%
+Progress: [████████████████████████░░░░░░░░░░░░░░░] 55%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 16
+- Total plans completed: 22
 - Average duration: ~5 min/plan
-- Total execution time: ~80 min
+- Total execution time: ~110 min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|----------|
+|-------|-------|-------|---------|
 | Phase 1: Design System Foundation | 3 | ~15 min | ~5 min |
 | Phase 2: Shared Nav & Footer | 3 | ~25 min | ~8 min |
 | Phase 3: Global Layout & Space Background | 5 | ~20 min | ~4 min |
 | Phase 4: Homepage Structure & Header | 5 | ~34 min | ~7 min |
 | Phase 5: Planet Carousel | 5 | ~25 min | ~5 min |
+| Phase 6: Game Cards | 6 | ~15 min | ~3 min |
 
 **Recent Trend:**
-- Phase 5 complete: 5 plans, 3 files created/modified (index.html, carousel.css, carousel.js). All 15 must-haves pass first time — no bugs found.
+- Phase 6 complete: 6 plans, 3 files created/modified (scripts/games.js, estilos/cards.css, index.html). All 6 SC passed first time, human-approved — no bugs found.
 
 *Updated after each plan completion*
 
@@ -60,9 +61,13 @@ Progress: [██████████████████░░░░░
 - **Phase 4**: homepage.js IIFE pattern — page-specific JS loaded after components.js, no global pollution
 - **Phase 4**: `.nav-cta` intercept via event delegation on `[data-component="nav"]` wrapper — catches both desktop + mobile CTAs
 
+- **Phase 6**: `estilos/cards.css` path used instead of plan-specified `estilos/components/card.css` — simpler, consistent with existing flat structure in `estilos/`
+- **Phase 6**: Filter + empty state logic unified in `filterCards()` — single pass handles visibility, empty state, and toolbar state
+- **Phase 6**: `planet-selected` event listened on `document` (not `#carousel`) — more robust, avoids carousel DOM dependency in games.js
+
 ### Pending Todos
 
-- Run `/gsd:plan-phase 6` or `/gsd:execute-phase 6` to start Phase 6: Game Cards
+- Run `/gsd:discuss-phase 7` or `/gsd:plan-phase 7` to start Phase 7: Explore Page
 
 ### Blockers/Concerns
 
@@ -74,5 +79,5 @@ Progress: [██████████████████░░░░░
 ## Session Continuity
 
 Last session: 2026-03-05
-Stopped at: Phase 5 complete. All 5 plans executed. 3 files created/modified. Verification passed (15/15). Run `/gsd:plan-phase 6` or `/gsd:execute-phase 6` to continue.
+Stopped at: Phase 6 complete. All 6 plans executed. 3 files created/modified. Verification passed (6/6 SC). Human-approved. Run `/gsd:discuss-phase 7` or `/gsd:plan-phase 7` to continue.
 Resume file: None

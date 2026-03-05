@@ -11,7 +11,7 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 - [x] **Phase 3: Global Layout & Space Background** — body gradient, container system, spacing scale, page shell
 - [x] **Phase 4: Homepage Structure & Header** — index.html scaffold, fixed header, hero section
 - [x] **Phase 5: Planet Carousel** — 5 planets, Órbita Central layout, navigation, planet filtering
-- [ ] **Phase 6: Game Cards** — card component, game data, carousel filter integration
+- [x] **Phase 6: Game Cards** — card component, game data, carousel filter integration
 - [ ] **Phase 7: Explore Page** — full game grid, planet filter buttons, filter logic
 - [ ] **Phase 8: About Us Page** — team section, on-brand design
 - [ ] **Phase 9: 404 Page** — space-themed not-found page
@@ -137,12 +137,12 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
   6. Card visual matches Guia-Visual Portal de Entrada style — planet-themed gradient, rounded corners, "Jogar!" button
 
 **Plans:**
-- [ ] 06-01: Create game data definition — a JS constant array of game objects `{ id, name, planet, difficulty, path }` in `scripts/games.js`
-- [ ] 06-02: Create `estilos/components/card.css` — Portal de Entrada card styles: planet-themed gradient background, rounded corners, star difficulty rating, "Jogar!" button
-- [ ] 06-03: Create card renderer function — generates card HTML from game data array, inserts into `#game-grid` on `index.html`
-- [ ] 06-04: Implement filter logic — `PlanetCarousel` `planetSelected` event triggers card grid to show/hide cards by planet affiliation
-- [ ] 06-05: Implement "Nenhum jogo disponível" empty state — shown when selected planet has no games
-- [ ] 06-06: Verify game links — confirm relative paths from `index.html` to `jogos/Contando_Estrelas/index.html` and `jogos/Jogo_de_Silaba/index.html` resolve correctly
+- [x] 06-01: Create game data definition — a JS constant array of game objects `{ id, name, planet, difficulty, path }` in `scripts/games.js`
+- [x] 06-02: Create `estilos/cards.css` — Portal de Entrada card styles: planet-themed gradient background, rounded corners, star difficulty rating, "Jogar!" button
+- [x] 06-03: Create card renderer function — generates card HTML from game data array, inserts into `#game-grid` on `index.html`
+- [x] 06-04: Implement filter logic — `PlanetCarousel` `planetSelected` event triggers card grid to show/hide cards by planet affiliation
+- [x] 06-05: "Nenhum jogo disponível" empty state — verified working (integrated into 06-04 filter logic)
+- [x] 06-06: Verify game links — confirmed relative paths resolve correctly; both games load — complete 2026-03-05
 
 ---
 
@@ -261,7 +261,7 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 | 3. Global Layout & Background | 0/5 | Not started | — |
 | 4. Homepage Structure & Header | 0/5 | Not started | — |
 | 5. Planet Carousel | 5/5 | Complete | 2026-03-05 |
-| 6. Game Cards | 0/6 | Not started | — |
+| 6. Game Cards | 6/6 | Complete | 2026-03-05 |
 | 7. Explore Page | 0/6 | Not started | — |
 | 8. About Us Page | 0/5 | Not started | — |
 | 9. 404 Page | 0/4 | Not started | — |
