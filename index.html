@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="components/components.css">
   <link rel="stylesheet" href="estilos/pages/homepage.css">
   <link rel="stylesheet" href="estilos/carousel.css">
+  <link rel="stylesheet" href="estilos/cards.css">
 </head>
 <body class="page-home">
 
@@ -132,9 +133,11 @@
     </section>
 
     <!-- Game Cards (Phase 6) -->
-    <section id="jogos" class="dev-placeholder" aria-label="Jogos disponíveis">
+    <section id="jogos" aria-label="Jogos disponíveis">
       <div class="container">
-        <p class="dev-placeholder-label">🎮 Cards de Jogos — Phase 6</p>
+        <h2 class="jogos-titulo">Jogos Disponíveis</h2>
+        <div id="jogos-toolbar" class="jogos-toolbar"></div>
+        <div id="game-grid" class="game-grid" aria-live="polite"></div>
       </div>
     </section>
 
@@ -155,6 +158,7 @@
   <!-- Homepage-specific JS (scroll behavior + CTA intercept) -->
   <script src="scripts/homepage.js"></script>
   <script src="scripts/carousel.js"></script>
+  <script src="scripts/games.js"></script>
 
 </body>
 </html>
