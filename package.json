@@ -8,7 +8,13 @@
     "info": "echo 'Static site - open index.html with Live Server or run: python -m http.server 3000'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["educational", "games", "kids", "phaser", "space-theme"],
+  "keywords": [
+    "educational",
+    "games",
+    "kids",
+    "phaser",
+    "space-theme"
+  ],
   "author": "Stanley Melo Costa, Robson Ribeiro Filho, Rafael de Pádua Oliveira, Matheus Terra Wachsmuth",
   "license": "ISC",
   "repository": {
@@ -21,6 +27,7 @@
     "nodemon": "^3.1.9"
   },
   "dependencies": {
+    "get-shit-done-multi": "^2.0.4",
     "phaser": "^3.90.0"
   },
   "notes": {
