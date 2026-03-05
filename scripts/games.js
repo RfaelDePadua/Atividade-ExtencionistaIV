@@ -43,7 +43,11 @@
    * Build difficulty star icons (1–3 filled out of 3 total).
    * Uses Bootstrap Icons: bi-star-fill (filled) and bi-star (empty).
    */
+  /* Difficulty level labels (context decision: named levels, not numeric) */
+  var DIFFICULTY_LABELS = { 1: 'Fácil', 2: 'Médio', 3: 'Difícil' };
+
   function createStars(difficulty) {
+    var label = DIFFICULTY_LABELS[difficulty] || ('Dificuldade ' + difficulty + ' de 3');
     var html = '';
     for (var i = 1; i <= 3; i++) {
       if (i <= difficulty) {
@@ -52,7 +56,7 @@
         html += '<i class="bi bi-star game-card-star" aria-hidden="true"></i>';
       }
     }
-    return '<span class="game-card-stars" aria-label="Dificuldade ' + difficulty + ' de 3">' + html + '</span>';
+    return '<span class="game-card-stars" role="img" aria-label="Dificuldade: ' + label + '">' + html + '</span>';
   }
 
   /**
@@ -69,7 +73,7 @@
           '<h3 class="game-card-name">' + game.name + '</h3>' +
           '<span class="game-card-subject">' + game.subject + '</span>' +
           createStars(game.difficulty) +
-          '<a href="' + basePath + game.path + '" class="btn-primario game-card-btn">Jogar!</a>' +
+          '<a href="' + basePath + game.path + '" class="btn-primario game-card-btn" aria-label="Jogar ' + game.name + '">Jogar!</a>' +
         '</div>' +
       '</article>'
     );
