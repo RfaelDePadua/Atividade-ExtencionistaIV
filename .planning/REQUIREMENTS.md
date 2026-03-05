@@ -42,11 +42,11 @@
 
 ### Homepage (HOME)
 
-- [ ] **HOME-01**: `index.html` rebuilt from scratch — valid HTML5, `lang="pt-BR"`, correct meta tags, `<base href>` or relative paths verified
-- [ ] **HOME-02**: Fixed header — transparent at page top, transitions to `#0D1A3A` on scroll
-- [ ] **HOME-03**: Header contains: logo (planet icon + "Meu Planetinha" in Fredoka One), nav links (center), "Explorar Jogos" CTA button (right)
-- [ ] **HOME-04**: Hero section — welcome headline and subtitle above the carousel
-- [ ] **HOME-05**: "Explorar Jogos" CTA scrolls smoothly to the planet carousel section
+- [x] **HOME-01**: `index.html` rebuilt from scratch — valid HTML5, `lang="pt-BR"`, correct meta tags, `<base href>` or relative paths verified
+- [x] **HOME-02**: Fixed header — transparent at page top, transitions to `#0D1A3A` on scroll
+- [x] **HOME-03**: Header contains: logo (planet icon + "Meu Planetinha" in Fredoka One), nav links (center), "Explorar Jogos" CTA button (right)
+- [x] **HOME-04**: Hero section — welcome headline and subtitle above the carousel
+- [x] **HOME-05**: "Explorar Jogos" CTA scrolls smoothly to the planet carousel section
 
 ### Planet Carousel (CAR)
 
@@ -155,7 +155,7 @@
 | NAV-01 to NAV-06 | Phase 2 | Complete |
 | FOOT-01 to FOOT-04 | Phase 2 | Complete |
 | BG-01 to BG-03 | Phase 3 | Pending |
-| HOME-01 to HOME-05 | Phase 4 | Pending |
+| HOME-01 to HOME-05 | Phase 4 | Complete |
 | CAR-01 to CAR-07 | Phase 5 | Pending |
 | CARD-01 to CARD-06 | Phase 6 | Pending |
 | EXP-01 to EXP-05 | Phase 7 | Pending |

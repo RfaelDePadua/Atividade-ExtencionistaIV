@@ -9,7 +9,7 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
 - [x] **Phase 1: Design System Foundation** — CSS tokens, typography, button components, color system
 - [x] **Phase 2: Shared Nav & Footer Components** — fetch-based component loader, nav.html, footer.html
 - [x] **Phase 3: Global Layout & Space Background** — body gradient, container system, spacing scale, page shell
-- [ ] **Phase 4: Homepage Structure & Header** — index.html scaffold, fixed header, hero section
+- [x] **Phase 4: Homepage Structure & Header** — index.html scaffold, fixed header, hero section
 - [ ] **Phase 5: Planet Carousel** — 5 planets, Órbita Central layout, navigation, planet filtering
 - [ ] **Phase 6: Game Cards** — card component, game data, carousel filter integration
 - [ ] **Phase 7: Explore Page** — full game grid, planet filter buttons, filter logic
@@ -93,11 +93,11 @@ The rebuild proceeds in 11 phases, moving from the design system foundation outw
   6. "Explorar Jogos" button smoothly scrolls to `#carousel` section (`scroll-behavior: smooth`)
 
 **Plans:**
-- [ ] 04-01: Scaffold `index.html` from `_template.html` — add correct `<head>` block, `data-component` placeholders for nav/footer, and basic page structure sections (hero, carousel placeholder, cards placeholder)
-- [ ] 04-02: Create `estilos/pages/home.css` — homepage-specific layout (hero section, section spacing)
-- [ ] 04-03: Implement header HTML in `components/nav.html` — planet icon + site name (Fredoka One) left, nav links center, "Explorar Jogos" button right
-- [ ] 04-04: Implement header scroll behavior — `IntersectionObserver` or `scroll` event adds `.nav--scrolled` class to change bg from transparent to `#0D1A3A` with CSS `transition`
-- [ ] 04-05: Implement hero section — headline "Bem-vindo ao Meu Planetinha", subtitle "Cada planeta representa uma matéria diferente", styled per Guia-Visual typography
+- [x] 04-01 (Wave 1): Scaffold `index.html` from `_template.html` — valid HTML5, `body.page-home`, data-component placeholders, hero section, dev placeholder sections (#carousel, #jogos), no duplicate skip-link
+- [x] 04-02 (Wave 1): Create `estilos/pages/homepage.css` — hero section styles (centering, 35vh min-height, typography), dev placeholder dashed-border styles, mobile responsive
+- [x] 04-03 (Wave 1): Add `html { scroll-behavior: smooth; }` to `estilos/base.css` — enables CTA smooth-scroll (prefers-reduced-motion override already handles fallback)
+- [x] 04-04 (Wave 2): Update `components/components.css` — `.site-nav` from sticky→fixed, `.page-home .site-nav` transparent override, `.site-nav--scrolled` class with #0D1A3A bg + box-shadow + transition
+- [x] 04-05 (Wave 2): Create `scripts/homepage.js` — scroll listener (80px threshold toggles `.site-nav--scrolled`), CTA click interceptor (smooth-scroll to #carousel), mobile overlay close after CTA
 
 ---
 

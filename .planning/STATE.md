@@ -5,23 +5,23 @@
 See: [.planning/PROJECT.md](.planning/PROJECT.md) (updated 2026-03-04)
 
 **Core value:** A child lands on the homepage and immediately feels like they're on a space adventure — the planet carousel draws them in and makes picking a game feel like choosing a destination in the universe.
-**Current focus:** Phase 3 complete — ready for Phase 4 — Homepage Structure & Header
+**Current focus:** Phase 4 complete — Homepage Structure & Header delivered. Phase 5 (Planet Carousel) is next.
 
 ## Current Position
 
-Phase: 3 of 11 (Complete)
+Phase: 4 of 11 (Complete)
 Plan: 5 of 5
-Status: Phase 3 complete — ready to plan Phase 4
-Last activity: 2026-03-04 — Phase 3 executed. estilos/base.css gradient updated (170deg, 65% stop), estilos/layout.css container padding scale updated (16/24/32px), estilos/pages/page-shell.css created (stars, nebulae, page-wrapper), _template.html created (canonical page boilerplate), test pages updated with page-shell.css link. All 5 must-haves verified. Contrast report produced — all pairings pass 3:1+, white passes 5:1+.
+Status: Phase 4 complete — all 5 plans executed, verified (6/6 must-haves), ROADMAP/STATE updated
+Last activity: 2026-03-04 — Phase 4 executed. 5 files created/modified: index.html (scaffolded), estilos/pages/homepage.css (hero + placeholders), estilos/base.css (scroll-behavior smooth), components/components.css (fixed header + transparent/scrolled states), scripts/homepage.js (scroll listener + CTA intercept). Verification passed (6/6 must-haves).
 
-Progress: [████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 27%
+Progress: [███████████████░░░░░░░░░░░░░░░░░░░░░░░░] 36%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
-- Average duration: ~6 min/plan
-- Total execution time: ~60 min
+- Total plans completed: 16
+- Average duration: ~5 min/plan
+- Total execution time: ~80 min
 
 **By Phase:**
 
@@ -30,9 +30,10 @@ Progress: [████████████░░░░░░░░░░░
 | Phase 1: Design System Foundation | 3 | ~15 min | ~5 min |
 | Phase 2: Shared Nav & Footer | 3 | ~25 min | ~8 min |
 | Phase 3: Global Layout & Space Background | 5 | ~20 min | ~4 min |
+| Phase 4: Homepage Structure & Header | 5 | ~34 min | ~7 min |
 
 **Recent Trend:**
-- Phase 3 complete: 5 plans, 2 files modified, 2 files created (page-shell.css, _template.html), 3 test pages updated. All criteria pass first time — no bugs found.
+- Phase 4 complete: 5 plans, 3 files created (homepage.css, homepage.js, index.html), 2 files modified (base.css, components.css). All 6 criteria pass first time — no bugs found.
 
 *Updated after each plan completion*
 
@@ -53,10 +54,14 @@ Progress: [████████████░░░░░░░░░░░
 - **Phase 3**: Container padding scale: 16px mobile (≤640px) / 24px default / 32px desktop (≥1024px)
 - **Phase 3**: Stars/nebulae are `position: fixed` using `box-shadow` and `radial-gradient` on body pseudo-elements — no canvas, no SVG, no JS
 - **Phase 3**: Accent colors Laranja-Tang, Rosa-Chiclete, Lílás-Algodão restricted to large text/decorative use (only 3:1–4.99:1 on gradient)
+- **Phase 4**: `body.page-home` scoping pattern — homepage-only CSS overrides without global side effects
+- **Phase 4**: Fixed nav with layout space reserved via `[data-component="nav"] { min-height: 64px }` — content doesn't collapse
+- **Phase 4**: homepage.js IIFE pattern — page-specific JS loaded after components.js, no global pollution
+- **Phase 4**: `.nav-cta` intercept via event delegation on `[data-component="nav"]` wrapper — catches both desktop + mobile CTAs
 
 ### Pending Todos
 
-- Run `/gsd:discuss-phase 4` or `/gsd:plan-phase 4` for Phase 4: Homepage Structure & Header
+- Run `/gsd:discuss-phase 5` or `/gsd:plan-phase 5` to start Phase 5: Planet Carousel (5 planets, Órbita Central layout, keyboard/touch/click navigation)
 
 ### Blockers/Concerns
 
@@ -68,5 +73,5 @@ Progress: [████████████░░░░░░░░░░░
 ## Session Continuity
 
 Last session: 2026-03-04
-Stopped at: Phase 2 complete. All 3 plans executed. 6 files created. Verification passed (with 3 CSS fixes). Run `/gsd:discuss-phase 3` or `/gsd:plan-phase 3` to continue.
+Stopped at: Phase 4 complete. All 5 plans executed. 5 files created/modified. Verification passed (6/6). Run `/gsd:discuss-phase 5` or `/gsd:plan-phase 5` to continue.
 Resume file: None
