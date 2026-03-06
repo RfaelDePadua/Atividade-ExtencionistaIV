@@ -60,6 +60,12 @@
   }
 }
 
+/* --- Hero → Cards wave divider fill --- */
+
+.wave-divider--hero path {
+  fill: rgba(11, 15, 46, 0.35);
+}
+
 /* ==========================================
    DEV PLACEHOLDERS (Phases 5–6)
    ========================================== */

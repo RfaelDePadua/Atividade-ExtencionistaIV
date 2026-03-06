@@ -149,3 +149,25 @@
   background: var(--planeta-globish-cor);
   color: var(--planeta-globish-texto);
 }
+
+/* =========================================
+   WAVE DIVIDERS — SVG section transitions (Phase 15)
+   ========================================= */
+
+.wave-divider {
+  position: absolute;
+  bottom: -1px;              /* 1px overlap prevents subpixel gap */
+  left: 0;
+  width: 100%;
+  height: 48px;
+  z-index: var(--z-wave);    /* 5 — below carousel (10), above starfield */
+  pointer-events: none;
+  display: block;
+  line-height: 0;            /* prevent inline SVG baseline gap */
+}
+
+@media (max-width: 640px) {
+  .wave-divider {
+    height: 32px;
+  }
+}
