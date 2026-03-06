@@ -21,7 +21,6 @@
    =========================================== */
 
 #carousel {
-  padding: var(--espaco-2xl) 0;
   outline: none;
 }
 
@@ -29,15 +28,6 @@
   outline: 3px solid var(--cor-primaria);
   outline-offset: -3px;
   border-radius: var(--borda-raio-lg);
-}
-
-#carousel > .container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--espaco-lg);
-  overflow-x: clip;   /* prevent 3D planets from causing horizontal scroll */
 }
 
 /* ===========================================
@@ -271,6 +261,11 @@
    in perspective space but NOT part of 3D ring rotation.
    =========================================== */
 
+/* Phase 15: hide standalone arrows for unified hero — kept in DOM for JS compat */
+.page-home .carousel-arrow {
+  display: none;
+}
+
 .carousel-arrow {
   position: absolute;
   top: 42%;
@@ -473,10 +468,6 @@
    =========================================== */
 
 @media (max-width: 480px) {
-  #carousel {
-    padding: var(--espaco-xl) 0;
-  }
-
   .carousel-scene {
     height: 300px;
   }
