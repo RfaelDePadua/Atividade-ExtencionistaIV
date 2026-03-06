@@ -80,6 +80,22 @@
   }
 
   /**
+   * Build the "Em Breve" placeholder card HTML.
+   * Shown after all real game cards to preview upcoming content.
+   */
+  function createPlaceholderCard() {
+    return (
+      '<article class="game-card game-card--placeholder" aria-label="Em Breve — novo jogo será adicionado">' +
+        '<div class="game-card-body">' +
+          '<span class="game-card-placeholder-icon" aria-hidden="true">🚀</span>' +
+          '<h3 class="game-card-name">Em Breve</h3>' +
+          '<span class="game-card-subject">Novo jogo a caminho!</span>' +
+        '</div>' +
+      '</article>'
+    );
+  }
+
+  /**
    * Render all game cards into a target grid container.
    * @param {Object} [options] - Optional configuration.
    * @param {string} [options.gridId='game-grid'] - ID of the target grid element.
@@ -96,6 +112,8 @@
     for (var i = 0; i < GAME_DATA.length; i++) {
       html += createCard(GAME_DATA[i], basePath);
     }
+    /* Append "Em Breve" placeholder as the last card */
+    html += createPlaceholderCard();
     grid.innerHTML = html;
   }
 
@@ -119,6 +137,11 @@
     var visibleCount = 0;
 
     for (var i = 0; i < cards.length; i++) {
+      /* Skip placeholder card — it's always visible */
+      if (cards[i].classList.contains('game-card--placeholder')) {
+        visibleCount++;
+        continue;
+      }
       var cardPlanet = cards[i].getAttribute('data-planeta');
       if (!planet || cardPlanet === planet) {
         cards[i].removeAttribute('hidden');

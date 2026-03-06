@@ -16,6 +16,7 @@
 
 #jogos {
   padding: var(--espaco-2xl) 0;
+  padding-bottom: var(--espaco-3xl); /* 64px — ensure ≥24px visible before footer */
 }
 
 .jogos-titulo {
@@ -62,7 +63,7 @@
 
 .game-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--espaco-xl);
   justify-items: center;
 }
@@ -86,11 +87,48 @@
     rgba(255, 255, 255, 0.12),
     rgba(255, 255, 255, 0.05)
   );
+  /* Flex column so card body can grow and push button to bottom */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .game-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--sombra-lg);
+}
+
+/* ===========================================
+   "EM BREVE" PLACEHOLDER CARD
+   =========================================== */
+
+.game-card--placeholder {
+  border: 2px dashed rgba(255, 255, 255, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
+  cursor: default;
+}
+
+.game-card--placeholder:hover {
+  transform: none;
+  box-shadow: var(--sombra-md);
+}
+
+.game-card-placeholder-icon {
+  font-size: var(--texto-4xl);
+  display: block;
+  opacity: 0.6;
+}
+
+.game-card--placeholder .game-card-name {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.game-card--placeholder .game-card-subject {
+  color: rgba(255, 255, 255, 0.4);
 }
 
 /* ===========================================
@@ -104,6 +142,7 @@
   align-items: center;
   gap: var(--espaco-md);
   text-align: center;
+  flex-grow: 1;
 }
 
 .game-card-name {
@@ -149,7 +188,7 @@
    =========================================== */
 
 .game-card .game-card-btn {
-  margin-top: var(--espaco-sm);
+  margin-top: auto;
   min-width: 140px;
   background: rgba(255, 255, 255, 0.95);
   color: var(--cor-texto-escuro);
@@ -283,6 +322,13 @@
 /* ===========================================
    RESPONSIVE
    =========================================== */
+
+/* Tablet: 2-column grid */
+@media (max-width: 960px) and (min-width: 641px) {
+  .game-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 @media (max-width: 640px) {
   .game-grid {
