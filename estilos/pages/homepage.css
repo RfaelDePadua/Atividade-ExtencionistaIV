@@ -118,7 +118,7 @@
   font-size: var(--texto-lg);
   color: rgba(255, 255, 255, 0.75);
   font-weight: 700;
-  margin: 0;
+  margin: calc(-1 * var(--espaco-md)) 0 0;
   text-shadow: 0 0 12px rgba(255, 212, 59, 0.25);
 }
 
@@ -129,6 +129,11 @@
   width: 4px;
   height: 4px;
   z-index: 1;    /* above glow (0), below carousel content */
+}
+
+/* Pull dots closer to carousel/CTA */
+.page-home .carousel-dots {
+  margin-top: calc(-1 * var(--espaco-md));
 }
 
 /* Mobile adjustments */
@@ -155,16 +160,6 @@
   }
 }
 
-/* --- Hero → Cards wave divider fill --- */
-
-.wave-divider--hero {
-  bottom: -4px;    /* extra overlap to eliminate subpixel gap */
-}
-
-.wave-divider--hero path {
-  fill: #111842;      /* matches cards section background at full opacity */
-}
-
 /* ==========================================
    GAME CARDS SECTION — gradient-to-solid background (Phase 15)
    Top fades from transparent (nebula shows through) to solid #111842.
@@ -176,7 +171,7 @@
   background: linear-gradient(
     to bottom,
     rgba(17, 24, 66, 0.0) 0%,
-    #111842 80px,
+    #111842 20px,
     #111842 100%
   );
 }
