@@ -73,7 +73,8 @@ body::after {
 
 /* =========================================
    ANIM-03: SPARKLE ACCENTS
-   Positioned absolutely inside #carousel > .container.
+   Positioned absolutely inside .carousel-scene (3D context).
+   translateZ(-50px) pushes them behind the orbit plane in 3D space.
    Each sparkle gets individual top/left/delay/duration via inline style.
    ========================================= */
 
