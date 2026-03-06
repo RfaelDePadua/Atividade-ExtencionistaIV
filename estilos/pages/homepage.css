@@ -67,6 +67,33 @@
 }
 
 /* ==========================================
+   GAME CARDS SECTION — tonal overlay (Phase 15)
+   ========================================== */
+
+#jogos {
+  position: relative;
+}
+
+#jogos::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(11, 15, 46, 0.20) 40%,
+    rgba(11, 15, 46, 0.35) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+#jogos > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================
    DEV PLACEHOLDERS (Phases 5–6)
    ========================================== */
 
