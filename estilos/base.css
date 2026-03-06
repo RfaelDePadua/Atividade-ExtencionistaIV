@@ -149,7 +149,7 @@
   --orbita-inclinacao:     62deg;
 
   /* Drift — slow lateral floating of ambient elements */
-  --anim-drift-duracao:    18s;
+  --anim-drift-duracao:    35s;
 
   /* Float — gentle vertical bob on planets/cards */
   --anim-float-duracao:    4s;
@@ -186,8 +186,12 @@ body {
    */
   background-color: #0B0F2E;
 
+  /*
+   * SPACE BACKGROUND — nebulae only (static).
+   * Stars moved to body::before / body::after for GPU-composited drift animation.
+   * See animacoes.css for keyframes; pseudo-element definitions below.
+   */
   background-image:
-    /* ---- Nebulae: planet-themed color blobs ---- */
     /* Calculon orange — upper right */
     radial-gradient(ellipse 55% 45% at 80% 15%, rgba(255, 140, 66, 0.15) 0%, transparent 70%),
     /* Letrion lilac — right edge */
@@ -201,68 +205,73 @@ body {
     /* Base blue fill — upper bias */
     radial-gradient(ellipse 80% 60% at 40% 25%, rgba(26, 58, 143, 0.40) 0%, transparent 75%),
     /* Magenta hint — bottom edge */
-    radial-gradient(ellipse 60% 30% at 55% 95%, rgba(139, 26, 107, 0.30) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 30% at 55% 95%, rgba(139, 26, 107, 0.30) 0%, transparent 70%);
 
-    /* ---- Stars: tiling radial-gradient layers ---- */
-    /* Dense small white stars */
-    radial-gradient(1px 1px at 20px  30px,  #FFFFFF,             transparent),
-    radial-gradient(1px 1px at 65px  88px,  rgba(255,255,255,0.7), transparent),
-    radial-gradient(1px 1px at 130px 45px,  rgba(255,255,255,0.5), transparent),
-    radial-gradient(1px 1px at 85px  140px, #FFFFFF,             transparent),
-    /* Sparse brighter stars */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* =========================================
+   STARFIELD PSEUDO-ELEMENTS
+   Stars split from body background for GPU-composited drift animation.
+   Nebulae stay on body (static); stars on ::before/::after (animated by animacoes.css).
+   Each pseudo-element is 2× viewport size for seamless infinite translation loop.
+   ========================================= */
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200vw;
+  height: 200vh;
+  height: 200dvh; /* dynamic viewport height — handles mobile toolbar */
+  pointer-events: none;
+  z-index: -1;
+
+  /* Near stars: bright, sparse, larger dots */
+  background-image:
     radial-gradient(1.5px 1.5px at 40px  70px,  rgba(255,255,255,0.9), transparent),
     radial-gradient(2px   2px   at 180px 110px, rgba(255,255,255,0.85), transparent),
-    /* Blue-tinted stars */
     radial-gradient(1px 1px at 60px  50px,  rgba(176,196,255,0.7), transparent),
-    radial-gradient(1px 1px at 200px 160px, rgba(176,196,255,0.5), transparent),
-    /* Warm yellow-tinted stars */
-    radial-gradient(1px 1px at 110px 90px,  rgba(255,228,181,0.6), transparent),
     radial-gradient(1.5px 1.5px at 30px 180px, rgba(255,228,181,0.5), transparent);
-
   background-size:
-    /* Nebulae — full viewport, no repeat */
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    /* Stars — tiling at different densities for organic feel */
+    300px 280px,
+    350px 320px,
+    220px 240px,
+    310px 340px;
+  background-repeat: repeat;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200vw;
+  height: 200vh;
+  height: 200dvh;
+  pointer-events: none;
+  z-index: -1;
+
+  /* Far stars: dim, dense, smaller dots */
+  background-image:
+    radial-gradient(1px 1px at 20px  30px,  #FFFFFF, transparent),
+    radial-gradient(1px 1px at 65px  88px,  rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 130px 45px,  rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 85px  140px, #FFFFFF, transparent),
+    radial-gradient(1px 1px at 110px 90px,  rgba(255,228,181,0.6), transparent),
+    radial-gradient(1px 1px at 200px 160px, rgba(176,196,255,0.5), transparent);
+  background-size:
     150px 170px,
     200px 200px,
     180px 220px,
     250px 190px,
-    300px 280px,
-    350px 320px,
-    220px 240px,
-    280px 300px,
     260px 260px,
-    310px 340px;
-
-  background-repeat:
-    /* Nebulae — no repeat */
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    /* Stars — repeat to fill viewport */
-    repeat,
-    repeat,
-    repeat,
-    repeat,
-    repeat,
-    repeat,
-    repeat,
-    repeat,
-    repeat,
-    repeat;
-
-  background-attachment: fixed;
-  min-height: 100vh;
+    280px 300px;
+  background-repeat: repeat;
 }
 
 h1, h2, h3, h4, h5, h6 {
