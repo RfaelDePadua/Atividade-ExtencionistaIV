@@ -50,6 +50,8 @@
 
 **Goal:** Create a centralized animation stylesheet with GPU-composited @keyframes for starfield drift, planet float, and sparkle accents — all gated by accessibility preferences and tab visibility.
 
+**Phase:** Phase 13 is complete. Phase 14 ready to begin.
+
 **Requirements:** ANIM-01, ANIM-02, ANIM-03, ANIM-04, ANIM-05
 
 **Tasks:**

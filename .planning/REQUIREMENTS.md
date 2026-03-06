@@ -9,12 +9,12 @@ Requirements for v2.0 release. Each maps to roadmap phases.
 
 ### Visual Polish
 
-- [ ] **POLISH-01**: Header shows "Explorar Jogos" only once (remove duplicate nav-cta text)
-- [ ] **POLISH-02**: Header is consistent across all pages (no colored bar on any page)
-- [ ] **POLISH-03**: Game cards display in 3-column grid with 1 "Em Breve" (Coming Soon) placeholder card
-- [ ] **POLISH-04**: "Jogar!" button is anchored to bottom of game card (not vertically centered)
-- [ ] **POLISH-05**: Index page has visible breathing room (spacing) between cards section and footer
-- [ ] **POLISH-06**: Explore page filter bar does not have opaque blue strip background
+- [x] **POLISH-01**: Header shows "Explorar Jogos" only once (remove duplicate nav-cta text)
+- [x] **POLISH-02**: Header is consistent across all pages (no colored bar on any page)
+- [x] **POLISH-03**: Game cards display in 3-column grid with 1 "Em Breve" (Coming Soon) placeholder card
+- [x] **POLISH-04**: "Jogar!" button is anchored to bottom of game card (not vertically centered)
+- [x] **POLISH-05**: Index page has visible breathing room (spacing) between cards section and footer
+- [x] **POLISH-06**: Explore page filter bar does not have opaque blue strip background
 - [ ] **POLISH-07**: Background creates vertical hierarchy — no large empty areas without clear intention
 
 ### 3D Carousel
@@ -29,11 +29,11 @@ Requirements for v2.0 release. Each maps to roadmap phases.
 
 ### Animations
 
-- [ ] **ANIM-01**: Star background drifts with continuous CSS animation (transform: translate loop on pseudo-element)
-- [ ] **ANIM-02**: Planet spheres float with subtle vertical oscillation (@keyframes translateY)
-- [ ] **ANIM-03**: Ambient sparkle/particle accents appear near carousel or hero area
-- [ ] **ANIM-04**: All animations respect prefers-reduced-motion (CSS media query + JS matchMedia check)
-- [ ] **ANIM-05**: Animations pause when browser tab is hidden (Page Visibility API + animation-play-state)
+- [x] **ANIM-01**: Star background drifts with continuous CSS animation (transform: translate loop on pseudo-element)
+- [x] **ANIM-02**: Planet spheres float with subtle vertical oscillation (@keyframes translateY)
+- [x] **ANIM-03**: Ambient sparkle/particle accents appear near carousel or hero area
+- [x] **ANIM-04**: All animations respect prefers-reduced-motion (CSS media query + JS matchMedia check)
+- [x] **ANIM-05**: Animations pause when browser tab is hidden (Page Visibility API + animation-play-state)
 
 ### Section Transitions
 
@@ -80,12 +80,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| POLISH-01 | Phase 12 | Pending |
-| POLISH-02 | Phase 12 | Pending |
-| POLISH-03 | Phase 12 | Pending |
-| POLISH-04 | Phase 12 | Pending |
-| POLISH-05 | Phase 12 | Pending |
-| POLISH-06 | Phase 12 | Pending |
+| POLISH-01 | Phase 12 | Complete |
+| POLISH-02 | Phase 12 | Complete |
+| POLISH-03 | Phase 12 | Complete |
+| POLISH-04 | Phase 12 | Complete |
+| POLISH-05 | Phase 12 | Complete |
+| POLISH-06 | Phase 12 | Complete |
 | POLISH-07 | Phase 15 | Pending |
 | CAROUSEL-01 | Phase 14 | Pending |
 | CAROUSEL-02 | Phase 14 | Pending |
@@ -94,11 +94,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CAROUSEL-05 | Phase 14 | Pending |
 | CAROUSEL-06 | Phase 14 | Pending |
 | CAROUSEL-07 | Phase 14 | Pending |
-| ANIM-01 | Phase 13 | Pending |
-| ANIM-02 | Phase 13 | Pending |
-| ANIM-03 | Phase 13 | Pending |
-| ANIM-04 | Phase 13 | Pending |
-| ANIM-05 | Phase 13 | Pending |
+| ANIM-01 | Phase 13 | Complete |
+| ANIM-02 | Phase 13 | Complete |
+| ANIM-03 | Phase 13 | Complete |
+| ANIM-04 | Phase 13 | Complete |
+| ANIM-05 | Phase 13 | Complete |
 | TRANS-01 | Phase 15 | Pending |
 | TRANS-02 | Phase 15 | Pending |
 | SHELL-01 | Phase 17 | Pending |
