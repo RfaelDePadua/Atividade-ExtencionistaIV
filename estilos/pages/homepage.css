@@ -6,23 +6,63 @@
  */
 
 /* ==========================================
-   HERO SECTION
+   HERO SECTION (unified with carousel — Phase 15)
    ========================================== */
 
 .hero {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 35vh;
-  padding: var(--espaco-3xl) 0 var(--espaco-2xl);
+  gap: var(--espaco-lg);
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: calc(64px + var(--espaco-xl)) var(--espaco-lg) var(--espaco-xl);
   text-align: center;
+  position: relative;
+  overflow: visible;          /* CRITICAL: Safari preserve-3d — do NOT change */
+  outline: none;
 }
 
-.hero-inner {
+.hero:focus-visible {
+  outline: 3px solid var(--cor-primaria);
+  outline-offset: -3px;
+  border-radius: var(--borda-raio-lg);
+}
+
+/* Nebula radial glow behind carousel area */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(900px, 120%);
+  height: 60%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(45, 27, 138, 0.35) 0%,
+    rgba(26, 58, 143, 0.18) 35%,
+    rgba(139, 26, 107, 0.08) 65%,
+    transparent 90%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* All hero children above the glow */
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Hero Header (title + subtitle container) --- */
+
+.hero-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--espaco-md);
+  gap: var(--espaco-sm);
   max-width: var(--largura-max-texto);
 }
 
@@ -37,18 +77,29 @@
 
 .hero-subtitle {
   font-family: var(--fonte-corpo);
-  font-size: var(--texto-xl);
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.5;
+  font-size: var(--texto-base);
+  color: rgba(255, 255, 255, 0.60);
+  font-weight: 400;
   margin: 0;
-  max-width: 36ch;
+  max-width: 32ch;
 }
 
-/* Mobile: scale down hero title */
+/* --- Hero CTA prompt --- */
+
+.hero-cta {
+  font-family: var(--fonte-corpo);
+  font-size: var(--texto-lg);
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 0 12px rgba(255, 212, 59, 0.25);
+}
+
+/* Mobile adjustments */
 @media (max-width: 640px) {
   .hero {
-    min-height: 28vh;
-    padding: var(--espaco-2xl) 0 var(--espaco-xl);
+    padding: calc(64px + var(--espaco-lg)) var(--espaco-md) var(--espaco-lg);
+    gap: var(--espaco-md);
   }
 
   .hero-title {
@@ -56,7 +107,11 @@
   }
 
   .hero-subtitle {
-    font-size: var(--texto-lg);
+    font-size: var(--texto-sm);
+  }
+
+  .hero-cta {
+    font-size: var(--texto-base);
   }
 }
 
