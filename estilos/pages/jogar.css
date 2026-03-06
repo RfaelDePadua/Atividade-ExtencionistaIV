@@ -24,6 +24,16 @@
 }
 
 /* =========================================
+   HIDDEN ATTRIBUTE SAFETY — author display rules override UA [hidden]
+   ========================================= */
+
+.jogar-erro[hidden],
+.jogar-iframe[hidden],
+.jogar-controls[hidden] {
+  display: none !important;
+}
+
+/* =========================================
    GAME IFRAME
    ========================================= */
 

@@ -261,7 +261,9 @@
     }
 
     btn.addEventListener('click', function () {
-      var target = els.iframe;
+      // Fullscreen the viewport (not just the iframe) so shell controls stay visible
+      // and the game's legacy nav/header isn't the only thing on screen.
+      var target = els.viewport || els.iframe;
       if (!target) return;
 
       var isFullscreen = document.fullscreenElement
@@ -342,6 +344,7 @@
     els.iconMute = document.getElementById('icon-mute');
     els.btnFullscreen = document.getElementById('btn-fullscreen');
     els.iconFullscreen = document.getElementById('icon-fullscreen');
+    els.viewport = document.getElementById('main-content');
 
     // Get game ID from URL
     var gameId = getGameIdFromURL();
