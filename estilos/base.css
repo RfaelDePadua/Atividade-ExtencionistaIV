@@ -145,8 +145,8 @@
   --perspectiva-3d:        1000px;
 
   /* Orbit ring parameters (carousel planets) */
-  --orbita-raio:           200px;
-  --orbita-inclinacao:     22deg;
+  --orbita-raio:           260px;
+  --orbita-inclinacao:     12deg;
   --orbita-rotacao-duracao: 600ms;
   --orbita-easing:          ease-out;
   --orbita-opacidade-fundo: 0.3;
