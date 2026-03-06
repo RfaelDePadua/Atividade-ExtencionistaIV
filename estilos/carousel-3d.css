@@ -37,6 +37,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--espaco-lg);
+  overflow-x: clip;   /* prevent 3D planets from causing horizontal scroll */
 }
 
 /* ===========================================
@@ -312,13 +313,13 @@
   transform: translateY(-50%) scale(0.92);
 }
 
-/* Position adjacent to side planets, not at page edges */
+/* Position with breathing room from side planets */
 .carousel-arrow--prev {
-  left: calc(50% - var(--orbita-raio) - 60px);
+  left: calc(50% - var(--orbita-raio) - 80px);
 }
 
 .carousel-arrow--next {
-  right: calc(50% - var(--orbita-raio) - 60px);
+  right: calc(50% - var(--orbita-raio) - 80px);
 }
 
 .carousel-arrow-icon {
@@ -335,14 +336,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.6rem;
+  gap: 2.3rem;
   padding: var(--espaco-xs) 0;
 }
 
 .carousel-dot {
   /* Visual size: 14×14px dot */
-  width: 14px;
-  height: 14px;
+  width: 10px;
+  height: 10px;
   box-sizing: content-box;
   border-radius: 50%;
   border: 2px solid rgba(255, 255, 255, 0.4);
@@ -351,7 +352,7 @@
   cursor: pointer;
   /* Touch target expansion: padding + negative margin trick */
   /* Adds (15px × 2) = 30px to each dimension: 14 + 30 = 44px tap area */
-  padding: 15px;
+  padding: 10px;
   margin: -15px;
   transition:
     background var(--duracao-media) var(--easing-padrao),
@@ -510,11 +511,11 @@
   }
 
   .carousel-arrow--prev {
-    left: calc(50% - var(--orbita-raio) - 40px);
+    left: calc(50% - var(--orbita-raio) - 60px);
   }
 
   .carousel-arrow--next {
-    right: calc(50% - var(--orbita-raio) - 40px);
+    right: calc(50% - var(--orbita-raio) - 60px);
   }
 
   .carousel-dot {
