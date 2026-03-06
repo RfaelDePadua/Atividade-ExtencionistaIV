@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="estilos/componentes.css">
   <link rel="stylesheet" href="components/components.css">
   <link rel="stylesheet" href="estilos/pages/homepage.css">
-  <link rel="stylesheet" href="estilos/carousel.css">
+  <link rel="stylesheet" href="estilos/carousel-3d.css">
   <link rel="stylesheet" href="estilos/cards.css">
 </head>
 <body class="page-home">
@@ -56,69 +56,74 @@
       </div>
     </section>
 
-    <!-- Planet Carousel (Phase 5) -->
+    <!-- Planet Carousel (Phase 14 — 3D Orbital) -->
     <section id="carousel" role="region" aria-label="Carrossel de planetas" data-active-planet="calculon" tabindex="0">
       <div class="container">
 
-        <!-- Carousel viewport -->
-        <div class="carousel-track" aria-roledescription="carousel" aria-label="Planetas temáticos">
+        <!-- 3D Perspective Scene -->
+        <div class="carousel-scene">
 
-          <!-- Planet: Calculon -->
-          <div class="planet-card" data-planet="calculon" role="group" aria-roledescription="slide" aria-label="Calculon — Matemática">
-            <div class="planet-sphere planet-sphere--calculon"></div>
-            <div class="planet-info">
-              <span class="planet-name">Calculon</span>
-              <span class="planet-subject">Matemática</span>
+          <!-- 3D Orbit Ring (rotates as a unit via --orbit-angle) -->
+          <div class="carousel-orbit" aria-roledescription="carousel" aria-label="Planetas temáticos">
+
+            <!-- Planet: Calculon -->
+            <div class="planet-card" data-planet="calculon" data-orbit-zone="center" role="group" aria-roledescription="slide" aria-label="Calculon — Matemática">
+              <div class="planet-sphere planet-sphere--calculon"></div>
+              <div class="planet-info">
+                <span class="planet-name">Calculon</span>
+                <span class="planet-subject">Matemática</span>
+              </div>
             </div>
-          </div>
 
-          <!-- Planet: Letrion -->
-          <div class="planet-card" data-planet="letrion" role="group" aria-roledescription="slide" aria-label="Letrion — Português">
-            <div class="planet-sphere planet-sphere--letrion"></div>
-            <div class="planet-info">
-              <span class="planet-name">Letrion</span>
-              <span class="planet-subject">Português</span>
+            <!-- Planet: Letrion -->
+            <div class="planet-card" data-planet="letrion" data-orbit-zone="side" role="group" aria-roledescription="slide" aria-label="Letrion — Português">
+              <div class="planet-sphere planet-sphere--letrion"></div>
+              <div class="planet-info">
+                <span class="planet-name">Letrion</span>
+                <span class="planet-subject">Português</span>
+              </div>
             </div>
-          </div>
 
-          <!-- Planet: Naturox -->
-          <div class="planet-card" data-planet="naturox" role="group" aria-roledescription="slide" aria-label="Naturox — Ciências">
-            <div class="planet-sphere planet-sphere--naturox"></div>
-            <div class="planet-info">
-              <span class="planet-name">Naturox</span>
-              <span class="planet-subject">Ciências</span>
+            <!-- Planet: Naturox -->
+            <div class="planet-card" data-planet="naturox" data-orbit-zone="back" role="group" aria-roledescription="slide" aria-label="Naturox — Ciências">
+              <div class="planet-sphere planet-sphere--naturox"></div>
+              <div class="planet-info">
+                <span class="planet-name">Naturox</span>
+                <span class="planet-subject">Ciências</span>
+              </div>
             </div>
-          </div>
 
-          <!-- Planet: Terramund -->
-          <div class="planet-card" data-planet="terramund" role="group" aria-roledescription="slide" aria-label="Terramund — Geografia">
-            <div class="planet-sphere planet-sphere--terramund"></div>
-            <div class="planet-info">
-              <span class="planet-name">Terramund</span>
-              <span class="planet-subject">Geografia</span>
+            <!-- Planet: Terramund -->
+            <div class="planet-card" data-planet="terramund" data-orbit-zone="back" role="group" aria-roledescription="slide" aria-label="Terramund — Geografia">
+              <div class="planet-sphere planet-sphere--terramund"></div>
+              <div class="planet-info">
+                <span class="planet-name">Terramund</span>
+                <span class="planet-subject">Geografia</span>
+              </div>
             </div>
-          </div>
 
-          <!-- Planet: Globish -->
-          <div class="planet-card" data-planet="globish" role="group" aria-roledescription="slide" aria-label="Globish — Inglês">
-            <div class="planet-sphere planet-sphere--globish"></div>
-            <div class="planet-info">
-              <span class="planet-name">Globish</span>
-              <span class="planet-subject">Inglês</span>
+            <!-- Planet: Globish -->
+            <div class="planet-card" data-planet="globish" data-orbit-zone="side" role="group" aria-roledescription="slide" aria-label="Globish — Inglês">
+              <div class="planet-sphere planet-sphere--globish"></div>
+              <div class="planet-info">
+                <span class="planet-name">Globish</span>
+                <span class="planet-subject">Inglês</span>
+              </div>
             </div>
-          </div>
 
-        </div><!-- /.carousel-track -->
+          </div><!-- /.carousel-orbit -->
 
-        <!-- Navigation arrows -->
-        <button class="carousel-arrow carousel-arrow--prev" aria-label="Planeta anterior" type="button" tabindex="-1">
-          <span class="carousel-arrow-icon" aria-hidden="true">&#9664;</span>
-        </button>
-        <button class="carousel-arrow carousel-arrow--next" aria-label="Próximo planeta" type="button" tabindex="-1">
-          <span class="carousel-arrow-icon" aria-hidden="true">&#9654;</span>
-        </button>
+          <!-- Navigation arrows (inside scene for positioning, outside orbit for no 3D transform) -->
+          <button class="carousel-arrow carousel-arrow--prev" aria-label="Planeta anterior" type="button" tabindex="-1">
+            <span class="carousel-arrow-icon" aria-hidden="true">&#8249;</span>
+          </button>
+          <button class="carousel-arrow carousel-arrow--next" aria-label="Próximo planeta" type="button" tabindex="-1">
+            <span class="carousel-arrow-icon" aria-hidden="true">&#8250;</span>
+          </button>
 
-        <!-- Navigation dots -->
+        </div><!-- /.carousel-scene -->
+
+        <!-- Navigation dots (OUTSIDE scene — flat 2D, below 3D space) -->
         <nav class="carousel-dots" aria-label="Navegação do carrossel">
           <button class="carousel-dot" data-index="0" aria-label="Ir para Calculon" type="button" tabindex="-1"></button>
           <button class="carousel-dot" data-index="1" aria-label="Ir para Letrion" type="button" tabindex="-1"></button>
@@ -168,7 +173,7 @@
 
   <!-- Homepage-specific JS (scroll behavior + CTA intercept) -->
   <script src="scripts/homepage.js"></script>
-  <script src="scripts/carousel.js"></script>
+  <script src="scripts/carousel-3d.js"></script>
   <script src="scripts/games.js"></script>
 
 </body>
