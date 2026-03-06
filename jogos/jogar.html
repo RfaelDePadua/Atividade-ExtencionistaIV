@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jogando no Meu Planetinha — plataforma educacional gamificada para crianças.">
+  <title>Jogar — Meu Planetinha</title>
+
+  <!-- Google Fonts: preconnect + stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- CSS Load Order (depth-1: ../estilos/...) -->
+  <link rel="stylesheet" href="../estilos/reset.css">
+  <link rel="stylesheet" href="../estilos/base.css">
+  <link rel="stylesheet" href="../estilos/animacoes.css">
+  <link rel="stylesheet" href="../estilos/layout.css">
+  <link rel="stylesheet" href="../estilos/pages/page-shell.css">
+  <link rel="stylesheet" href="../estilos/componentes.css">
+  <link rel="stylesheet" href="../components/components.css">
+  <link rel="stylesheet" href="../estilos/pages/jogar.css">
+</head>
+<body class="page-jogar">
+
+  <!-- Nav component (injected by components.js) -->
+  <div data-component="nav">
+    <noscript>
+      <nav class="site-nav" aria-label="Navegação principal">
+        <div class="nav-container">
+          <a class="nav-logo" href="../index.html">🪐 Meu Planetinha</a>
+          <div class="nav-links">
+            <a href="../explorar/explorar.html">Explorar Jogos</a>
+            <a href="../sobre_nos/sobre_nos.html">Sobre Nós</a>
+          </div>
+        </div>
+      </nav>
+    </noscript>
+  </div>
+
+  <!-- Main content — game viewport -->
+  <main id="main-content" class="jogar-viewport">
+
+    <!-- Loading overlay (SHELL-03) — visible by default, dismissed by JS -->
+    <div class="jogar-loading" id="jogar-loading" role="status" aria-live="polite">
+      <div class="jogar-loading-content">
+        <div class="jogar-loading-planet" aria-hidden="true">
+          <div class="jogar-loading-sphere"></div>
+          <div class="jogar-loading-ring"></div>
+        </div>
+        <h2 class="jogar-loading-title" id="jogar-loading-title">Preparando a aventura...</h2>
+        <p class="jogar-loading-subtitle" id="jogar-loading-subtitle">Carregando o jogo</p>
+        <div class="jogar-loading-dots" aria-hidden="true">
+          <span class="jogar-loading-dot"></span>
+          <span class="jogar-loading-dot"></span>
+          <span class="jogar-loading-dot"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error state (shown when game not found) — hidden by default -->
+    <div class="jogar-erro" id="jogar-erro" hidden>
+      <div class="erro-ilustracao" aria-hidden="true">
+        <span class="erro-astronauta">🛸</span>
+        <span class="erro-planetas">🪐✨⭐</span>
+      </div>
+      <h1 class="titulo-erro">Esse planeta não foi descoberto ainda!</h1>
+      <p class="descricao-erro">
+        O jogo que você procura não existe no nosso universo... por enquanto! 🌌
+      </p>
+      <a href="../explorar/explorar.html" class="btn-primario erro-cta">
+        <i class="bi bi-joystick" aria-hidden="true"></i>
+        Explorar Jogos
+      </a>
+    </div>
+
+    <!-- Game iframe (SHELL-01 + SHELL-02) — hidden until JS sets src -->
+    <iframe
+      id="game-iframe"
+      class="jogar-iframe"
+      sandbox="allow-scripts allow-same-origin"
+      allow="autoplay"
+      title="Área do jogo"
+      hidden
+    ></iframe>
+
+    <!-- Shell controls — floating action buttons (fullscreen, mute, back) -->
+    <div class="jogar-controls" id="jogar-controls" hidden>
+      <button class="jogar-ctrl-btn" id="btn-back" type="button" aria-label="Voltar" title="Voltar">
+        <i class="bi bi-arrow-left"></i>
+      </button>
+      <button class="jogar-ctrl-btn" id="btn-mute" type="button" aria-label="Silenciar áudio" title="Silenciar">
+        <i class="bi bi-volume-up-fill" id="icon-mute"></i>
+      </button>
+      <button class="jogar-ctrl-btn" id="btn-fullscreen" type="button" aria-label="Tela cheia" title="Tela cheia">
+        <i class="bi bi-fullscreen" id="icon-fullscreen"></i>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Footer component (injected by components.js) -->
+  <div data-component="footer">
+    <noscript>
+      <footer class="site-footer">
+        <div class="container">
+          <p>🪐 Meu Planetinha — Explore o universo do aprendizado!</p>
+        </div>
+      </footer>
+    </noscript>
+  </div>
+
+  <!-- Scripts: component loader → animations → game data → shell logic -->
+  <script src="../components/components.js"></script>
+  <script src="../scripts/animacoes.js"></script>
+  <script src="../scripts/games.js"></script>
+  <script src="../scripts/jogar.js"></script>
+
+</body>
+</html>

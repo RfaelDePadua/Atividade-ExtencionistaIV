@@ -1,0 +1,391 @@
+/*
+ * jogar.css — Meu Planetinha Game Shell Page
+ * Styles for jogos/jogar.html — loading overlay, game iframe, error state, controls.
+ * Scoped under body.page-jogar. Depends on: base.css (tokens), componentes.css (buttons).
+ */
+
+/* =========================================
+   VIEWPORT LAYOUT
+   ========================================= */
+
+/* Prevent body scroll during gameplay */
+.page-jogar {
+  overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.page-jogar .jogar-viewport {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* allow flex shrink */
+}
+
+/* =========================================
+   GAME IFRAME
+   ========================================= */
+
+.jogar-iframe {
+  flex: 1 1 auto;
+  width: 100%;
+  border: none;
+  display: block;
+  min-height: 0;
+}
+
+/* =========================================
+   LOADING OVERLAY
+   ========================================= */
+
+.jogar-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 15, 46, 0.95);
+  transition: opacity 400ms var(--easing-padrao);
+}
+
+.jogar-loading.is-dismissing {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.jogar-loading-content {
+  text-align: center;
+  padding: var(--espaco-xl);
+}
+
+/* Animated planet sphere */
+.jogar-loading-planet {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--espaco-lg);
+}
+
+.jogar-loading-sphere {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%,
+    var(--cor-laranja-tang),
+    var(--cor-rosa-chiclete) 60%,
+    var(--cor-lilas-algodao));
+  box-shadow:
+    0 0 30px rgba(255, 140, 66, 0.4),
+    0 0 60px rgba(255, 110, 180, 0.2);
+  animation: jogar-planet-float 3s ease-in-out infinite,
+             jogar-planet-glow 4s ease-in-out infinite alternate;
+}
+
+.jogar-loading-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 24px;
+  margin-top: -12px;
+  margin-left: -60px;
+  border: 2px solid rgba(255, 212, 59, 0.4);
+  border-radius: 50%;
+  transform: rotateX(75deg);
+  animation: jogar-ring-spin 6s linear infinite;
+}
+
+.jogar-loading-title {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-2xl);
+  color: var(--cor-texto);
+  margin-bottom: var(--espaco-xs);
+}
+
+.jogar-loading-subtitle {
+  font-family: var(--fonte-corpo);
+  font-size: var(--texto-base);
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: var(--espaco-md);
+}
+
+/* Bouncing dots */
+.jogar-loading-dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--espaco-sm);
+}
+
+.jogar-loading-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cor-amarelo-sol);
+  animation: jogar-dot-bounce 1.4s ease-in-out infinite;
+}
+
+.jogar-loading-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.jogar-loading-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* =========================================
+   LOADING KEYFRAMES
+   ========================================= */
+
+@keyframes jogar-planet-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes jogar-planet-glow {
+  from { box-shadow: 0 0 30px rgba(255, 140, 66, 0.4), 0 0 60px rgba(255, 110, 180, 0.2); }
+  to { box-shadow: 0 0 40px rgba(255, 140, 66, 0.6), 0 0 80px rgba(255, 110, 180, 0.3); }
+}
+
+@keyframes jogar-ring-spin {
+  from { transform: rotateX(75deg) rotateZ(0deg); }
+  to { transform: rotateX(75deg) rotateZ(360deg); }
+}
+
+@keyframes jogar-dot-bounce {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   PLANET-THEMED LOADING — set via [data-planeta] on .jogar-loading
+   ========================================= */
+
+.jogar-loading[data-planeta="calculon"] .jogar-loading-sphere {
+  background: radial-gradient(circle at 35% 35%,
+    var(--planeta-calculon-acento),
+    var(--planeta-calculon-cor) 60%,
+    #c44a00);
+  box-shadow: 0 0 30px rgba(255, 140, 66, 0.5), 0 0 60px rgba(255, 140, 66, 0.2);
+}
+
+.jogar-loading[data-planeta="letrion"] .jogar-loading-sphere {
+  background: radial-gradient(circle at 35% 35%,
+    var(--planeta-letrion-acento),
+    var(--planeta-letrion-cor) 60%,
+    #7c3aed);
+  box-shadow: 0 0 30px rgba(192, 132, 252, 0.5), 0 0 60px rgba(192, 132, 252, 0.2);
+}
+
+.jogar-loading[data-planeta="naturox"] .jogar-loading-sphere {
+  background: radial-gradient(circle at 35% 35%,
+    #a0ffd4,
+    var(--planeta-naturox-cor) 60%,
+    var(--planeta-naturox-acento));
+  box-shadow: 0 0 30px rgba(77, 255, 180, 0.5), 0 0 60px rgba(77, 255, 180, 0.2);
+}
+
+.jogar-loading[data-planeta="terramund"] .jogar-loading-sphere {
+  background: radial-gradient(circle at 35% 35%,
+    var(--planeta-terramund-acento),
+    var(--planeta-terramund-cor) 60%,
+    #8b3a0f);
+  box-shadow: 0 0 30px rgba(212, 98, 42, 0.5), 0 0 60px rgba(212, 98, 42, 0.2);
+}
+
+.jogar-loading[data-planeta="globish"] .jogar-loading-sphere {
+  background: radial-gradient(circle at 35% 35%,
+    #80efff,
+    var(--planeta-globish-cor) 60%,
+    var(--planeta-globish-acento));
+  box-shadow: 0 0 30px rgba(0, 212, 232, 0.5), 0 0 60px rgba(0, 212, 232, 0.2);
+}
+
+/* =========================================
+   ERROR STATE
+   ========================================= */
+
+.jogar-erro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--espaco-2xl) var(--espaco-xl);
+  flex: 1 1 auto;
+  min-height: 60vh;
+}
+
+.page-jogar .erro-ilustracao {
+  font-size: 4rem;
+  margin-bottom: var(--espaco-lg);
+  display: flex;
+  gap: var(--espaco-md);
+  align-items: center;
+}
+
+.page-jogar .erro-astronauta {
+  font-size: 5rem;
+  display: inline-block;
+  animation: jogar-planet-float 3s ease-in-out infinite;
+}
+
+.page-jogar .titulo-erro {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-3xl);
+  color: var(--cor-texto);
+  margin-bottom: var(--espaco-md);
+}
+
+.page-jogar .descricao-erro {
+  font-family: var(--fonte-corpo);
+  font-size: var(--texto-lg);
+  color: rgba(255, 255, 255, 0.8);
+  max-width: var(--largura-max-texto);
+  margin-bottom: var(--espaco-xl);
+  line-height: 1.6;
+}
+
+.page-jogar .erro-cta {
+  font-size: var(--texto-lg);
+  padding: var(--espaco-md) var(--espaco-2xl);
+}
+
+/* =========================================
+   SHELL CONTROLS — floating action buttons
+   ========================================= */
+
+.jogar-controls {
+  position: fixed;
+  bottom: var(--espaco-xl);
+  right: var(--espaco-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+  z-index: 50;
+  transition: opacity 300ms var(--easing-padrao);
+}
+
+/* Auto-fade when idle (JS adds .is-idle class) */
+.jogar-controls.is-idle {
+  opacity: 0.3;
+}
+
+.jogar-controls:hover,
+.jogar-controls:focus-within {
+  opacity: 1;
+}
+
+.jogar-ctrl-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(13, 26, 58, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--cor-texto);
+  font-size: var(--texto-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    transform var(--duracao-rapida) var(--easing-padrao),
+    background var(--duracao-rapida) var(--easing-padrao),
+    box-shadow var(--duracao-rapida) var(--easing-padrao);
+  box-shadow: var(--sombra-md);
+}
+
+.jogar-ctrl-btn:hover {
+  background: rgba(13, 26, 58, 0.9);
+  transform: scale(1.1);
+  box-shadow: var(--sombra-lg);
+}
+
+.jogar-ctrl-btn:active {
+  transform: scale(0.95);
+}
+
+.jogar-ctrl-btn:focus-visible {
+  outline: 3px solid #FFFFFF;
+  outline-offset: 3px;
+}
+
+/* =========================================
+   MOBILE — minimize chrome, maximize game
+   ========================================= */
+
+@media (max-width: 640px) {
+  /* Hide nav on mobile during gameplay */
+  .page-jogar [data-component="nav"] {
+    display: none;
+  }
+
+  /* Hide footer on mobile */
+  .page-jogar [data-component="footer"] {
+    display: none;
+  }
+
+  /* Smaller controls on mobile */
+  .jogar-controls {
+    bottom: var(--espaco-md);
+    right: var(--espaco-md);
+  }
+
+  .jogar-ctrl-btn {
+    width: 42px;
+    height: 42px;
+    font-size: var(--texto-base);
+  }
+
+  /* Loading overlay: smaller planet, smaller text */
+  .jogar-loading-planet {
+    width: 60px;
+    height: 60px;
+  }
+
+  .jogar-loading-sphere {
+    width: 60px;
+    height: 60px;
+  }
+
+  .jogar-loading-ring {
+    width: 90px;
+    height: 18px;
+    margin-top: -9px;
+    margin-left: -45px;
+  }
+
+  .jogar-loading-title {
+    font-size: var(--texto-xl);
+  }
+
+  .page-jogar .titulo-erro {
+    font-size: var(--texto-2xl);
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .jogar-loading-sphere,
+  .jogar-loading-ring,
+  .jogar-loading-dot,
+  .page-jogar .erro-astronauta {
+    animation: none;
+  }
+
+  .jogar-loading {
+    transition-duration: 0.01ms;
+  }
+}
