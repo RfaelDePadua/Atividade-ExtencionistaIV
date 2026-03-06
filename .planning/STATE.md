@@ -5,17 +5,17 @@
 See: [.planning/PROJECT.md](.planning/PROJECT.md) (updated 2026-03-05)
 
 **Core value:** A child lands on the homepage and immediately feels like they're on a space adventure — the planet carousel draws them in and makes picking a game feel like choosing a destination in the universe.
-**Current focus:** v2.0 — Phase 14 (3D Orbital Carousel) — NOT STARTED
+**Current focus:** v2.0 — Phase 15 (Unified Hero & Section Transitions) — NOT STARTED
 
 ## Current Position
 
 Milestone: v2.0 Visual Polish, 3D Carousel & Platform Prep
-Phase: 14 of 17 (Not Started)
+Phase: 15 of 17 (Not Started)
 Plan: 0 of TBD
-Status: Phase 13 complete. Phase 14 ready to begin.
-Last activity: 2026-03-06 — Phase 13 executed and verified. 5/5 ANIM requirements satisfied. 3 plans, 3 commits.
+Status: Phase 14 complete. Phase 15 ready to begin.
+Last activity: 2026-03-06 — Phase 14 executed and verified. 6/6 CAROUSEL requirements satisfied. 4 plans, 10 commits.
 
-Progress: [████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 29%
+Progress: [██████████████████░░░░░░░░░░░░░░░░░░░░░░░░░] 41%
 
 ## v1.0 Summary (Shipped)
 
@@ -29,7 +29,7 @@ Progress: [████████████░░░░░░░░░░░
 |-------|------|-------------|--------|
 | 12 | Foundation — Tokens & Quick Polish | POLISH-01–06 (6) | ✅ Complete |
 | 13 | Animation System | ANIM-01–05 (5) | ✅ Complete |
-| 14 | 3D Orbital Carousel | CAROUSEL-01,02,04,05,06,07 (6) | ⏳ Not Started |
+| 14 | 3D Orbital Carousel | CAROUSEL-01,02,04,05,06,07 (6) | ✅ Complete |
 | 15 | Unified Hero & Section Transitions | CAROUSEL-03, TRANS-01,02, POLISH-07 (4) | ⏳ Not Started |
 | 16 | Cross-Browser Verification & A11y Audit | Verify all above (0 new) | ⏳ Not Started |
 | 17 | Game Shell & Iframe Sandbox (Stretch) | SHELL-01–03 (3) | ⏳ Not Started |
@@ -42,7 +42,7 @@ Progress: [████████████░░░░░░░░░░░
 - Total execution time: ~140 min
 
 **v2.0 Velocity:**
-- Total plans completed: 6
+- Total plans completed: 10
 - Estimated phases: 6 (12–17)
 
 ## Accumulated Context
@@ -80,6 +80,9 @@ Progress: [████████████░░░░░░░░░░░
 - **Research**: `estilos/animacoes.css` is the centralized animation stylesheet (new file)
 - **Research**: Wave dividers are inline SVG Bézier curves (~150 bytes each), styled via componentes.css
 - **Research**: MAX 3-4 `will-change` elements to prevent GPU memory exhaustion (remove v1's per-planet `will-change`)
+- **Phase 14**: Per-card counter-rotation (`rotateY(θ) translateZ(R) rotateY(-θ)`) — orbit ring stays static, JS sets `--card-angle` per card
+- **Phase 14**: Blur-only depth cueing — no opacity on planet zones; depth via `filter: blur()` only to avoid mid-transition transparency
+- **Phase 14**: Sparkles placed inside `.carousel-scene` to share stacking context with 3D-projected planets
 
 ### v2.0 Critical Pitfalls
 
@@ -97,7 +100,7 @@ Progress: [████████████░░░░░░░░░░░
 - [x] ~~Phase 12: index spacing + explore filter (POLISH-05, POLISH-06)~~ ✅
 - [x] ~~Begin Phase 13: create `estilos/animacoes.css` with @keyframes~~ ✅
 - [x] ~~Phase 13: integrate animation system into all pages~~ ✅
-- [ ] Phase 14: build `carousel-3d.css` + `carousel-3d.js`
+- [x] ~~Phase 14: build `carousel-3d.css` + `carousel-3d.js`~~ ✅
 - [ ] Phase 15: merge hero section + wave dividers
 - [ ] Phase 16: cross-browser + a11y verification
 - [ ] Phase 17 (stretch): game shell iframe wrapper
@@ -111,5 +114,5 @@ Progress: [████████████░░░░░░░░░░░
 ## Session Continuity
 
 Last session: 2026-03-06
-Stopped at: Phase 13 complete and verified. All 5 ANIM requirements satisfied. Run `/gsd:discuss-phase 14` or `/gsd:plan-phase 14` to continue.
+Stopped at: Phase 14 complete and verified. 11/11 must-haves passed. Run `/gsd:discuss-phase 15` or `/gsd:plan-phase 15` to continue.
 Resume file: None

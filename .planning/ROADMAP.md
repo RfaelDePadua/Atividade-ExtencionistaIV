@@ -72,9 +72,11 @@
 
 ---
 
-## Phase 14: 3D Orbital Carousel
+## Phase 14: 3D Orbital Carousel ✅
 
 **Goal:** Replace the v1 flat carousel with a CSS 3D perspective ring where 5 planets orbit on a tilted elliptical plane, with back planets faded/blurred and side planets naturally scaled by perspective depth.
+
+**Phase:** Phase 14 is complete. Phase 15 ready to begin.
 
 **Requirements:** CAROUSEL-01, CAROUSEL-02, CAROUSEL-04, CAROUSEL-05, CAROUSEL-06, CAROUSEL-07
 
