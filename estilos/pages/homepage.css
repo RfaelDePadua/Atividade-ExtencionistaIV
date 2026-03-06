@@ -118,7 +118,7 @@
   font-size: var(--texto-lg);
   color: rgba(255, 255, 255, 0.75);
   font-weight: 700;
-  margin: calc(-1 * var(--espaco-md)) 0 0;
+  margin: calc(-3 * var(--espaco-md)) 0 0;
   text-shadow: 0 0 12px rgba(255, 212, 59, 0.25);
 }
 
@@ -133,7 +133,7 @@
 
 /* Pull dots closer to carousel/CTA */
 .page-home .carousel-dots {
-  margin-top: calc(-1 * var(--espaco-md));
+  margin-top: calc(-1 * var(--espaco-sm));
 }
 
 /* Mobile adjustments */

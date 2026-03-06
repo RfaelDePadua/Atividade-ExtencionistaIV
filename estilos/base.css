@@ -176,7 +176,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: clip;    /* prevent 3D carousel from causing horizontal scroll on mobile */
 }
 
 body {
@@ -219,6 +218,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
+  overflow-x: clip;    /* prevent 3D carousel / sparkles from causing horizontal scroll */
 }
 
 /* =========================================
