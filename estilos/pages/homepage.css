@@ -30,21 +30,21 @@
   border-radius: var(--borda-raio-lg);
 }
 
-/* Nebula radial glow behind carousel area */
+/* Nebula bloom — radial glow behind carousel area */
 .hero::before {
   content: '';
   position: absolute;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: min(900px, 120%);
-  height: 60%;
+  width: min(1100px, 140%);
+  height: 70%;
   background: radial-gradient(
     ellipse at center,
-    rgba(45, 27, 138, 0.35) 0%,
-    rgba(26, 58, 143, 0.18) 35%,
-    rgba(139, 26, 107, 0.08) 65%,
-    transparent 90%
+    rgba(45, 27, 138, 0.55) 0%,
+    rgba(26, 58, 143, 0.30) 30%,
+    rgba(139, 26, 107, 0.15) 55%,
+    transparent 85%
   );
   pointer-events: none;
   z-index: 0;
@@ -158,29 +158,17 @@
 /* --- Hero → Cards wave divider fill --- */
 
 .wave-divider--hero path {
-  fill: rgba(11, 15, 46, 0.35);
+  fill: #111842;      /* matches cards section solid background */
 }
 
 /* ==========================================
-   GAME CARDS SECTION — tonal overlay (Phase 15)
+   GAME CARDS SECTION — solid background (Phase 15)
+   Distinct from footer (#0B0F2E) so sections don't blend.
    ========================================== */
 
 #jogos {
   position: relative;
-}
-
-#jogos::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(11, 15, 46, 0.20) 40%,
-    rgba(11, 15, 46, 0.35) 100%
-  );
-  pointer-events: none;
-  z-index: 0;
+  background: #111842;
 }
 
 #jogos > * {
