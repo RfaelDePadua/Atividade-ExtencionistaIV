@@ -3,50 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jogo de Sílaba</title>
-  
-  <!-- Estilos gerais do site -->
-  <link href="../../estilos/geral.css" rel="stylesheet" />
-  <link href="../../estilos/barra_superior.css" rel="stylesheet" />
-  <link href="./estilos/principal.css" rel="stylesheet" />
-  
+  <title>Jogo de Sílaba — Meu Planetinha</title>
 
+  <!-- Game styling (minimal — no legacy site chrome) -->
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #14213D;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow: hidden;
+    }
+    canvas { display: block; max-width: 100%; max-height: 100vh; }
+  </style>
 
   <!-- Biblioteca Phaser -->
   <script src="phaser.min.js"></script>
-  
-
 </head>
 <body>
 
-  <!-- Cabeçalho com barra de navegação -->
-  <header>
-    <nav class="barra-de-navegacao">
-      <div id="logotipo">
-        <img class="imagem-ilustrativa" src="../../midia/meu_planetinha.gif" alt="Logo Gif" />
-        <h1 class="nome">Meu Planetinha</h1>
-      </div>
-
-      <ul class="paginas">
-        <li><a href="../../">Início</a></li>
-        <li><a href="../../explorar/explorar.html">Explorar</a></li>
-        <li><a href="../../sobre_nos/sobre_nos.html">Sobre Nós</a></li>
-      </ul>
-
-      <form>
-        <div class="barra-de-pesquisa">
-          <input type="search" placeholder="Pesquisar" />
-          <button>
-            <i class="bi bi-search"></i>
-          </button>
-        </div>
-      </form>
-    </nav>
-  </header>
   <canvas id="gameCanvas" width="800" height="400"></canvas>
   <script src="script.js"></script>
-  <!-- Rodapé (pode adicionar conteúdo aqui mais tarde) -->
-  <footer></footer>
 
 </body>
 </html>
