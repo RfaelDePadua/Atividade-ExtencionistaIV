@@ -176,6 +176,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;    /* prevent 3D carousel from causing horizontal scroll on mobile */
 }
 
 body {
