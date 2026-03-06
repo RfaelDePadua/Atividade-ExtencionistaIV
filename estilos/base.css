@@ -151,6 +151,7 @@
   --orbita-easing:          ease-out;
   --orbita-opacidade-fundo: 0.85;
   --orbita-blur-fundo:      2.5px;
+  --orbita-blur-side:       0.795px;
   --orbita-angulo-passo:    72deg;
 
   /* Drift — slow lateral floating of ambient elements */

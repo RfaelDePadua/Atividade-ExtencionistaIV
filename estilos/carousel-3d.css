@@ -121,7 +121,7 @@
 
 /* SIDE — visible, clickable (act as prev/next) */
 .planet-card[data-orbit-zone="side"] {
-  filter: blur(0);
+  filter: blur(var(--orbita-blur-side));
   z-index: 2;
   pointer-events: auto;
   cursor: pointer;

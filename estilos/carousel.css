@@ -302,7 +302,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--espaco-sm);
+  gap: 2.4rem;
   padding: var(--espaco-sm) 0;
 }
 
