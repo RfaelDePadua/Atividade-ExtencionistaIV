@@ -38,6 +38,11 @@ export default class MenuScene extends Phaser.Scene {
         this.scene.start('GameScene');
       });
     });
+
+    // Signal to parent shell that the game is ready
+    if (window.parent !== window) {
+      window.parent.postMessage('game-ready', '*');
+    }
   }
 
   fadeOutElements(elements, callback) {

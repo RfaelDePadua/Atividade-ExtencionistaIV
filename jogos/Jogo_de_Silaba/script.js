@@ -372,4 +372,9 @@ listaSilabas.forEach((silaba) => {
 document.addEventListener("DOMContentLoaded", () => {
   atualizarFrequenciaSilabas();
   requestAnimationFrame(loopJogo);
+
+  // Signal to parent shell that the game is ready
+  if (window.parent !== window) {
+    window.parent.postMessage('game-ready', '*');
+  }
 });
