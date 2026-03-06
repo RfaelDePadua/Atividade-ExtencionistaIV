@@ -80,35 +80,41 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| POLISH-01 | Pending | Pending |
-| POLISH-02 | Pending | Pending |
-| POLISH-03 | Pending | Pending |
-| POLISH-04 | Pending | Pending |
-| POLISH-05 | Pending | Pending |
-| POLISH-06 | Pending | Pending |
-| POLISH-07 | Pending | Pending |
-| CAROUSEL-01 | Pending | Pending |
-| CAROUSEL-02 | Pending | Pending |
-| CAROUSEL-03 | Pending | Pending |
-| CAROUSEL-04 | Pending | Pending |
-| CAROUSEL-05 | Pending | Pending |
-| CAROUSEL-06 | Pending | Pending |
-| CAROUSEL-07 | Pending | Pending |
-| ANIM-01 | Pending | Pending |
-| ANIM-02 | Pending | Pending |
-| ANIM-03 | Pending | Pending |
-| ANIM-04 | Pending | Pending |
-| ANIM-05 | Pending | Pending |
-| TRANS-01 | Pending | Pending |
-| TRANS-02 | Pending | Pending |
-| SHELL-01 | Pending | Pending |
-| SHELL-02 | Pending | Pending |
-| SHELL-03 | Pending | Pending |
+| POLISH-01 | Phase 12 | Pending |
+| POLISH-02 | Phase 12 | Pending |
+| POLISH-03 | Phase 12 | Pending |
+| POLISH-04 | Phase 12 | Pending |
+| POLISH-05 | Phase 12 | Pending |
+| POLISH-06 | Phase 12 | Pending |
+| POLISH-07 | Phase 15 | Pending |
+| CAROUSEL-01 | Phase 14 | Pending |
+| CAROUSEL-02 | Phase 14 | Pending |
+| CAROUSEL-03 | Phase 15 | Pending |
+| CAROUSEL-04 | Phase 14 | Pending |
+| CAROUSEL-05 | Phase 14 | Pending |
+| CAROUSEL-06 | Phase 14 | Pending |
+| CAROUSEL-07 | Phase 14 | Pending |
+| ANIM-01 | Phase 13 | Pending |
+| ANIM-02 | Phase 13 | Pending |
+| ANIM-03 | Phase 13 | Pending |
+| ANIM-04 | Phase 13 | Pending |
+| ANIM-05 | Phase 13 | Pending |
+| TRANS-01 | Phase 15 | Pending |
+| TRANS-02 | Phase 15 | Pending |
+| SHELL-01 | Phase 17 | Pending |
+| SHELL-02 | Phase 17 | Pending |
+| SHELL-03 | Phase 17 | Pending |
 
 **Coverage:**
 - v2.0 requirements: 24 total
-- Mapped to phases: 0 (pending roadmap)
-- Unmapped: 24 ⚠️
+- Mapped to phases: 24 ✅
+- Unmapped: 0
+- Phase 12 (Foundation): 6 requirements (POLISH-01–06)
+- Phase 13 (Animations): 5 requirements (ANIM-01–05)
+- Phase 14 (3D Carousel): 6 requirements (CAROUSEL-01, 02, 04, 05, 06, 07)
+- Phase 15 (Hero & Waves): 4 requirements (CAROUSEL-03, TRANS-01, TRANS-02, POLISH-07)
+- Phase 16 (Verification): 0 new (verifies all 21 above)
+- Phase 17 (Game Shell): 3 requirements (SHELL-01–03)
 
 ---
 *Requirements defined: 2026-03-05*

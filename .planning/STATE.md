@@ -2,51 +2,56 @@
 
 ## Project Reference
 
-See: [.planning/PROJECT.md](.planning/PROJECT.md) (updated 2026-03-04)
+See: [.planning/PROJECT.md](.planning/PROJECT.md) (updated 2026-03-05)
 
 **Core value:** A child lands on the homepage and immediately feels like they're on a space adventure — the planet carousel draws them in and makes picking a game feel like choosing a destination in the universe.
-**Current focus:** Phase 11 (Compatibility & Integration) — COMPLETE. All 11 phases done. Site live on GitHub Pages.
+**Current focus:** v2.0 — Phase 12 (Foundation — Tokens & Quick Polish) — NOT STARTED
 
 ## Current Position
 
-Phase: 11 of 11 (Complete) — ALL PHASES DONE
-Plan: 4 of 4
-Status: Phase 11 complete — 4 plans executed, verified (5/5 SC), site live at https://rfaeldePadua.github.io/Atividade-ExtencionistaIV/
-Last activity: 2026-03-05 — Phase 11 executed. Pre-deploy sweep (.nojekyll, test files deleted, untracked .planning/), local integration verified (6/6 pages), cross-browser + mobile verified (5 viewports), deployed to GitHub Pages and smoke tested (7/7 URLs pass).
+Milestone: v2.0 Visual Polish, 3D Carousel & Platform Prep
+Phase: 12 of 17 (Not Started)
+Plan: 0 of TBD
+Status: Roadmap created. Phase 12 ready to begin.
+Last activity: 2026-03-05 — v2.0 roadmap, requirements traceability, and state files created. 24 requirements mapped to 6 phases (12–17).
 
-Progress: [█████████████████████████████████████████████] 100%
+Progress: [░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 0%
+
+## v1.0 Summary (Shipped)
+
+- 11 phases, 46 plans, ~140 min total execution
+- Site live at https://rfaeldePadua.github.io/Atividade-ExtencionistaIV/
+- All 13 v1 requirements verified and shipped 2026-03-05
+
+## v2.0 Phase Overview
+
+| Phase | Name | Requirements | Status |
+|-------|------|-------------|--------|
+| 12 | Foundation — Tokens & Quick Polish | POLISH-01–06 (6) | ⏳ Not Started |
+| 13 | Animation System | ANIM-01–05 (5) | ⏳ Not Started |
+| 14 | 3D Orbital Carousel | CAROUSEL-01,02,04,05,06,07 (6) | ⏳ Not Started |
+| 15 | Unified Hero & Section Transitions | CAROUSEL-03, TRANS-01,02, POLISH-07 (4) | ⏳ Not Started |
+| 16 | Cross-Browser Verification & A11y Audit | Verify all above (0 new) | ⏳ Not Started |
+| 17 | Game Shell & Iframe Sandbox (Stretch) | SHELL-01–03 (3) | ⏳ Not Started |
 
 ## Performance Metrics
 
-**Velocity:**
-- Total plans completed: 28
+**v1.0 Velocity:**
+- Total plans completed: 46
 - Average duration: ~5 min/plan
 - Total execution time: ~140 min
 
-**By Phase:**
-
-| Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|---------|
-| Phase 1: Design System Foundation | 3 | ~15 min | ~5 min |
-| Phase 2: Shared Nav & Footer | 3 | ~25 min | ~8 min |
-| Phase 3: Global Layout & Space Background | 5 | ~20 min | ~4 min |
-| Phase 4: Homepage Structure & Header | 5 | ~34 min | ~7 min |
-| Phase 5: Planet Carousel | 5 | ~25 min | ~5 min |
-| Phase 6: Game Cards | 6 | ~15 min | ~3 min |
-
-**Recent Trend:**
-- Phase 6 complete: 6 plans, 3 files created/modified (scripts/games.js, estilos/cards.css, index.html). All 6 SC passed first time, human-approved — no bugs found.
-
-*Updated after each plan completion*
+**v2.0 Velocity:**
+- Total plans completed: 0
+- Estimated phases: 6 (12–17)
 
 ## Accumulated Context
 
-### Decisions
+### v1.0 Decisions (Carried Forward)
 
 - **Init**: Rebuild from scratch — zero reuse of existing site HTML/CSS/JS (games untouched)
 - **Init**: Vanilla HTML/CSS/JS only — no build tool, no bundler, deploys to GitHub Pages as-is
 - **Init**: Shared nav/footer via JS `fetch()` + innerHTML injection — `components/components.js`
-- **Init**: No animations in v1 — ship static correct layout first, add motion in v2
 - **Init**: Design authority: `Referencias/Guia-Visual.md` — all visual decisions reference it
 - **Phase 2**: Footer uses tagline "Explore o universo do aprendizado!" (not Guia-Visual default)
 - **Phase 2**: Only one footer link for v1: Contato (mailto:) — no Privacidade/Termos
@@ -60,24 +65,50 @@ Progress: [███████████████████████
 - **Phase 4**: Fixed nav with layout space reserved via `[data-component="nav"] { min-height: 64px }` — content doesn't collapse
 - **Phase 4**: homepage.js IIFE pattern — page-specific JS loaded after components.js, no global pollution
 - **Phase 4**: `.nav-cta` intercept via event delegation on `[data-component="nav"]` wrapper — catches both desktop + mobile CTAs
-
-- **Phase 7**: `explore.css` path used instead of plan-specified `estilos/pages/explorar.css` — consistent naming with JS file (`explore.js`/`explore.css`)
+- **Phase 7**: `explore.css` path used instead of plan-specified `estilos/pages/explorar.css` — consistent naming with JS file
 - **Phase 7**: `scripts/games.js` public API placed before `init()` call — ensures `window.MeuPlanetinha.games` is defined even if `init()` no-ops on explore page
-- **Phase 8**: CSS initials avatars chosen over image references (images had mismatched filenames in original). `body.page-sobre-nos` scoping pattern follows Phase 4/7 precedent.
+- **Phase 8**: CSS initials avatars chosen over image references. `body.page-sobre-nos` scoping pattern follows Phase 4/7 precedent.
+- **Phase 9**: `404.html` at root depth — `body.page-404` scoping. GitHub Pages auto-serves `404.html` for unmatched paths.
+- **Phase 10**: Carousel dots use padding+background-clip tap target trick (14px visual, 44px tap). Single-Tab-stop carousel widget (tabindex=-1 on arrows/dots). Named difficulty labels (Fácil/Médio/Difícil). Focus moves to jogos heading after planet selection (Home/End also added).
 
-- **Phase 9**: `404.html` at root depth — `body.page-404` scoping, all CSS at `estilos/...` (no `../` prefix). GitHub Pages auto-serves `404.html` for unmatched paths — no config needed.
-- **Phase 10**: All 5 a11y plans executed. Carousel dots use padding+background-clip tap target trick (14px visual, 44px tap). Single-Tab-stop carousel widget (tabindex=-1 on arrows/dots, section handles arrow keys). Named difficulty labels (Fácil/Médio/Difícil). Focus moves to jogos heading after planet selection (Home/End also added).
+### v2.0 Decisions (New)
+
+- **Research**: Zero new dependencies — all native CSS 3D transforms, @keyframes, inline SVG, vanilla JS
+- **Research**: 3D carousel uses CSS Custom Property Animation Driver pattern — JS sets `--orbit-angle`, CSS handles all positioning
+- **Research**: `carousel-3d.css` + `carousel-3d.js` fully replace v1 carousel files (not incremental modification)
+- **Research**: 9 new CSS custom properties extending `base.css` for 3D perspective, animation timing, z-index layers
+- **Research**: `estilos/animacoes.css` is the centralized animation stylesheet (new file)
+- **Research**: Wave dividers are inline SVG Bézier curves (~150 bytes each), styled via componentes.css
+- **Research**: MAX 3-4 `will-change` elements to prevent GPU memory exhaustion (remove v1's per-planet `will-change`)
+
+### v2.0 Critical Pitfalls
+
+- **P-01**: Safari `preserve-3d` flattening — `overflow: hidden` on ANY ancestor kills 3D. v1 `.carousel-track` has `overflow: hidden` and MUST be removed.
+- **P-04**: Box-shadow starfield repaints — animate via `transform: translate()` only, never animate box-shadow values.
+- **P-05**: GPU memory — MAX 3-4 `will-change` elements.
+- **P-09**: `prefers-reduced-motion` must cover JS — CSS media query alone is insufficient for JS-driven carousel rotation.
+- **P-12**: Battery drain — pause animations when `document.hidden`.
 
 ### Pending Todos
 
-- All 11 phases complete. v1.0 milestone achieved. Run `/gsd:audit-milestone` to verify requirements and archive.
+- [ ] Begin Phase 12: update `estilos/base.css` with 3D/animation tokens
+- [ ] Phase 12: fix header duplicate "Explorar Jogos" (POLISH-01, POLISH-02)
+- [ ] Phase 12: card grid 3-col + "Em Breve" placeholder (POLISH-03, POLISH-04)
+- [ ] Phase 12: index spacing + explore filter (POLISH-05, POLISH-06)
+- [ ] Phase 13: create `estilos/animacoes.css` with @keyframes
+- [ ] Phase 14: build `carousel-3d.css` + `carousel-3d.js`
+- [ ] Phase 15: merge hero section + wave dividers
+- [ ] Phase 16: cross-browser + a11y verification
+- [ ] Phase 17 (stretch): game shell iframe wrapper
 
 ### Blockers/Concerns
 
-- None. All known blockers resolved in Phase 11.
+- Safari preserve-3d flattening is the #1 risk — test early in Phase 14
+- Need Safari (macOS or iOS) access for Phase 16 verification
+- Phase 17 is stretch — may defer to v2.1 if timeline tightens
 
 ## Session Continuity
 
 Last session: 2026-03-05
-Stopped at: Phase 11 complete. All 11 phases executed and verified. v1.0 milestone achieved. Site live at https://rfaeldePadua.github.io/Atividade-ExtencionistaIV/
+Stopped at: v2.0 roadmap created. Phase 12 ready to start. Run `/gsd:plan` to generate Phase 12 plans.
 Resume file: None

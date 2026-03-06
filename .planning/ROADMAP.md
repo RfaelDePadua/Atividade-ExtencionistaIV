@@ -1,263 +1,175 @@
-# Roadmap: Meu Planetinha — Website Redesign
+# Roadmap: Meu Planetinha
 
-## Overview
+## Milestones
 
-The rebuild proceeds in 11 phases, moving from the design system foundation outward toward each page, and finishing with accessibility and compatibility validation. Phases 1–3 establish the substrate (tokens, shared components, global styles) that all subsequent pages depend on. Phases 4–9 deliver each page independently. Phases 10–11 verify correctness across the full site. Games in `jogos/` are never modified.
-
-## Phases
-
-- [x] **Phase 1: Design System Foundation** — CSS tokens, typography, button components, color system
-- [x] **Phase 2: Shared Nav & Footer Components** — fetch-based component loader, nav.html, footer.html
-- [x] **Phase 3: Global Layout & Space Background** — body gradient, container system, spacing scale, page shell
-- [x] **Phase 4: Homepage Structure & Header** — index.html scaffold, fixed header, hero section
-- [x] **Phase 5: Planet Carousel** — 5 planets, Órbita Central layout, navigation, planet filtering
-- [x] **Phase 6: Game Cards** — card component, game data, carousel filter integration
-- [x] **Phase 7: Explore Page** — full game grid, planet filter buttons, filter logic
-- [x] **Phase 8: About Us Page** — team section, on-brand design
-- [x] **Phase 9: 404 Page** — space-themed not-found page
-- [x] **Phase 10: Accessibility Audit** — contrast ratios, touch targets, keyboard nav, semantic HTML
-- [x] **Phase 11: Compatibility & Integration** — GitHub Pages paths, game page isolation, cross-browser check
+- ✅ **[v1.0 Website Redesign](milestones/v1.0-ROADMAP.md)** — Full rebuild of site shell (homepage, explore, about, 404) with design system, planet carousel, game cards, shared nav/footer, a11y, and GitHub Pages deploy. 11 phases · 46 plans · Shipped 2026-03-05.
+- 🔄 **v2.0 Visual Polish, 3D Carousel & Platform Prep** — Transform the site from a clean static layout into an immersive animated space experience with a 3D orbital planet carousel, wave section transitions, animation system, and game shell infrastructure. 6 phases (12–17) · 24 requirements · In progress.
 
 ---
 
-## Phase Details
+## v2.0 — Visual Polish, 3D Carousel & Platform Prep
 
-### Phase 1: Design System Foundation
-**Goal**: A single `estilos/base.css` file that implements the complete Guia-Visual design system. All downstream phases import this file and inherit the correct tokens.
-**Depends on**: Nothing
-**Requirements**: DS-01, DS-02, DS-03, DS-04, DS-05, DS-06, DS-07, DS-08
-**Success Criteria**:
-  1. `estilos/base.css` exists with all CSS custom properties from Guia-Visual (palette, spacing, typography, planet accents) in a `/:root {}` block
-  2. A test page opening `base.css` shows the three Google Fonts (Fredoka One, Nunito, Press Start 2P) rendering correctly, loaded with `preconnect` + `display=swap` (no render-block)
-  3. `.btn-primario` and `.btn-secundario` component classes render correctly per Section 07 of Guia-Visual
-  4. All 5 planet accent variable sets exist (`--planeta-calculon-cor`, `--planeta-letrion-cor`, etc.)
-  5. Responsive container class centers content correctly from 320px to 1440px
+**Goal:** A child lands on the homepage and immediately feels like they're on a space adventure — the planet carousel draws them in and makes picking a game feel like choosing a destination in the universe.
 
-**Plans:**
-- [ ] 01-01: Create `estilos/reset.css` (CSS reset) + `estilos/base.css` (complete `:root` token block — palette, semantics, 5 planets, typography, spacing, shadows, borders, transitions + base element styles)
-- [ ] 01-02: Create `estilos/layout.css` (container, grid, spacing utils, `.sr-only`) + `estilos/componentes.css` (`.btn-primario`, `.btn-secundario`, planet button variants)
-- [ ] 01-03: Create `_design-system-test.html` visual test fixture — verifies all tokens, fonts, colors, planets, buttons, layout, icons, accessibility
+**Stack:** Zero new dependencies — native CSS 3D transforms, @keyframes, inline SVG, vanilla JS.
+
+**Phase ordering rationale:**
+1. Tokens first — every other phase depends on them
+2. Animations before 3D carousel — float @keyframes are used by planet cards
+3. 3D carousel in its own phase — biggest risk, needs focused attention
+4. Hero/waves after carousel — they merge into the carousel section
+5. Verification as explicit phase — 3D CSS has known browser inconsistencies (Safari preserve-3d)
+6. Game shell last — stretch goal, independent of visual polish
 
 ---
 
-### Phase 2: Shared Nav & Footer Components
-**Goal**: A single source of truth for site navigation and footer, loaded via JS fetch on all site pages. Game pages in `jogos/` are explicitly never touched.
-**Depends on**: Phase 1
-**Requirements**: NAV-01 to NAV-06, FOOT-01 to FOOT-04
-**Success Criteria**:
-  1. `components/nav.html`, `components/footer.html`, and `components/components.js` exist
-  2. A test page at root depth loads the nav/footer correctly via `components.js`
-  3. A test page at `/explorar/` depth loads the nav/footer correctly (paths resolve)
-  4. The active page's nav link has `aria-current="page"` attribute applied automatically
-  5. If JS is disabled or fetch fails, a basic inline fallback nav renders
-  6. Footer contains logo, tagline, and Contato link (single parent-facing link for v1 per user decision); background is `#0B0F2E`
-  7. Nav is keyboard-navigable; all focus styles are visible
+## Phase 12: Foundation — Tokens & Quick Polish
 
-**Plans:**
-- [ ] 02-01 (Wave 1): Create `components/nav.html` (nav fragment with skip-link, logo, links, CTA, hamburger, mobile overlay) + `components/footer.html` (footer fragment with wave, logo, tagline, Contato, star SVGs) + `components/components.css` (all nav + footer styles, mobile responsive ≤640px, FOUC prevention)
-- [ ] 02-02 (Wave 2): Create `components/components.js` (fetch loader, `document.currentScript.src` base-path detection, `data-href` link rewriting, `aria-current="page"` detection, mobile menu toggle) + root-level test page `_nav-footer-test.html`
-- [ ] 02-03 (Wave 3): Create depth-1 test page `explorar/_nav-footer-test.html` + verify all 7 Phase 2 success criteria (path resolution, keyboard nav, active page, fallback, footer visuals)
+**Goal:** Update design tokens for 3D/animation support and ship all quick visual fixes so downstream phases build on a clean baseline.
 
----
+**Requirements:** POLISH-01, POLISH-02, POLISH-03, POLISH-04, POLISH-05, POLISH-06
 
-### Phase 3: Global Layout & Space Background
-**Goal**: Every site page has the correct full-page space gradient background, a consistent page shell, and properly structured `<html>` with `lang`, meta tags, and font `<link>` preconnects.
-**Depends on**: Phase 1, Phase 2
-**Requirements**: BG-01, BG-02, BG-03, DS-06
-**Success Criteria**:
-  1. Every site page (index, explorar, sobre_nos, 404) shows the `#1A3A8F → #2D1B8A → #8B1A6B` gradient background
-  2. No transitions or animations exist on the background in v1
-  3. A shared `_template.html` or documented HTML head block ensures all pages include correct charset, viewport, lang, preconnect links, and CSS file order
-  4. Text on the gradient background passes 5:1+ contrast for all white/light text
-  5. Game pages (`jogos/`) are unaffected — no gradient, no style contamination
+**Tasks:**
+- Update `estilos/base.css` `:root` with 3D/animation tokens (`--perspectiva`, `--orbita-raio`, `--orbita-inclinacao`, `--anim-duracao-orbita`, `--anim-duracao-flutuar`, `--anim-duracao-estrelas`, `--will-change-budget`, `--z-carousel`, `--z-stars`)
+- Fix header "Explorar Jogos" duplicate (POLISH-01) and remove colored bar across all pages (POLISH-02)
+- Game cards 3-column grid + 1 "Em Breve" placeholder card (POLISH-03)
+- "Jogar!" button anchored to card bottom via `margin-top: auto` in flex column (POLISH-04)
+- Index page spacing between cards section and footer (POLISH-05)
+- Explore page filter bar without blue strip background (POLISH-06)
 
-**Plans:**
-- [x] 03-01: Define and verify the space gradient CSS (`background: linear-gradient(...)`) in `base.css`; confirm exact hex values match Guia-Visual Section 01
-- [x] 03-02: Create `_template.html` — a documented HTML page template with all required `<head>` elements (charset, viewport, `lang="pt-BR"`, `<base href>`, preconnect links, CSS load order) that all new pages will copy from
-- [x] 03-03: Create `estilos/pages/page-shell.css` — `.page-wrapper` flex column layout (header + main grows + footer at bottom), gradient background on body
-- [x] 03-04: Run contrast check on all Guia-Visual color pairings against the gradient background; document passing/failing combinations in `.planning/` for reference
-- [x] 03-05: Confirm no shared CSS file is accidentally linked from a game page (verify `jogos/*/index.html` files — they should not reference `../../estilos/base.css`)
+**Success Criteria:**
+1. Header renders "Explorar Jogos" exactly once on every page; no colored bar visible on any page
+2. Homepage game cards display in a 3-column grid (2-col on mobile) with a visible "Em Breve" placeholder as the third card
+3. "Jogar!" button sits flush at the bottom of every game card regardless of description length
+4. At least 24px of visible space separates the cards section from the footer on the index page
+5. Explore page filter bar has a transparent or gradient-matching background (no opaque blue strip)
 
 ---
 
-### Phase 4: Homepage Structure & Header
-**Goal**: `index.html` is a complete, correctly structured page with a working fixed header that transitions from transparent to dark on scroll, plus a hero welcome section.
-**Depends on**: Phase 1, Phase 2, Phase 3
-**Requirements**: HOME-01 to HOME-05
-**Success Criteria**:
-  1. `index.html` exists — valid HTML5, `lang="pt-BR"`, loads all Phase 1–3 CSS, loads `components.js`, nav and footer inject correctly
-  2. Header is fixed to the top of the viewport
-  3. At page top, header background is transparent; after scrolling ~80px it transitions to `#0D1A3A` (CSS transition, no animation library)
-  4. Header contains: planet icon + "Meu Planetinha" (Fredoka One), nav links, "Explorar Jogos" button
-  5. Hero section shows a welcome headline and subtitle above where the carousel will be (Phase 5)
-  6. "Explorar Jogos" button smoothly scrolls to `#carousel` section (`scroll-behavior: smooth`)
+## Phase 13: Animation System
 
-**Plans:**
-- [x] 04-01 (Wave 1): Scaffold `index.html` from `_template.html` — valid HTML5, `body.page-home`, data-component placeholders, hero section, dev placeholder sections (#carousel, #jogos), no duplicate skip-link
-- [x] 04-02 (Wave 1): Create `estilos/pages/homepage.css` — hero section styles (centering, 35vh min-height, typography), dev placeholder dashed-border styles, mobile responsive
-- [x] 04-03 (Wave 1): Add `html { scroll-behavior: smooth; }` to `estilos/base.css` — enables CTA smooth-scroll (prefers-reduced-motion override already handles fallback)
-- [x] 04-04 (Wave 2): Update `components/components.css` — `.site-nav` from sticky→fixed, `.page-home .site-nav` transparent override, `.site-nav--scrolled` class with #0D1A3A bg + box-shadow + transition
-- [x] 04-05 (Wave 2): Create `scripts/homepage.js` — scroll listener (80px threshold toggles `.site-nav--scrolled`), CTA click interceptor (smooth-scroll to #carousel), mobile overlay close after CTA
+**Goal:** Create a centralized animation stylesheet with GPU-composited @keyframes for starfield drift, planet float, and sparkle accents — all gated by accessibility preferences and tab visibility.
 
----
+**Requirements:** ANIM-01, ANIM-02, ANIM-03, ANIM-04, ANIM-05
 
-### Phase 5: Planet Carousel
-**Goal**: An interactive planet carousel on the homepage with all 5 themed planets, keyboard/touch/click navigation, and the ability to filter game cards by selected planet.
-**Depends on**: Phase 4
-**Requirements**: CAR-01 to CAR-07
-**Success Criteria**:
-  1. All 5 planets display: Calculon, Letrion, Naturox, Terramund, Globish — each with their Guia-Visual color and name
-  2. Center planet is visually larger and more prominent than side planets
-  3. Left/right arrows navigate between planets
-  4. Keyboard ←/→ keys navigate the carousel (focus must be within the carousel section)
-  5. Touch swipe left/right navigates on mobile
-  6. Navigation dots display and update to reflect current planet
-  7. Selecting the center planet sets a `data-active-planet` attribute (or equivalent) that card filtering (Phase 6) will read
-  8. Each planet card is visually distinct — themed color backgrounds
+**Tasks:**
+- Create `estilos/animacoes.css` with all @keyframes declarations
+- Starfield drift: continuous `transform: translate()` loop on `body::before`/`::after` pseudo-elements (ANIM-01)
+- Planet float: `translateY` oscillation keyframe applied to `.planet-sphere` elements (ANIM-02)
+- Sparkle/particle accents: small CSS-only sparkle elements near hero/carousel area (ANIM-03)
+- `@media (prefers-reduced-motion: reduce)` block setting `animation: none` and `transition: none` on all animated elements (ANIM-04)
+- JS `matchMedia('(prefers-reduced-motion: reduce)')` check to disable JS-driven animations (ANIM-04)
+- Page Visibility API listener: toggle `animation-play-state: paused` on `document.hidden` (ANIM-05)
 
-**Plans:**
-- [x] 05-01: Create carousel HTML in `index.html` — complete 2026-03-05
-- [x] 05-02: Overwrite `estilos/carousel.css` — Órbita Central layout — complete 2026-03-05
-- [x] 05-03: Overwrite `scripts/carousel.js` — PlanetCarousel class — complete 2026-03-05
-- [x] 05-04: ARIA enhancements — all checks pass from prior plans — complete 2026-03-05
-- [x] 05-05: Verification — 15/15 must-haves, 8/8 SC, 7/7 CAR — complete 2026-03-05
+**Success Criteria:**
+1. Star background visibly drifts in a continuous diagonal loop; no jump/snap when the cycle repeats
+2. Planet spheres oscillate vertically by ~4-6px with smooth easing; oscillation is visible at rest
+3. With DevTools forced `prefers-reduced-motion: reduce`, zero elements animate (CSS and JS both respect it)
+4. Switching to another browser tab pauses all animations; returning resumes them (verify via DevTools animation inspector)
+5. At least one sparkle/particle accent is visible near the carousel area on the homepage
 
 ---
 
-### Phase 6: Game Cards
-**Goal**: Game card components appear below the carousel and correctly link to the actual games. Cards filter dynamically when a planet is selected.
-**Depends on**: Phase 5
-**Requirements**: CARD-01 to CARD-06
-**Success Criteria**:
-  1. Two game cards render: Contando Estrelas (Calculon/Math) and Jogo de Sílaba (Letrion/Portuguese)
-  2. Each card shows game name, planet affiliation, 3 difficulty stars (visual), and "Jogar!" button
-  3. "Jogar!" buttons correctly navigate to `jogos/Contando_Estrelas/index.html` and `jogos/Jogo_de_Silaba/index.html` respectively
-  4. Selecting Calculon planet in the carousel shows only the Math game card; selecting Letrion shows only the Portuguese game card; all other planets show "Nenhum jogo disponível"
-  5. Selecting no planet (initial state) shows all cards
-  6. Card visual matches Guia-Visual Portal de Entrada style — planet-themed gradient, rounded corners, "Jogar!" button
+## Phase 14: 3D Orbital Carousel
 
-**Plans:**
-- [x] 06-01: Create game data definition — a JS constant array of game objects `{ id, name, planet, difficulty, path }` in `scripts/games.js`
-- [x] 06-02: Create `estilos/cards.css` — Portal de Entrada card styles: planet-themed gradient background, rounded corners, star difficulty rating, "Jogar!" button
-- [x] 06-03: Create card renderer function — generates card HTML from game data array, inserts into `#game-grid` on `index.html`
-- [x] 06-04: Implement filter logic — `PlanetCarousel` `planetSelected` event triggers card grid to show/hide cards by planet affiliation
-- [x] 06-05: "Nenhum jogo disponível" empty state — verified working (integrated into 06-04 filter logic)
-- [x] 06-06: Verify game links — confirmed relative paths resolve correctly; both games load — complete 2026-03-05
+**Goal:** Replace the v1 flat carousel with a CSS 3D perspective ring where 5 planets orbit on a tilted elliptical plane, with back planets faded/blurred and side planets naturally scaled by perspective depth.
 
----
+**Requirements:** CAROUSEL-01, CAROUSEL-02, CAROUSEL-04, CAROUSEL-05, CAROUSEL-06, CAROUSEL-07
 
-### Phase 7: Explore Page
-**Goal**: `explorar/explorar.html` is a complete page showing all games in a grid, with planet filter buttons that filter the game grid per subject.
-**Depends on**: Phase 6 (shares card component and game data)
-**Requirements**: EXP-01 to EXP-05
-**Success Criteria**:
-  1. Page loads with space background, nav, and footer via components.js
-  2. All games displayed in a responsive card grid by default
-  3. Five planet filter buttons + "Todos" button appear above the grid
-  4. Clicking a planet filter button filters the grid to show only games for that planet; "Todos" resets the filter
-  5. Active filter button is visually highlighted using the planet's theme color
-  6. Page heading "Explorar Jogos" or equivalent clearly introduces the page
+**Tasks:**
+- Create `estilos/carousel-3d.css` replacing `estilos/carousel.css` — perspective container, preserve-3d orbit ring, `rotateY` + `translateZ` planet positioning (CAROUSEL-01)
+- Create `scripts/carousel-3d.js` replacing `scripts/carousel.js` — single `--orbit-angle` CSS custom property driver, arrow/dot/keyboard/touch handlers
+- 5 planets at 72° intervals; back planets receive `opacity` fade + `filter: blur()` based on angle offset (CAROUSEL-02)
+- Arrow buttons positioned adjacent to side planets, not at page edges (CAROUSEL-04)
+- Dot indicators positioned tight below the carousel orbit container (CAROUSEL-05)
+- Side planets appear at ~65% of center planet size via natural CSS perspective depth — no JS size manipulation (CAROUSEL-06)
+- Preserve v1 a11y: `aria-roledescription="carousel"`, `aria-live` announcements, keyboard arrow navigation, `prefers-reduced-motion` instant snap (CAROUSEL-07)
+- Safari `preserve-3d` safeguard: ensure NO `overflow: hidden` on any ancestor of the 3D container
 
-**Plans:**
-- [x] 07-01: Refactor `scripts/games.js` — expose public API and basePath parameter
-- [x] 07-02: Scaffold `explorar/explorar.html` from `_template.html` — nav/footer placeholders, filter section, game grid section
-- [x] 07-03: Create `estilos/pages/explore.css` — page-specific styles (filter bar, grid layout)
-- [x] 07-04: Create `scripts/explore.js` — filter buttons, card rendering, filter logic (consolidates 07-03 through 07-06)
+**Success Criteria:**
+1. Carousel visually renders as a tilted 3D ring; rotating via arrows shows planets moving along an elliptical orbit path (not sliding left/right)
+2. The two back-most planets are visibly faded and slightly blurred compared to the front-center planet
+3. Side planets are noticeably smaller than center (~60-70% visual size) without any JS resize logic — purely perspective
+4. Keyboard navigation (Left/Right/Home/End) cycles planets with ARIA live region announcement on each change
+5. With `prefers-reduced-motion: reduce`, planet transitions snap instantly (no rotation animation)
 
 ---
 
-### Phase 8: About Us Page
-**Goal**: `sobre_nos/sobre_nos.html` rebuilt with on-brand design — team credits, project description, consistent visual identity.
-**Depends on**: Phase 3 (global shell)
-**Requirements**: ABOUT-01, ABOUT-02, ABOUT-03
-**Success Criteria**:
-  1. Page loads with space background, nav, and footer
-  2. Displays four team member names (Stanley Melo Costa, Robson Ribeiro Filho, Rafael de Pádua Oliveira, Matheus Terra Wachsmuth) and a brief project description
-  3. Typography uses Fredoka One for headings, Nunito for body — consistent with design system
-  4. Page is visually on-brand with rest of site
+## Phase 15: Unified Hero & Section Transitions
 
-**Plans:**
-- [x] 08-01: Scaffold `sobre_nos/sobre_nos.html` from `_template.html` — full HTML rewrite: depth-1 paths, nav/footer injection, hero section, project description, 4 team member cards with CSS-initials avatars, CTA button
-- [x] 08-02: Create `estilos/pages/sobre_nos.css` — hero layout, team grid (2-col→1-col), member card styles, planet-colored avatar circles, hover lift, reduced-motion support
+**Goal:** Merge the hero text block into the carousel section as a single cohesive unit and add SVG wave dividers between major sections to create a flowing visual hierarchy.
 
----
+**Requirements:** CAROUSEL-03, TRANS-01, TRANS-02, POLISH-07
 
-### Phase 9: 404 Page
-**Goal**: `404.html` rebuilt with the space theme — an on-brand not-found experience with a clear path back to the homepage.
-**Depends on**: Phase 3 (global shell)
-**Requirements**: E404-01, E404-02, E404-03
-**Success Criteria**:
-  1. Page loads with space background, nav, footer
-  2. Clear "Página não encontrada" (404) message visible
-  3. Link or button that returns to `index.html` works correctly
-  4. GitHub Pages serves this file automatically for 404s (no config needed — GitHub Pages picks up `404.html` at root)
+**Tasks:**
+- Restructure `index.html` hero section: title ("Meu Planetinha"), subtitle, CTA line, and carousel wrapped in a single `.hero` container (CAROUSEL-03)
+- Create inline SVG Bézier wave dividers between hero→cards and cards→footer sections (TRANS-01)
+- Wave SVGs overlap adjacent sections by 1-2px with matching background colors to prevent subpixel gaps (TRANS-02)
+- Background hierarchy polish: ensure each section has a distinct visual depth/tone that creates vertical rhythm — no large empty voids (POLISH-07)
 
-**Plans:**
-- [x] 09-01: Scaffold `404.html` from `_template.html`
-- [x] 09-02: Write 404 page content — kid-friendly space-themed "lost in space" copy, "Voltar para casa" button/link
-- [x] 09-03: Style 404 page — centered card layout, large 404 display number in Fredoka One, CTA button using `.btn-primario`
-- [x] 09-04: Verify GitHub Pages serves `404.html` automatically (test by navigating to a nonexistent path)
+**Success Criteria:**
+1. Hero title, subtitle, CTA text, and planet carousel render as a single visually connected block with no gap or divider between them
+2. At least two wave dividers are visible on the homepage (hero→cards transition and cards→footer transition)
+3. Zooming to 200% shows no visible 1px gap line between wave dividers and their adjacent sections
+4. Scrolling the homepage reveals a clear vertical hierarchy — each section (hero, games, footer) has a distinct background treatment
+5. Wave dividers render correctly on mobile viewports (320px–768px) without horizontal overflow
 
 ---
 
-### Phase 10: Accessibility Audit
-**Goal**: Every page passes WCAG AA minimum contrast requirements, keyboard navigation works throughout, all interactive elements have proper labels, and the site is usable on mobile touch.
-**Depends on**: Phases 4–9 (all pages complete)
-**Requirements**: A11Y-01 to A11Y-07
-**Success Criteria**:
-  1. Zero WCAG AA contrast failures on any page — verified with axe DevTools or browser accessibility panel
-  2. All interactive elements reachable and activatable via keyboard (Tab + Enter/Space)
-  3. All images/icons have `alt` or `aria-label`
-  4. Focus rings visible on all interactive elements
-  5. `prefers-reduced-motion` media query prevents all CSS transitions/animations when set
-  6. All touch targets ≥ 44×44px
-  7. Heading hierarchy is correct on every page (one `<h1>`, logical `<h2>`/`<h3>` nesting)
+## Phase 16: Cross-Browser Verification & A11y Audit
 
-**Plans:**
-- [x] 10-01: CSS touch-target fixes — carousel dot padding trick (14px→44px tap area) + filter button min-height 44px (`carousel.css`, `cards.css`, `explore.css`)
-- [x] 10-02: HTML structural fixes — remove duplicate skip-links from 3 pages; add `tabindex="-1"` to carousel arrows/dots; add `role="region"` to carousel section (`explorar.html`, `sobre_nos.html`, `404.html`, `index.html`)
-- [x] 10-03: `games.js` a11y — named difficulty labels (Fácil/Médio/Difícil) + `role="img"` on stars span + distinct aria-labels on "Jogar!" buttons
-- [x] 10-04: `explore.js` a11y — planet filter buttons announce "Planeta X – Subject" via aria-label
-- [x] 10-05: `carousel.js` keyboard enhancements — Home/End key support + focus management (move focus to #jogos heading after planet selection)
+**Goal:** Verify all v2.0 visual and interactive features work correctly across browsers, viewports, and assistive technologies — with particular focus on Safari's 3D rendering and mobile performance.
 
----
+**Requirements:** Verification of POLISH-01–07, CAROUSEL-01–07, ANIM-01–05, TRANS-01–02
 
-### Phase 11: Compatibility & Integration
-**Goal**: The rebuilt site deploys and works correctly on GitHub Pages, game pages are completely unaffected, and the site works across all target browsers and screen sizes.
-**Depends on**: Phase 10
-**Requirements**: COMPAT-01 to COMPAT-05
-**Success Criteria**:
-  1. Both game pages (`jogos/Contando_Estrelas/index.html` and `jogos/Jogo_de_Silaba/index.html`) load and play exactly as before — no visual changes, no broken CSS, no broken JS
-  2. All pages load correctly when served from the `/Atividade-ExtencionistaIV/` GitHub Pages subpath — no broken CSS links, no broken images, no 404 nav/footer
-  3. Nav and footer components inject on all pages when served via HTTP (Live Server / GitHub Pages)
-  4. Site renders correctly on Chrome, Firefox, Safari, Edge (latest)
-  5. Site is usable at 320px viewport width (no horizontal overflow on any page)
+**Tasks:**
+- Safari preserve-3d testing: confirm 3D carousel renders correctly in Safari (macOS + iOS) with no flattening
+- Mobile viewport testing: 320px, 375px, 414px, 768px, 1024px, 1440px — carousel, waves, cards, animations
+- Accessibility audit: screen reader carousel announcements, keyboard-only navigation flow, focus management, color contrast on new elements
+- Performance audit: count GPU compositing layers (max 3-4 `will-change`), verify 60fps animation on mid-range device, check no unnecessary repaints
+- Verify `prefers-reduced-motion` coverage end-to-end (CSS + JS + carousel + starfield)
 
-**Plans:**
-- [x] 11-01: Audit all `href`, `src`, `url()` references in new HTML and CSS — confirm zero absolute `/` paths; replace any found with relative paths or `<base href>` compatible paths
-- [x] 11-02: Load each game page in the browser with DevTools open — confirm no console errors, no style differences from original; verify Phaser canvas renders and gameplay works
-- [x] 11-03: Verify `components/components.js` fetch paths work from root, `/explorar/`, `/sobre_nos/` — test all three locally with `python -m http.server`
-- [x] 11-04: Cross-browser check — open `index.html` and `explorar.html` in Chrome, Firefox, Edge; note and fix any CSS rendering differences
-- [x] 11-05: Mobile responsiveness check — DevTools device emulation at 320px, 375px, 768px, 1024px, 1280px; fix any overflow or layout breaks
-- [x] 11-06: Deploy to GitHub Pages and perform final smoke test — check all 4 pages, both game pages, nav links across pages, 404 behavior
-- [x] 11-07: Verify `.planning/` is in `.gitignore` or excluded from GitHub Pages (should not be publicly served)
+**Success Criteria:**
+1. 3D carousel renders with correct perspective depth in Safari (macOS Safari 17+ and iOS Safari) — no flat/collapsed appearance
+2. All pages pass at 6 viewport widths (320, 375, 414, 768, 1024, 1440px) with no overflow, overlap, or layout break
+3. Screen reader (NVDA or VoiceOver) announces planet name on each carousel navigation; all interactive elements are keyboard-reachable
+4. Chrome DevTools Layers panel shows ≤ 4 composited layers with `will-change`; animation frame rate stays above 55fps on throttled 4x CPU slowdown
+5. Toggling `prefers-reduced-motion: reduce` disables every animation and transition on every page (spot-check all 4 site pages)
 
 ---
 
-## Progress
+## Phase 17 (Stretch): Game Shell & Iframe Sandbox
 
-| Phase | Plans | Status | Completed |
-|-------|-------|--------|-----------|
-| 1. Design System Foundation | 3/3 | Complete | 2026-03-04 |
-| 2. Shared Nav & Footer | 3/3 | Complete | 2026-03-04 |
-| 3. Global Layout & Background | 5/5 | Complete | 2026-03-05 |
-| 4. Homepage Structure & Header | 5/5 | Complete | 2026-03-05 |
-| 5. Planet Carousel | 5/5 | Complete | 2026-03-05 |
-| 6. Game Cards | 6/6 | Complete | 2026-03-05 |
-| 7. Explore Page | 4/4 | Complete | 2026-03-05 |
-| 8. About Us Page | 2/2 | Complete | 2026-03-05 |
-| 9. 404 Page | 4/4 | Complete | 2026-03-05 |
-| 10. Accessibility Audit | 5/5 | Complete | 2026-03-05 |
-| 11. Compatibility & Integration | 4/4 | Complete | 2026-03-05 |
+**Goal:** Create a reusable game wrapper page that loads any game inside a sandboxed iframe with the site's nav/footer, providing a consistent play experience and laying the foundation for future contributor-submitted games.
 
-**Total:** 61 plans across 11 phases
+**Requirements:** SHELL-01, SHELL-02, SHELL-03
+
+**Tasks:**
+- Create `jogos/jogar.html` with site nav/footer loaded via `components/components.js`, containing a full-viewport `<iframe>` for game content (SHELL-01)
+- Configure iframe with `sandbox="allow-scripts allow-same-origin"` minimum privilege set (SHELL-02)
+- Implement loading overlay screen shown by default; game signals ready via `postMessage('game-ready')` to dismiss it; 5-second timeout fallback auto-dismisses (SHELL-03)
+- URL routing: `jogar.html?game=contando-estrelas` maps to game path via `GAME_DATA` lookup
+- Update game card links to point to `jogar.html?game=<id>` instead of direct game URLs
+
+**Success Criteria:**
+1. Navigating to `jogar.html?game=contando-estrelas` renders the Contando Estrelas game inside an iframe with the site header and footer visible
+2. iframe element has `sandbox="allow-scripts allow-same-origin"` attribute (inspect via DevTools)
+3. A loading overlay is visible for up to 5 seconds (or until `postMessage` received), then smoothly fades out to reveal the game
+4. Game audio and interaction work correctly inside the sandboxed iframe (click, keyboard, touch)
+5. Invalid `?game=` parameter shows a friendly error state instead of a blank/broken iframe
+
+---
+
+## v2.x Candidates (deferred from v2.0)
+
+- Functional search on Explore page (FEAT-01)
+- Alphabet filter on Explore page (FEAT-02)
+- LocalStorage progress tracking on game cards (FEAT-03)
+- Games for Naturox, Terramund, Globish planets (CONT-01)
+- Contributor SDK / documentation (v3)
+- Privacy/Terms footer links
+
+---
+
+*Roadmap created: 2026-03-05*
+*Last updated: 2026-03-05*
