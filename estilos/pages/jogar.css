@@ -13,7 +13,9 @@
   overflow-x: hidden;
 }
 
-/* Footer below the fold — user can scroll to see it */\n\n.page-jogar .jogar-viewport {
+/* Footer below the fold — user can scroll to see it */
+
+.page-jogar .jogar-viewport {
   position: relative;
   flex: 1 1 auto;
   display: flex;
