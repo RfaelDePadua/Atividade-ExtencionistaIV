@@ -5,17 +5,17 @@
 See: [.planning/PROJECT.md](.planning/PROJECT.md) (updated 2026-03-05)
 
 **Core value:** A child lands on the homepage and immediately feels like they're on a space adventure — the planet carousel draws them in and makes picking a game feel like choosing a destination in the universe.
-**Current focus:** v2.0 — Phase 15 (Unified Hero & Section Transitions) — NOT STARTED
+**Current focus:** v2.0 — Phase 16 (Cross-Browser Verification & A11y Audit) — NOT STARTED
 
 ## Current Position
 
 Milestone: v2.0 Visual Polish, 3D Carousel & Platform Prep
-Phase: 15 of 17 (Not Started)
+Phase: 16 of 17 (Not Started)
 Plan: 0 of TBD
-Status: Phase 14 complete. Phase 15 ready to begin.
-Last activity: 2026-03-06 — Phase 14 executed and verified. 6/6 CAROUSEL requirements satisfied. 4 plans, 10 commits.
+Status: Phase 15 complete. Phase 16 ready to begin.
+Last activity: 2026-03-06 — Phase 15 executed and verified. 4/4 requirements satisfied. 3 plans, 15 commits.
 
-Progress: [██████████████████░░░░░░░░░░░░░░░░░░░░░░░░░] 41%
+Progress: [█████████████████████████████️▋░░░░░░░░░░░░░] 67%
 
 ## v1.0 Summary (Shipped)
 
@@ -30,7 +30,7 @@ Progress: [██████████████████░░░░░
 | 12 | Foundation — Tokens & Quick Polish | POLISH-01–06 (6) | ✅ Complete |
 | 13 | Animation System | ANIM-01–05 (5) | ✅ Complete |
 | 14 | 3D Orbital Carousel | CAROUSEL-01,02,04,05,06,07 (6) | ✅ Complete |
-| 15 | Unified Hero & Section Transitions | CAROUSEL-03, TRANS-01,02, POLISH-07 (4) | ⏳ Not Started |
+| 15 | Unified Hero & Section Transitions | CAROUSEL-03, TRANS-01,02, POLISH-07 (4) | ✅ Complete |
 | 16 | Cross-Browser Verification & A11y Audit | Verify all above (0 new) | ⏳ Not Started |
 | 17 | Game Shell & Iframe Sandbox (Stretch) | SHELL-01–03 (3) | ⏳ Not Started |
 
@@ -83,6 +83,12 @@ Progress: [██████████████████░░░░░
 - **Phase 14**: Per-card counter-rotation (`rotateY(θ) translateZ(R) rotateY(-θ)`) — orbit ring stays static, JS sets `--card-angle` per card
 - **Phase 14**: Blur-only depth cueing — no opacity on planet zones; depth via `filter: blur()` only to avoid mid-transition transparency
 - **Phase 14**: Sparkles placed inside `.carousel-scene` to share stacking context with 3D-projected planets
+- **Phase 15**: Hero→cards wave divider removed per user preference — gradient background on `#jogos` creates soft transition instead
+- **Phase 15**: `#jogos` uses `background: linear-gradient(transparent → #111842 at 80px)` — distinct from footer (#0B0F2E)
+- **Phase 15**: `overflow-x: clip` on `body` (not `html`) — `position: fixed` nav unaffected since fixed elements reference viewport
+- **Phase 15**: `.hero-header` frosted glass (`backdrop-filter: blur(12px)`) — sibling of `.carousel-scene`, never a parent (would flatten preserve-3d)
+- **Phase 15**: Skip-link changed to `:focus-visible` — no longer visible on click-focus
+- **Phase 15**: 11 total sparkles in hero area (7 inside `.carousel-scene`, 4 `.sparkle--hero` as direct `.hero` children)
 
 ### v2.0 Critical Pitfalls
 
@@ -101,7 +107,7 @@ Progress: [██████████████████░░░░░
 - [x] ~~Begin Phase 13: create `estilos/animacoes.css` with @keyframes~~ ✅
 - [x] ~~Phase 13: integrate animation system into all pages~~ ✅
 - [x] ~~Phase 14: build `carousel-3d.css` + `carousel-3d.js`~~ ✅
-- [ ] Phase 15: merge hero section + wave dividers
+- [x] ~~Phase 15: merge hero section + wave dividers~~ ✅
 - [ ] Phase 16: cross-browser + a11y verification
 - [ ] Phase 17 (stretch): game shell iframe wrapper
 
@@ -114,5 +120,5 @@ Progress: [██████████████████░░░░░
 ## Session Continuity
 
 Last session: 2026-03-06
-Stopped at: Phase 14 complete and verified. 11/11 must-haves passed. Run `/gsd:discuss-phase 15` or `/gsd:plan-phase 15` to continue.
+Stopped at: Phase 15 complete and verified. 4/4 requirements satisfied. Run `/gsd:discuss-phase 16` or `/gsd:plan-phase 16` to continue.
 Resume file: None
