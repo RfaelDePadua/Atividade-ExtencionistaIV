@@ -56,7 +56,9 @@
   z-index: 1;
 }
 
-/* --- Hero Header (title + subtitle container) --- */
+/* --- Frosted glass panel (Experiment A) --- */
+/* CRITICAL: backdrop-filter on .hero-header ONLY — it is a SIBLING of
+   .carousel-scene, not a parent. Applying to .hero would flatten 3D. */
 
 .hero-header {
   display: flex;
@@ -64,7 +66,32 @@
   align-items: center;
   gap: var(--espaco-sm);
   max-width: var(--largura-max-texto);
+  padding: var(--espaco-lg) var(--espaco-2xl);
+  border-radius: var(--borda-raio-xl);
+  background: rgba(13, 26, 58, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
+
+/* --- Experiment B fallback (activate if Experiment A causes 3D issues) ---
+.hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espaco-sm);
+  max-width: var(--largura-max-texto);
+  background: none;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.hero-title {
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6), 0 0 60px rgba(26, 58, 143, 0.4);
+}
+--- End Experiment B fallback */
 
 .hero-title {
   font-family: var(--fonte-titulo);
@@ -95,6 +122,15 @@
   text-shadow: 0 0 12px rgba(255, 212, 59, 0.25);
 }
 
+/* --- Hero-level sparkles (outside carousel-scene) --- */
+
+.sparkle--hero {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  z-index: 1;    /* above glow (0), below carousel content */
+}
+
 /* Mobile adjustments */
 @media (max-width: 640px) {
   .hero {
@@ -112,6 +148,10 @@
 
   .hero-cta {
     font-size: var(--texto-base);
+  }
+
+  .hero-header {
+    padding: var(--espaco-md) var(--espaco-lg);
   }
 }
 
