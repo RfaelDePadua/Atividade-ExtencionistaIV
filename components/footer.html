@@ -1,6 +1,10 @@
 <footer class="site-footer">
-  <!-- Wavy top border — decorative div, styled via CSS clip-path -->
-  <div class="footer-wave" aria-hidden="true"></div>
+  <!-- Wavy top border — SVG Bézier curve (Phase 15, replaces clip-path div) -->
+  <svg class="wave-divider wave-divider--footer" viewBox="0 0 1440 48"
+       preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
+       aria-hidden="true">
+    <path d="M0,20 C360,44 720,0 1080,28 C1260,40 1380,12 1440,20 L1440,48 L0,48 Z"/>
+  </svg>
 
   <div class="footer-container">
     <!-- Left column: logo + tagline -->

@@ -283,39 +283,29 @@ body {
   padding: var(--espaco-3xl) 0 var(--espaco-xl);
 }
 
-/* Wavy top border via clip-path */
-.footer-wave {
+/* Wavy top border — SVG Bézier wave (Phase 15, replaces clip-path polygon) */
+.wave-divider--footer {
   position: absolute;
-  top: -40px;
+  top: -47px;               /* wave overlaps into footer by 1px (48 - 1 = 47px offset) */
   left: 0;
   width: 100%;
-  height: 42px; /* 40px wave + 2px overlap into footer prevents subpixel hairline gap */
-  background: var(--cor-fundo-footer);
-  clip-path: polygon(
-    0% 100%,
-    0% 60%,
-    5% 50%,
-    10% 55%,
-    15% 65%,
-    20% 70%,
-    25% 65%,
-    30% 55%,
-    35% 50%,
-    40% 55%,
-    45% 65%,
-    50% 70%,
-    55% 65%,
-    60% 55%,
-    65% 50%,
-    70% 55%,
-    75% 65%,
-    80% 70%,
-    85% 65%,
-    90% 55%,
-    95% 50%,
-    100% 60%,
-    100% 100%
-  );
+  height: 48px;
+  z-index: var(--z-wave);
+  pointer-events: none;
+  display: block;
+  line-height: 0;
+  bottom: auto;              /* reset inherited bottom: -1px from base .wave-divider */
+}
+
+.wave-divider--footer path {
+  fill: var(--cor-fundo-footer);
+}
+
+@media (max-width: 640px) {
+  .wave-divider--footer {
+    height: 32px;
+    top: -31px;
+  }
 }
 
 .footer-container {
