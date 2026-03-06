@@ -142,11 +142,11 @@
      ========================================= */
 
   /* Perspective for 3D card/planet transforms */
-  --perspectiva-3d:        700px;
+  --perspectiva-3d:        1000px;
 
   /* Orbit ring parameters (carousel planets) */
-  --orbita-raio:           300px;
-  --orbita-inclinacao:     25deg;
+  --orbita-raio:           200px;
+  --orbita-inclinacao:     22deg;
   --orbita-rotacao-duracao: 600ms;
   --orbita-easing:          ease-out;
   --orbita-opacidade-fundo: 0.3;
@@ -322,15 +322,15 @@ a:hover {
 
 @media (max-width: 768px) {
   :root {
-    --orbita-raio: 200px;
-    --perspectiva-3d: 600px;
+    --orbita-raio: 160px;
+    --perspectiva-3d: 900px;
   }
 }
 
 @media (max-width: 480px) {
   :root {
-    --orbita-raio: 140px;
-    --perspectiva-3d: 500px;
+    --orbita-raio: 120px;
+    --perspectiva-3d: 800px;
   }
 }
 

@@ -3,12 +3,13 @@
  * Phase 14 — Meu Planetinha v2.0
  *
  * Architecture: Three-Layer Container Model
- *   .carousel-scene  ← perspective container (perspective: 700px)
- *   .carousel-orbit   ← preserve-3d ring (rotateX + rotateY via --orbit-angle)
- *   .planet-card × 5  ← positioned via rotateY(N*72°) translateZ(radius)
+ *   .carousel-scene  ← perspective container (perspective: 1000px)
+ *   .carousel-orbit   ← preserve-3d ring (rotateX tilt only; does NOT rotate)
+ *   .planet-card × 5  ← per-card angle: rotateY(θ) translateZ(R) rotateY(-θ)
  *
- * Animation driver: JS sets --orbit-angle on .carousel-orbit.
- * CSS transition interpolates smoothly. All 5 planets move as children.
+ * Animation driver: JS sets --card-angle per planet. Each card's CSS transform
+ * includes a counter-rotation so cards always face the viewer (billboard effect).
+ * CSS transition interpolates smoothly. Perspective handles natural size scaling.
  *
  * Depends on: base.css (tokens), layout.css (.container)
  * Load after: homepage.css
@@ -45,33 +46,33 @@
 .carousel-scene {
   position: relative;
   width: 100%;
-  height: 340px;    /* enough for orbit depth + planet sphere + info */
+  height: 420px;    /* enough for tilted orbit depth + planet sphere + info */
   perspective: var(--perspectiva-3d);
   overflow: visible; /* CRITICAL: Safari preserve-3d safeguard */
 }
 
 /* ===========================================
-   CAROUSEL ORBIT — 3D rotating ring
+   CAROUSEL ORBIT — 3D tilted ring (static tilt; cards rotate individually)
    =========================================== */
 
 .carousel-orbit {
   position: absolute;
-  top: 50%;
+  top: 42%;
   left: 50%;
   width: 0;
   height: 0;
   transform-style: preserve-3d;
   transform:
     translate(-50%, -50%)
-    rotateX(calc(-1 * var(--orbita-inclinacao)))
-    rotateY(var(--orbit-angle, 0deg));
-  transition: transform var(--orbita-rotacao-duracao) var(--orbita-easing);
-  will-change: transform;
+    rotateX(calc(-1 * var(--orbita-inclinacao)));
   overflow: visible; /* Safari preserve-3d safeguard */
 }
 
 /* ===========================================
-   PLANET CARD — base positioning
+   PLANET CARD — base positioning with counter-rotation
+   Each card: rotateY(angle) translateZ(R) rotateY(-angle)
+   The counter-rotation keeps the card face always toward the viewer
+   (billboard effect). Perspective handles natural size scaling.
    =========================================== */
 
 .planet-card {
@@ -84,32 +85,26 @@
   gap: var(--espaco-sm);
   width: 200px;
   margin-left: -100px;  /* center: -(width/2) */
-  margin-top: -130px;   /* center vertically */
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
+  margin-top: -110px;   /* center vertically on orbit pivot */
+  /* Per-card angle set by JS via --card-angle; counter-rotation faces viewer */
+  transform:
+    rotateY(var(--card-angle, 0deg))
+    translateZ(var(--orbita-raio))
+    rotateY(calc(-1 * var(--card-angle, 0deg)));
   transition:
+    transform var(--orbita-rotacao-duracao) var(--orbita-easing),
     opacity var(--orbita-rotacao-duracao) var(--orbita-easing),
     filter var(--orbita-rotacao-duracao) var(--orbita-easing);
   cursor: default;
   pointer-events: none;
 }
 
-/* Planet positioning — each card at fixed angle around the ring */
-.planet-card:nth-child(1) {
-  transform: rotateY(0deg) translateZ(var(--orbita-raio));
-}
-.planet-card:nth-child(2) {
-  transform: rotateY(72deg) translateZ(var(--orbita-raio));
-}
-.planet-card:nth-child(3) {
-  transform: rotateY(144deg) translateZ(var(--orbita-raio));
-}
-.planet-card:nth-child(4) {
-  transform: rotateY(216deg) translateZ(var(--orbita-raio));
-}
-.planet-card:nth-child(5) {
-  transform: rotateY(288deg) translateZ(var(--orbita-raio));
-}
+/* Initial card angles — prevent transition flash on load; JS updates dynamically */
+.planet-card:nth-child(1) { --card-angle: 0deg; }
+.planet-card:nth-child(2) { --card-angle: 72deg; }
+.planet-card:nth-child(3) { --card-angle: 144deg; }
+.planet-card:nth-child(4) { --card-angle: 216deg; }
+.planet-card:nth-child(5) { --card-angle: 288deg; }
 
 /* ===========================================
    ZONE-BASED STYLING — via data-orbit-zone attribute
@@ -281,7 +276,7 @@
 
 .carousel-arrow {
   position: absolute;
-  top: 50%;
+  top: 42%;
   transform: translateY(-50%);
   z-index: var(--z-orbit-arrows);
   display: flex;
@@ -417,6 +412,7 @@
   }
   .planet-card {
     transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
   }
 }
 
@@ -446,13 +442,13 @@
 
 @media (max-width: 768px) {
   .carousel-scene {
-    height: 280px;
+    height: 350px;
   }
 
   .planet-card {
     width: 170px;
     margin-left: -85px;
-    margin-top: -110px;
+    margin-top: -90px;
   }
 
   .planet-sphere {
@@ -485,13 +481,13 @@
   }
 
   .carousel-scene {
-    height: 240px;
+    height: 300px;
   }
 
   .planet-card {
     width: 150px;
     margin-left: -75px;
-    margin-top: -95px;
+    margin-top: -75px;
   }
 
   .planet-sphere {

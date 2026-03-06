@@ -124,12 +124,15 @@
   OrbitalCarousel.prototype._update = function (announce) {
     var ci = this.currentIndex;
 
-    // 1. Set orbit angle — CSS transition handles smooth rotation
-    this.orbit.style.setProperty('--orbit-angle', this.currentAngle + 'deg');
-
+    // 1. Position each card individually via --card-angle
+    //    Counter-rotation in CSS keeps each card facing the viewer (billboard effect)
     // 2. Assign zones per planet and update ARIA
     for (var i = 0; i < this.cards.length; i++) {
       var card = this.cards[i];
+
+      // Set per-card orbital angle — CSS transition interpolates smoothly
+      var cardAngle = i * STEP_DEG + this.currentAngle;
+      card.style.setProperty('--card-angle', cardAngle + 'deg');
 
       // Calculate offset from center
       // offset 0 = center, 1 = side-right, 2 = back-right, 3 = back-left, 4 = side-left
