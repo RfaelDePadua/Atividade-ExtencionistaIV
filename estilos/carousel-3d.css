@@ -94,7 +94,6 @@
     rotateY(calc(-1 * var(--card-angle, 0deg)));
   transition:
     transform var(--orbita-rotacao-duracao) var(--orbita-easing),
-    opacity var(--orbita-rotacao-duracao) var(--orbita-easing),
     filter var(--orbita-rotacao-duracao) var(--orbita-easing);
   cursor: default;
   pointer-events: none;
@@ -114,7 +113,6 @@
 
 /* CENTER — fully visible, interactive */
 .planet-card[data-orbit-zone="center"] {
-  opacity: 1;
   filter: blur(0);
   z-index: 3;
   pointer-events: auto;
@@ -123,16 +121,14 @@
 
 /* SIDE — visible, clickable (act as prev/next) */
 .planet-card[data-orbit-zone="side"] {
-  opacity: 0.7;
   filter: blur(0);
   z-index: 2;
   pointer-events: auto;
   cursor: pointer;
 }
 
-/* BACK — ghostly, NOT clickable */
+/* BACK — blurred, NOT clickable */
 .planet-card[data-orbit-zone="back"] {
-  opacity: var(--orbita-opacidade-fundo);
   filter: blur(var(--orbita-blur-fundo));
   z-index: 1;
   pointer-events: none;
