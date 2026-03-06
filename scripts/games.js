@@ -73,7 +73,7 @@
           '<h3 class="game-card-name">' + game.name + '</h3>' +
           '<span class="game-card-subject">' + game.subject + '</span>' +
           createStars(game.difficulty) +
-          '<a href="' + basePath + game.path + '" class="btn-primario game-card-btn" aria-label="Jogar ' + game.name + '">Jogar!</a>' +
+          '<a href="' + basePath + 'jogos/jogar.html?game=' + game.id + '" class="btn-primario game-card-btn" aria-label="Jogar ' + game.name + '">Jogar!</a>' +
         '</div>' +
       '</article>'
     );
@@ -93,6 +93,23 @@
         '</div>' +
       '</article>'
     );
+  }
+
+  /* ------------------------------------------------
+     Lookup Utility
+     ------------------------------------------------ */
+
+  /**
+   * Find a game object by its unique id slug.
+   * @param {string} id - Game id (e.g., 'contando-estrelas').
+   * @returns {Object|null} Game data object, or null if not found.
+   */
+  function findGameById(id) {
+    if (!id) return null;
+    for (var i = 0; i < GAME_DATA.length; i++) {
+      if (GAME_DATA[i].id === id) return GAME_DATA[i];
+    }
+    return null;
   }
 
   /**
@@ -235,6 +252,7 @@
   window.MeuPlanetinha = window.MeuPlanetinha || {};
   window.MeuPlanetinha.games = {
     GAME_DATA: GAME_DATA,
+    findGameById: findGameById,
     createCard: createCard,
     createStars: createStars,
     renderCards: renderCards,
