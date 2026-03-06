@@ -136,6 +136,31 @@
   --duracao-rapida: 150ms;
   --duracao-media:  300ms;
   --easing-padrao:  ease;
+
+  /* =========================================
+     3D & ANIMATION TOKENS (v2.0)
+     ========================================= */
+
+  /* Perspective for 3D card/planet transforms */
+  --perspectiva-3d:        1200px;
+
+  /* Orbit ring parameters (carousel planets) */
+  --orbita-raio:           220px;
+  --orbita-inclinacao:     62deg;
+
+  /* Drift — slow lateral floating of ambient elements */
+  --anim-drift-duracao:    18s;
+
+  /* Float — gentle vertical bob on planets/cards */
+  --anim-float-duracao:    4s;
+  --anim-float-distancia:  6px;
+
+  /* Sparkle — twinkling star particles */
+  --anim-sparkle-duracao:  1.8s;
+
+  /* Z-index layers for animated elements */
+  --z-carousel:            10;
+  --z-wave:                5;
 }
 
 /* =========================================
