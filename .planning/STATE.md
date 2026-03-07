@@ -5,17 +5,17 @@
 See: [.planning/PROJECT.md](.planning/PROJECT.md) (updated 2026-03-05)
 
 **Core value:** A child lands on the homepage and immediately feels like they're on a space adventure — the planet carousel draws them in and makes picking a game feel like choosing a destination in the universe.
-**Current focus:** v2.0 — Phase 16 (Cross-Browser Verification & A11y Audit) — NOT STARTED
+**Current focus:** v2.0 complete — Phase 16 (Cross-Browser Verification & A11y Audit) finished. All v2.0 phases complete.
 
 ## Current Position
 
 Milestone: v2.0 Visual Polish, 3D Carousel & Platform Prep
-Phase: 16 of 17 (Not Started)
-Plan: 0 of TBD
-Status: Phase 15 complete. Phase 16 ready to begin.
-Last activity: 2026-03-06 — Phase 15 executed and verified. 4/4 requirements satisfied. 3 plans, 15 commits.
+Phase: 16 of 17 (Complete) — Phase 17 (stretch) already complete
+Plan: 4 of 4
+Status: Phase 16 complete. All v2.0 phases complete.
+Last activity: 2026-03-06 — Phase 16 executed: cross-browser verification + a11y audit. BUG-01 fixed. All items pass. v2.0 milestone complete.
 
-Progress: [█████████████████████████████️▋░░░░░░░░░░░░░] 67%
+Progress: [████████████████████████████████████████████████] 100%
 
 ## v1.0 Summary (Shipped)
 
@@ -31,8 +31,8 @@ Progress: [███████████████████████
 | 13 | Animation System | ANIM-01–05 (5) | ✅ Complete |
 | 14 | 3D Orbital Carousel | CAROUSEL-01,02,04,05,06,07 (6) | ✅ Complete |
 | 15 | Unified Hero & Section Transitions | CAROUSEL-03, TRANS-01,02, POLISH-07 (4) | ✅ Complete |
-| 16 | Cross-Browser Verification & A11y Audit | Verify all above (0 new) | ⏳ Not Started |
-| 17 | Game Shell & Iframe Sandbox (Stretch) | SHELL-01–03 (3) | ⏳ Not Started |
+| 16 | Cross-Browser Verification & A11y Audit | Verify all above (0 new) | ✅ Complete |
+| 17 | Game Shell & Iframe Sandbox (Stretch) | SHELL-01–03 (3) | ✅ Complete |
 
 ## Performance Metrics
 
@@ -42,7 +42,7 @@ Progress: [███████████████████████
 - Total execution time: ~140 min
 
 **v2.0 Velocity:**
-- Total plans completed: 10
+- Total plans completed: 18
 - Estimated phases: 6 (12–17)
 
 ## Accumulated Context
@@ -89,6 +89,7 @@ Progress: [███████████████████████
 - **Phase 15**: `.hero-header` frosted glass (`backdrop-filter: blur(12px)`) — sibling of `.carousel-scene`, never a parent (would flatten preserve-3d)
 - **Phase 15**: Skip-link changed to `:focus-visible` — no longer visible on click-focus
 - **Phase 15**: 11 total sparkles in hero area (7 inside `.carousel-scene`, 4 `.sparkle--hero` as direct `.hero` children)
+- **Phase 16**: BUG-01 fixed (carousel isAnimating 600ms lock under reduced-motion). Safari preserve-3d documented as unverified (RISK-02). Zero additional bugs found in browser/a11y/performance testing.
 
 ### v2.0 Critical Pitfalls
 
@@ -108,8 +109,12 @@ Progress: [███████████████████████
 - [x] ~~Phase 13: integrate animation system into all pages~~ ✅
 - [x] ~~Phase 14: build `carousel-3d.css` + `carousel-3d.js`~~ ✅
 - [x] ~~Phase 15: merge hero section + wave dividers~~ ✅
-- [ ] Phase 16: cross-browser + a11y verification
-- [ ] Phase 17 (stretch): game shell iframe wrapper
+- [x] ~~Phase 16: cross-browser + a11y verification~~ ✅
+- [x] ~~Phase 17 (stretch): game shell iframe wrapper~~ ✅
+
+- **Phase 17**: `jogos/jogar.html` shell page loads games in sandboxed iframe with site nav/footer; URL routing via `?game=<id>`, loading overlay with 5s timeout + postMessage, floating controls (back/mute/fullscreen), error state for invalid IDs
+- **Phase 17**: Both games stripped of legacy chrome (nav/header/footer/old CSS), send `postMessage('game-ready')` to parent
+- **Phase 17**: `scripts/games.js` updated: `findGameById()` added, card links route through `jogar.html?game=<id>`
 
 ### Blockers/Concerns
 
@@ -120,5 +125,5 @@ Progress: [███████████████████████
 ## Session Continuity
 
 Last session: 2026-03-06
-Stopped at: Phase 15 complete and verified. 4/4 requirements satisfied. Run `/gsd:discuss-phase 16` or `/gsd:plan-phase 16` to continue.
+Stopped at: Phase 16 complete. All v2.0 phases (12–17) complete. v2.0 milestone shipped.
 Resume file: None

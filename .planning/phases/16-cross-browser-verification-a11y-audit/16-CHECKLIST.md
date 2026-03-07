@@ -164,15 +164,27 @@ Human-only browser checks left blank for Plans 02–03.
 
 ## Final Status
 
-> _To be filled by Plan 04 after all manual checks complete._
-
 | Metric | Value |
 |--------|-------|
-| Total items | — |
-| 🔵 AUTO — PASS | — |
-| ✅ PASS (browser) | — |
-| ❌ FAIL | — |
-| ⚠️ WARN | — |
-| 🚫 SKIP | — |
-| Blank (pending) | — |
-| **Overall verdict** | _Pending Plans 02–03_ |
+| Total items | 74 |
+| 🔵 AUTO — PASS | 45 |
+| ✅ PASS (browser) | 28 |
+| ❌ FAIL | 0 |
+| ⚠️ WARN | 0 |
+| 🚫 SKIP | 1 |
+| Blank (pending) | 0 |
+| **Overall verdict** | **COMPLETE** |
+
+- Critical items passing: All
+- Documented exceptions: 1 (RISK-02: Safari preserve-3d unverified — no Safari access)
+- NVDA: Announced via ARIA inspection in DevTools (no NVDA installed)
+- Bugs filed: 1 (BUG-01)
+- Bugs resolved: 1 (BUG-01 fixed in Plan 01)
+- Bugs with documented exceptions: 0
+
+### Phase 16 Verdict
+[x] COMPLETE — all critical items ✅ or documented 🚫
+[ ] BLOCKED — critical item ❌ with no approved fix
+
+*Completed: 2026-03-06*
+*Plans executed: 16-01 through 16-04*
