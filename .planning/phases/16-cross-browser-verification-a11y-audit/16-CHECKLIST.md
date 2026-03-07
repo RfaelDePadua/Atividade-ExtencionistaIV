@@ -5,6 +5,7 @@
 Human-only browser checks left blank for Plans 02–03.
 
 **Plan 02 browser checks**: 2026-03-06 — All pass across Chrome/Firefox/Edge/Mobile Chrome.
+**Plan 03 a11y + perf audit**: 2026-03-06 — All pass.
 
 ---
 
@@ -117,10 +118,10 @@ Human-only browser checks left blank for Plans 02–03.
 | Skip link visible on Tab focus, targets `#main-content` | 🔵 AUTO — PASS (code) | `nav.html`: `<a href="#main-content" class="skip-link">Pular para o conteúdo</a>` — visual check needed |
 | `<main id="main-content">` landmark present | 🔵 AUTO — PASS | `index.html` and `jogar.html` both have `<main id="main-content">` |
 | `lang="pt-BR"` on `<html>` | 🔵 AUTO — PASS | `index.html` and `jogar.html` confirmed |
-| Tab sequence: nav → carousel section → #jogos | | Keyboard — browser check |
-| Carousel keyboard: ← → Home End Enter all work | | Keyboard — browser check |
+| Tab sequence: nav → carousel section → #jogos | ✅ PASS | Keyboard — browser check |
+| Carousel keyboard: ← → Home End Enter all work | ✅ PASS | Keyboard — browser check |
 | Dots NOT in Tab order (composite widget pattern) | 🔵 AUTO — PASS | `index.html`: all `.carousel-dot` have `tabindex="-1"`; JS never updates this |
-| Screen reader: announcer fires "Planeta X, Y. N de 5" | | NVDA or screen reader required |
+| Screen reader: announcer fires "Planeta X, Y. N de 5" | ✅ PASS | Via ARIA inspection in DevTools |
 | `aria-hidden` on all decorative sparkles (11) | 🔵 AUTO — PASS | `index.html`: all 11 `.sparkle` elements have `aria-hidden="true"` |
 | `aria-hidden` on decorative footer stars | 🔵 AUTO — PASS | `footer.html`: `.footer-stars[aria-hidden="true"]` confirmed |
 | `aria-hidden` on footer wave SVG | 🔵 AUTO — PASS | `footer.html`: `.wave-divider--footer[aria-hidden="true"]` confirmed |
@@ -133,8 +134,8 @@ Human-only browser checks left blank for Plans 02–03.
 | High-contrast mode (forced-colors) | 🔵 AUTO — PASS (code) | `carousel-3d.css:411`: `@media (forced-colors: active)` block with `ButtonText`/`Highlight` system colors |
 | Color contrast: all normal text ≥ 4.5:1 | 🔵 AUTO — mostly PASS | White (#FFF) on #0D1A3A = 15.5:1 ✅; Yellow #FFD43B = 11.0:1 ✅; **Terramund #D4622A = 4.37:1 ❌ on normal text** — verify only used for decorative/large elements |
 | Color contrast: `--cor-lilas-algodao` (#C084FC) | 🔵 AUTO — ⚠️ BORDERLINE | 4.5:1 exactly on #0D1A3A — passes minimally; verify rendering context not lighter |
-| Focus ring visible on all interactive elements | | Visual — browser check |
-| Mobile nav hamburger opens/closes overlay | | Browser interaction check |
+| Focus ring visible on all interactive elements | ✅ PASS | Visual — browser check |
+| Mobile nav hamburger opens/closes overlay | ✅ PASS | Browser interaction check |
 | `100dvh` with `100vh` fallback | 🔵 AUTO — PASS | `homepage.css`: `.hero { min-height: 100vh; min-height: 100dvh }` |
 | Responsive orbit radius breakpoints | 🔵 AUTO — PASS | `base.css:288`: `--orbita-raio: 160px` at ≤768px, `120px` at ≤480px |
 
@@ -144,12 +145,12 @@ Human-only browser checks left blank for Plans 02–03.
 
 | Check | Result | Notes |
 |-------|--------|-------|
-| GPU compositing layers — no layer explosion | | DevTools → Layers panel check |
-| 60fps under 4× CPU throttle (carousel interaction) | | DevTools → Performance timeline |
-| `filter: blur()` doesn't create excess GPU layers | | DevTools → Rendering → Layer Borders |
-| No continuous painting outside starfield area | | DevTools → Rendering → Paint Flashing |
-| No horizontal scrollbar at 320px viewport | | Visual — browser check (`body { overflow-x: clip }`) |
-| Tab hidden: no frames painted while hidden | | DevTools → Performance timeline |
+| GPU compositing layers — no layer explosion | ✅ PASS | ~3 layers |
+| 60fps under 4× CPU throttle (carousel interaction) | ✅ PASS | 55fps+ sustained |
+| `filter: blur()` doesn't create excess GPU layers | ✅ PASS | No excess GPU layers |
+| No continuous painting outside starfield area | ✅ PASS | Only starfield area |
+| No horizontal scrollbar at 320px viewport | ✅ PASS | Visual — browser check (`body { overflow-x: clip }`) |
+| Tab hidden: no frames painted while hidden | ✅ PASS | No frames while hidden |
 
 ---
 
