@@ -144,9 +144,11 @@
 
 ---
 
-## Phase 17 (Stretch): Game Shell & Iframe Sandbox
+## Phase 17 (Stretch): Game Shell & Iframe Sandbox ✅
 
 **Goal:** Create a reusable game wrapper page that loads any game inside a sandboxed iframe with the site's nav/footer, providing a consistent play experience and laying the foundation for future contributor-submitted games.
+
+**Phase:** Phase 17 is complete. All 3 SHELL requirements satisfied. 4 plans, 9 commits.
 
 **Requirements:** SHELL-01, SHELL-02, SHELL-03
 
@@ -178,4 +180,4 @@
 ---
 
 *Roadmap created: 2026-03-05*
-*Last updated: 2026-03-05*
+*Last updated: 2026-03-06*

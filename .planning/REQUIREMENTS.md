@@ -15,17 +15,17 @@ Requirements for v2.0 release. Each maps to roadmap phases.
 - [x] **POLISH-04**: "Jogar!" button is anchored to bottom of game card (not vertically centered)
 - [x] **POLISH-05**: Index page has visible breathing room (spacing) between cards section and footer
 - [x] **POLISH-06**: Explore page filter bar does not have opaque blue strip background
-- [ ] **POLISH-07**: Background creates vertical hierarchy — no large empty areas without clear intention
+- [x] **POLISH-07**: Background creates vertical hierarchy — no large empty areas without clear intention
 
 ### 3D Carousel
 
-- [ ] **CAROUSEL-01**: Planet carousel uses CSS 3D transforms (perspective, preserve-3d, rotateY, translateZ) to create a tilted elliptical orbit ring
-- [ ] **CAROUSEL-02**: 5 planets are spaced at 72° intervals on the ring; back planets are faded and blurred
-- [ ] **CAROUSEL-03**: Hero section is unified — title, subtitle, CTA line ("Escolha seu planeta e comece a aventura!"), and carousel exist as a single visual block
-- [ ] **CAROUSEL-04**: Navigation arrows are positioned close to the side planets (not at page edges)
-- [ ] **CAROUSEL-05**: Navigation dots sit tight below the carousel, visually part of the carousel unit
-- [ ] **CAROUSEL-06**: Side (adjacent) planets appear at approximately 65% of center planet's visual size via natural perspective depth
-- [ ] **CAROUSEL-07**: Carousel preserves v1 accessibility — keyboard navigation, aria-roledescription, live region announcements, prefers-reduced-motion instant snap
+- [x] **CAROUSEL-01**: Planet carousel uses CSS 3D transforms (perspective, preserve-3d, rotateY, translateZ) to create a tilted elliptical orbit ring
+- [x] **CAROUSEL-02**: 5 planets are spaced at 72° intervals on the ring; back planets are faded and blurred
+- [x] **CAROUSEL-03**: Hero section is unified — title, subtitle, CTA line ("Escolha seu planeta e comece a aventura!"), and carousel exist as a single visual block
+- [x] **CAROUSEL-04**: Navigation arrows are positioned close to the side planets (not at page edges)
+- [x] **CAROUSEL-05**: Navigation dots sit tight below the carousel, visually part of the carousel unit
+- [x] **CAROUSEL-06**: Side (adjacent) planets appear at approximately 65% of center planet's visual size via natural perspective depth
+- [x] **CAROUSEL-07**: Carousel preserves v1 accessibility — keyboard navigation, aria-roledescription, live region announcements, prefers-reduced-motion instant snap
 
 ### Animations
 
@@ -37,14 +37,14 @@ Requirements for v2.0 release. Each maps to roadmap phases.
 
 ### Section Transitions
 
-- [ ] **TRANS-01**: Wave dividers (inline SVG Bézier curves) visually separate major sections (hero→cards, cards→footer)
-- [ ] **TRANS-02**: Wave dividers overlap adjacent sections by 1-2px to prevent subpixel gaps
+- [x] **TRANS-01**: Wave dividers (inline SVG Bézier curves) visually separate major sections (hero→cards, cards→footer)
+- [x] **TRANS-02**: Wave dividers overlap adjacent sections by 1-2px to prevent subpixel gaps
 
 ### Game Shell (Stretch)
 
-- [ ] **SHELL-01**: Game shell page (jogar.html) wraps games in sandboxed iframe with site nav/footer
-- [ ] **SHELL-02**: Iframe uses `sandbox="allow-scripts allow-same-origin"` minimum privilege
-- [ ] **SHELL-03**: Unified loading screen shown until game signals ready via postMessage (5s timeout fallback)
+- [x] **SHELL-01**: Game shell page (jogar.html) wraps games in sandboxed iframe with site nav/footer
+- [x] **SHELL-02**: Iframe uses `sandbox="allow-scripts allow-same-origin"` minimum privilege
+- [x] **SHELL-03**: Unified loading screen shown until game signals ready via postMessage (5s timeout fallback)
 
 ## v2.x Requirements
 
@@ -86,24 +86,24 @@ Which phases cover which requirements. Updated during roadmap creation.
 | POLISH-04 | Phase 12 | Complete |
 | POLISH-05 | Phase 12 | Complete |
 | POLISH-06 | Phase 12 | Complete |
-| POLISH-07 | Phase 15 | Pending |
-| CAROUSEL-01 | Phase 14 | Pending |
-| CAROUSEL-02 | Phase 14 | Pending |
-| CAROUSEL-03 | Phase 15 | Pending |
-| CAROUSEL-04 | Phase 14 | Pending |
-| CAROUSEL-05 | Phase 14 | Pending |
-| CAROUSEL-06 | Phase 14 | Pending |
-| CAROUSEL-07 | Phase 14 | Pending |
+| POLISH-07 | Phase 15 | Complete |
+| CAROUSEL-01 | Phase 14 | Complete |
+| CAROUSEL-02 | Phase 14 | Complete |
+| CAROUSEL-03 | Phase 15 | Complete |
+| CAROUSEL-04 | Phase 14 | Complete |
+| CAROUSEL-05 | Phase 14 | Complete |
+| CAROUSEL-06 | Phase 14 | Complete |
+| CAROUSEL-07 | Phase 14 | Complete |
 | ANIM-01 | Phase 13 | Complete |
 | ANIM-02 | Phase 13 | Complete |
 | ANIM-03 | Phase 13 | Complete |
 | ANIM-04 | Phase 13 | Complete |
 | ANIM-05 | Phase 13 | Complete |
-| TRANS-01 | Phase 15 | Pending |
-| TRANS-02 | Phase 15 | Pending |
-| SHELL-01 | Phase 17 | Pending |
-| SHELL-02 | Phase 17 | Pending |
-| SHELL-03 | Phase 17 | Pending |
+| TRANS-01 | Phase 15 | Complete |
+| TRANS-02 | Phase 15 | Complete |
+| SHELL-01 | Phase 17 | Complete |
+| SHELL-02 | Phase 17 | Complete |
+| SHELL-03 | Phase 17 | Complete |
 
 **Coverage:**
 - v2.0 requirements: 24 total
