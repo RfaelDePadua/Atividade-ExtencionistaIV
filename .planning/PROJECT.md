@@ -26,25 +26,11 @@ A child lands on the homepage and immediately feels like they're on a space adve
 - ✓ Full Guia-Visual design system implemented — Fredoka One, Nunito, Press Start 2P, color palette, button styles, CSS variables — v1.0
 - ✓ Games linked correctly from new site — game pages (`jogos/`) continue to work unmodified — v1.0
 
-### Active
+### What's Shipped
 
-## Current Milestone: v2.0 Visual Polish, 3D Carousel & Platform Prep
+- ✅ **v1.0 MVP** — 11 phases, 46 plans, shipped 2026-03-05. Site live at https://rfaeldePadua.github.io/Atividade-ExtencionistaIV/. Homepage, explore page, about us, 404, shared nav/footer, design system, two playable games.
 
-**Goal:** Transform the site from a clean static layout into a visually immersive, animated space experience with a 3D orbital planet carousel, wave-based section transitions, and the beginning of a contributor-ready game platform.
-
-**Target features:**
-- 3D orbital carousel — CSS perspective/rotateY, 5 planets on a tilted elliptical ring, back planets faded/blurred
-- Unified hero section — title/subtitle/CTA merged into the carousel block as one cohesive unit
-- Header consistency — remove duplicate "Explore Games" text, drop the colored bar, unify across all pages
-- Carousel polish — side planets at ~65% scale, arrows closer to planets, dots tighter to carousel
-- Wave dividers — SVG/CSS wave shapes between major sections for visual flow
-- Cards layout — 3-per-row with 1 "Coming Soon" placeholder card, "Play!" button anchored to card bottom
-- Animations — starfield drift, planet hover/float effects, subtle particle accents
-- Background hierarchy — reduce empty space, create vertical rhythm and section connectivity
-- Index page spacing — breathing room between cards section and footer
-- Explore page filter — remove/redesign blue strip behind the planet filter bar
-- Game shell research — investigate iframe wrapping for Phaser.js + plain HTML games in the new design
-- Iframe sandbox — sandboxed game loading with unified loading screen (stretch goal)
+- ✅ **v2.0 Visual Polish & 3D Carousel** — 6 phases, 21 plans, shipped 2026-03-06. 24 requirements verified (POLISH-01–07, CAROUSEL-01–07, ANIM-01–05, TRANS-01–02, SHELL-01–03). Features: animation system, 3D orbital carousel, unified hero section, wave dividers, cross-browser verified, game shell infrastructure with sandboxed iframes. Safari preserve-3d remains unverified (known risk).
 
 ### Out of Scope
 
@@ -84,4 +70,4 @@ A child lands on the homepage and immediately feels like they're on a space adve
 | Fredoka One + Nunito + Press Start 2P | Specified by Guia-Visual.md design system | ✓ Good — consistent, kid-appropriate typography |
 
 ---
-*Last updated: 2026-03-05 after v2.0 milestone start*
+*Last updated: 2026-03-07 after v2.0 milestone completion*

@@ -2,18 +2,18 @@
 
 ## Project Reference
 
-See: [.planning/PROJECT.md](.planning/PROJECT.md) (updated 2026-03-05)
+See: [.planning/PROJECT.md](.planning/PROJECT.md) (updated 2026-03-07)
 
 **Core value:** A child lands on the homepage and immediately feels like they're on a space adventure — the planet carousel draws them in and makes picking a game feel like choosing a destination in the universe.
-**Current focus:** v2.0 complete — Phase 16 (Cross-Browser Verification & A11y Audit) finished. All v2.0 phases complete.
+**Current focus:** v2.0 shipped 2026-03-06 — All 6 phases (12–17) complete. 21 plans executed. 24 requirements verified. Archive: [milestones/v2.0-ROADMAP.md](milestones/v2.0-ROADMAP.md)
 
 ## Current Position
 
 Milestone: v2.0 Visual Polish, 3D Carousel & Platform Prep
-Phase: 16 of 17 (Complete) — Phase 17 (stretch) already complete
-Plan: 4 of 4
-Status: Phase 16 complete. All v2.0 phases complete.
-Last activity: 2026-03-06 — Phase 16 executed: cross-browser verification + a11y audit. BUG-01 fixed. All items pass. v2.0 milestone complete.
+Phase: 17 of 17 (Complete)
+Plan: All complete
+Status: All v2.0 phases complete. Milestone shipped 2026-03-06.
+Last activity: 2026-03-06 — Phase 17 complete. v2.0 milestone shipped. Archive: [milestones/MILESTONES.md](milestones/MILESTONES.md)
 
 Progress: [████████████████████████████████████████████████] 100%
 
