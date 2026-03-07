@@ -81,9 +81,11 @@
     this._update(true);
 
     var self = this;
+    var rm = window.MeuPlanetinha && window.MeuPlanetinha.reducedMotion;
+    var animDelay = (rm && rm.matches) ? 0 : TRANSITION_MS;
     setTimeout(function () {
       self.isAnimating = false;
-    }, TRANSITION_MS);
+    }, animDelay);
   };
 
   /* ------------------------------------------------
@@ -109,9 +111,11 @@
     this._update(true);
 
     var self = this;
+    var rm = window.MeuPlanetinha && window.MeuPlanetinha.reducedMotion;
+    var animDelay = (rm && rm.matches) ? 0 : TRANSITION_MS;
     setTimeout(function () {
       self.isAnimating = false;
-    }, TRANSITION_MS);
+    }, animDelay);
   };
 
   /* ------------------------------------------------
