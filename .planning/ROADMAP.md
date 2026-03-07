@@ -3,7 +3,7 @@
 ## Milestones
 
 - ✅ **[v1.0 Website Redesign](milestones/v1.0-ROADMAP.md)** — Full rebuild of site shell (homepage, explore, about, 404) with design system, planet carousel, game cards, shared nav/footer, a11y, and GitHub Pages deploy. 11 phases · 46 plans · Shipped 2026-03-05.
-- 🔄 **v2.0 Visual Polish, 3D Carousel & Platform Prep** — Transform the site from a clean static layout into an immersive animated space experience with a 3D orbital planet carousel, wave section transitions, animation system, and game shell infrastructure. 6 phases (12–17) · 24 requirements · In progress.
+- ✅ **v2.0 Visual Polish, 3D Carousel & Platform Prep** — Transform the site from a clean static layout into an immersive animated space experience with a 3D orbital planet carousel, wave section transitions, animation system, and game shell infrastructure. 6 phases (12–17) · 24 requirements · Shipped 2026-03-06.
 
 ---
 
@@ -122,9 +122,11 @@
 
 ---
 
-## Phase 16: Cross-Browser Verification & A11y Audit
+## Phase 16: Cross-Browser Verification & A11y Audit ✅
 
 **Goal:** Verify all v2.0 visual and interactive features work correctly across browsers, viewports, and assistive technologies — with particular focus on Safari's 3D rendering and mobile performance.
+
+**Phase:** Phase 16 is complete. All v2.0 phases complete. BUG-01 fixed, 74 checklist items verified (4/5 must-haves pass, 1 Safari documented exception). 4 plans, 7 commits.
 
 **Requirements:** Verification of POLISH-01–07, CAROUSEL-01–07, ANIM-01–05, TRANS-01–02
 
