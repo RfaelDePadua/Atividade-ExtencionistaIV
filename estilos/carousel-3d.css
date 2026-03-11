@@ -162,6 +162,12 @@
   );
 }
 
+/* When using an <img> instead of the gradient placeholder */
+img.planet-sphere--calculon {
+  background: none;
+  object-fit: contain;
+}
+
 .planet-sphere--letrion {
   background: radial-gradient(
     circle at 35% 30%,
