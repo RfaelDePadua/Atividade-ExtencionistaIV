@@ -165,7 +165,34 @@
 /* When using an <img> instead of the gradient placeholder */
 img.planet-sphere--calculon {
   background: none;
+  border-radius: 0;        /* remove clip circular do .planet-sphere */
   object-fit: contain;
+  width: 220px;
+  height: 220px;
+  margin-bottom: -55px; 
+  position: relative;
+  z-index: 0;
+}
+
+.planet-card[data-planet="calculon"] .planet-info {
+  position: relative;
+  z-index: 1;             /* texto fica na frente da imagem */
+}
+
+img.planet-sphere--letrion {
+  background: none;
+  border-radius: 0;        /* remove clip circular do .planet-sphere */
+  object-fit: contain;
+  width: 220px;
+  height: 220px;
+  margin-bottom: -55px; 
+  position: relative;
+  z-index: 0;
+}
+
+.planet-card[data-planet="letrion"] .planet-info {
+  position: relative;
+  z-index: 1;             /* texto fica na frente da imagem */
 }
 
 .planet-sphere--letrion {
